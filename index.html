@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Nano Folio - Simple HTML Template</title>
+	<title>SOON</title>
 	<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
 	<link href="css/magnific-popup.min.css" rel="stylesheet">
@@ -193,7 +193,7 @@ https://www.tooplate.com/view/2122-nano-folio
 			</div>
 			<div class="tm-contact-info">
 				<address class="tm-mb-30">
-					المغار شارغ رقم
+					المغار - مقابل مخبز كارلو
 				</address>
 				<div class="tm-text-white tm-mb-40">هاتف: <a href="هاتف:0585002080" class="tm-link-white">0585002080</a></div>
 				<div class="tm-flex">
@@ -203,13 +203,26 @@ https://www.tooplate.com/view/2122-nano-folio
 				</div>
 			</div>
 			<div class="tm-contact-form-container">
-				<form id="contact-form" action="" method="POST" class="tm-contact-form">
-		          	<input type="text" name="name" placeholder="الاسم" required="" />
-		          	<input type="email" name="email" placeholder="الايميل" required="" />
-		          	<textarea rows="5" name="message" class="tm-mb-30" placeholder="رساله" required=""></textarea>		          	
-		          	<button type="submit" class="tm-right tm-btn-submit">ارسال</button>          	
-		        </form>    
+				<form id="contact-form" action="javascript:void(0);" method="POST" class="tm-contact-form" onsubmit="sendWhatsAppMessage()">
+					<input type="text" name="name" id="name" placeholder="الاسم" required="" />
+					<input type="email" name="email" id="email" placeholder="الايميل" required="" />
+					<textarea rows="5" name="message" id="message" class="tm-mb-30" placeholder="رساله" required=""></textarea>
+					<button type="submit" class="tm-right tm-btn-submit">ارسال</button>
+				</form>    
 			</div>
+			
+			<script>
+			function sendWhatsAppMessage() {
+				var name = document.getElementById('name').value;
+				var email = document.getElementById('email').value;
+				var message = document.getElementById('message').value;
+			
+				var fullMessage = `الاسم: ${name}%0Aالايميل: ${email}%0Aالرسالة: ${message}`;
+				var whatsappUrl = `https://wa.me/966585002080?text=${encodeURIComponent(fullMessage)}`;
+			
+				window.open(whatsappUrl, '_blank');
+			}
+			</script>
 		</section>
 
 		<footer class="tm-footer">
