@@ -16,6 +16,13 @@ https://www.tooplate.com/view/2122-nano-folio
 
 -->
 </head>
+<style>
+	body {
+		text-align: right; /* Align text to the right */
+		font-family: "Almarai", Arial, sans-serif; /* استخدام الخط "Droid Arabic Kufi" مع بد fallback لـ Arial والخطوط الأخرى */
+		/* Add other CSS styles as needed */
+	}
+</style>
 <body>
 	<div class="tm-container-fluid">
 		<section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded">
@@ -189,17 +196,18 @@ https://www.tooplate.com/view/2122-nano-folio
 		<section class="tm-contact tm-mb-50 tm-bgcolor-3 tm-border-rounded">
 			<div class="tm-contact-header tm-flex-center">
 				<i class="fas fa-map-pin fa-3x"></i>
-				<h2>للاتصال</h2>
+				<h2>للتسجيل</h2>
 			</div>
 			<div class="tm-contact-info">
 				<address class="tm-mb-30">
 					المغار - مقابل مخبز كارلو
+					يمكن التواصل عن طريق الهواتف
 				</address>
 				<div class="tm-text-white tm-mb-40">هاتف: <a href="هاتف:0585002080" class="tm-link-white">0585002080</a></div>
 				<div class="tm-flex">
-					<a href="https://facebook.com" class="tm-social-link"><i class="fab fa-facebook"></i></a>
+					<!-- <a href="https://facebook.com" class="tm-social-link"><i class="fab fa-facebook"></i></a>
 					<a href="https://twitter.com" class="tm-social-link"><i class="fab fa-twitter"></i></a>
-					<a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram"></i></a>
+					<a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram"></i></a> -->
 				</div>
 			</div>
 			<div class="tm-contact-form-container">
@@ -217,7 +225,8 @@ https://www.tooplate.com/view/2122-nano-folio
 				var email = document.getElementById('email').value;
 				var message = document.getElementById('message').value;
 			
-				var fullMessage = `الاسم: ${name}%0Aالايميل: ${email}%0Aالرسالة: ${message}`;
+				var fullMessage = `الاسم: ${name}\nالايميل: ${email}\nالرسالة: ${message}`;
+
 				var whatsappUrl = `https://wa.me/972585002080?text=${encodeURIComponent(fullMessage)}`;
 			
 				window.open(whatsappUrl, '_blank');
