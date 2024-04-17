@@ -1,7 +1,9 @@
 <!doctype html>
 <!--[if IE 9]> <html class="no-js ie9 fixed-layout" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js " lang="ar"> <!--<![endif]-->
-<head  lang="ar">
+<!--[if gt IE 9]><!-->
+<html class="no-js " lang="ar"> <!--<![endif]-->
+
+<head lang="ar">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,76 +14,83 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="style.css">
 
-	<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 		<script src="js/vendor/html5shiv.min.js"></script>
 		<script src="js/vendor/respond.min.js"></script>
 	<![endif]-->
 
 </head>
-<body lang="ar" style="text-align: right;">  
 
+<body lang="ar" style="text-align: right;">
+    <script>
 
+        function sendMessage(message) {
+            var whatsappUrl = `https://wa.me/972585002080?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            return false; // Prevent default link behavior
+        }
 
+        function sendFMessage(message) {
+            const encodedPhone = "OTcyNTM1NTUzNTA4";
+            const decodedPhone = atob(encodedPhone); 
+            const whatsappUrl = `https://wa.me/${decodedPhone}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            return false; 
+        }
 
-<script>    function sendMessage(message) {
-    var whatsappUrl = `https://wa.me/972585002080?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-    return false; // Prevent default link behavior
-}
-function sendFirasMessage(message) {
-    var whatsappUrl = `https://wa.me/972535553508?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-    return false; // Prevent default link behavior
+    </script>
 
-
-}
-</script>
-   <div id="preloader">
+    <div id="preloader">
         <img class="preloader" src="images/loader.gif" alt="">
-   </div>
-    
-   <div id="wrapper">
+    </div>
+
+    <div id="wrapper">
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="modal-content">
-
                     <div id="div-forms">
                         <form id="login-form">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span class="flaticon-add" aria-hidden="true"></span>
                             </button>
                             <div class="modal-body">
-                                <input class="form-control" type="text" placeholder="What you are looking for?" required>
+                                <input class="form-control" type="text" placeholder="What you are looking for?"
+                                    required>
                             </div>
                         </form><!-- End # Login Form -->
                     </div>
                 </div>
             </div>
         </div>
-
-
         <header class="header">
             <div class="topbar clearfix">
                 <div class="container">
                     <div class="row-fluid">
                         <div class="col-md-6 col-sm-6 text-left">
                             <p>
-                                <strong><i class="fa fa-phone"></i></strong> 0585002080&nbsp;&nbsp;
-                                <strong><i class="fa fa-envelope"></i></strong> <a href="mailto:#">service@smart-edc.org</a>
+                                <strong><i class="fa fa-phone"></i></strong> 0585002080/1&nbsp;&nbsp;
+                                <strong><i class="fa fa-envelope"></i></strong> <a
+                                    href="mailto:#">service@smart-edc.org</a>
                             </p>
                         </div><!-- end left -->
                         <div class="col-md-6 col-sm-6 hidden-xs text-right">
                             <div class="social">
-                                <a class="facebook" href="https://www.facebook.com/profile.php?id=100092013744951&name=xhp_nt__fb__action__open_user" data-tooltip="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
-                                <a class="instagram" href="https://www.instagram.com/smeduc7?igsh=bmM0d2gxNGRmczV1&utm_source=qr" data-tooltip="tooltip" data-placement="bottom" title="instagram"><i class="fa fa-instagram"></i></a>
+                                <a class="facebook"
+                                    href="https://www.facebook.com/profile.php?id=100092013744951&name=xhp_nt__fb__action__open_user"
+                                    data-tooltip="tooltip" data-placement="bottom" title="Facebook"><i
+                                        class="fa fa-facebook"></i></a>
+                                <a class="instagram"
+                                    href="https://www.instagram.com/smeduc7?igsh=bmM0d2gxNGRmczV1&utm_source=qr"
+                                    data-tooltip="tooltip" data-placement="bottom" title="instagram"><i
+                                        class="fa fa-instagram"></i></a>
                             </div><!-- end social -->
                         </div><!-- end left -->
                     </div><!-- end row -->
@@ -91,21 +100,24 @@ function sendFirasMessage(message) {
             <div class="container">
                 <nav class="navbar navbar-default yamm">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                             <span class="sr-only">القائمه</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo-normal">
-                            <a class="navbar-brand" href="index.html" ><img style="height: 60%; width: 150%;" src="images/logo.jpeg" alt=""></a>
+                            <a class="navbar-brand" href="index.html"><img style="height: 60%; width: 150%;"
+                                    src="images/logo.jpeg" alt=""></a>
                         </div>
                     </div>
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="index.html">الرئيسيه</a></li>
-                            <li class="dropdown yamm-fw yamm-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle active">درس عالسريع<b class="fa fa-angle-down"></b></a>
+                            <li class="dropdown yamm-fw yamm-half"><a href="#" data-toggle="dropdown"
+                                    class="dropdown-toggle active">درس عالسريع<b class="fa fa-angle-down"></b></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="yamm-content clearfix">
@@ -113,29 +125,49 @@ function sendFirasMessage(message) {
                                                 <div class="col-md-6 col-sm-6">
                                                     <h4>العروض السريعه</h4>
                                                     <ul>
-                                                        <li><a href="#" onclick="sendMessage('درس بالعربيه لجميع الطبقات')">درس بالعربيه لجميع الطبقات</a></li>
-                                                        <li><a href="#" onclick="sendMessage('درس انجليزيه لجميع الطبقات')">درس انجليزيه لجميع الطبقات</a></li>
-                                                        <li><a href="#" onclick="sendMessage('درس بالعبريه لجميع الطبقات')"> درس بالعبريه لجميع الطبقات </a></li>
-                                                        <li><a href="#" onclick="sendMessage('درس بيولودجيا لجميع الطبقات')"> درس بيولودجيا لجميع الطبقات </a></li>
-                                                        <li><a href="#" onclick="sendMessage('درس كيمياء لجميع الطبقات')"> درس كيمياء لجميع الطبقات </a></li>
-                                                        <li><a href="#" onclick="sendMessage('درس فيزياء لجميع الطبقات')"> درس فيزياء لجميع الطبقات </a></li>
-                                                        <li><a href="#" onclick="sendMessage('درس بالمدنيات لجميع الطبقات')"> درس بالمدنيات لجميع الطبقات </a></li>
-                                                        <li><a href="#" onclick="sendMessage('درس بالجغرافيا لجميع الطبقات')"> درس بالجغرافيا لجميع الطبقات </a></li>
-                                                        <li><a href="#" onclick="sendMessage('درس بالمدتيات لجميع الطبقات')"> درس بالمدتيات لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالعربيه لجميع الطبقات')">درس
+                                                                بالعربيه لجميع الطبقات</a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس انجليزيه لجميع الطبقات')">درس
+                                                                انجليزيه لجميع الطبقات</a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالعبريه لجميع الطبقات')"> درس
+                                                                بالعبريه لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بيولودجيا لجميع الطبقات')">
+                                                                درس بيولودجيا لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس كيمياء لجميع الطبقات')"> درس
+                                                                كيمياء لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس فيزياء لجميع الطبقات')"> درس
+                                                                فيزياء لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالمدنيات لجميع الطبقات')">
+                                                                درس بالمدنيات لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالجغرافيا لجميع الطبقات')">
+                                                                درس بالجغرافيا لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالمدتيات لجميع الطبقات')">
+                                                                درس بالمدتيات لجميع الطبقات </a></li>
                                                     </ul>
-                                                    
                                                 </div>
                                                 <div class="col-md-6 col-sm-6">
                                                     <div class="menu-widget text-center">
                                                         <div class="image-wrap entry">
-                                                            <img src="images/BookBCover.jpeg" alt="" class="img-responsive">
+                                                            <img src="images/BookBCover.jpeg" alt=""
+                                                                class="img-responsive">
                                                             <div class="magnifier">
-                                                                 <a href="#" onclick="sendMessage('رزمه الاحلام')" title=""><i class="flaticon-add"></i></a>
+                                                                <a href="#" onclick="sendMessage('رزمه الاحلام')"
+                                                                    title=""><i class="flaticon-add"></i></a>
                                                             </div>
                                                         </div><!-- end image-wrap -->
                                                         <h5><a href="#">رزمه الاحلام</a></h5>
-                                                        <small>حسب الطلب : اطلق العنان لخيالهم</small>
-                                                        <a href="#" onclick="sendFirasMessage('رزمه الاحلام')" class="menu-button">للعرض</a>
+                                                        <small>حسب الطلب : 3 لغات</small>
+                                                        <a href="#" onclick="sendFMessage('رزمه الاحلام')"
+                                                            class="menu-button">للعرض</a>
                                                     </div><!-- end widget -->
                                                 </div>
                                             </div>
@@ -144,22 +176,24 @@ function sendFirasMessage(message) {
                                 </ul>
                             </li>
                             <li class="dropdown hassubmenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">مسارات <span class="fa fa-angle-down"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-expanded="false">مسارات <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="shop.html">لكل المسارات</a></li>
-                                    <li><a href="shop-single.html">لفحص دروس خاصه</a></li>
+                                    <li><a href="page-contact.html">لفحص دروس خاصه</a></li>
                                 </ul>
                             </li>
 
                             <li class="dropdown hassubmenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">الرزمات <span class="fa fa-angle-down"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-expanded="false">الرزمات <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="Packets.html">لكل الرزمات</a></li>
                                     <li><a href="page-contact.html">لفحص رزمات خاصه</a></li>
                                 </ul>
                             </li>
-            <li><a href="page-contact.html">للتواصل</a></li>
 
+                            <li><a href="page-contact.html">للتواصل</a></li>
 
                         </ul>
                     </div>
@@ -172,12 +206,13 @@ function sendFirasMessage(message) {
             <div class="home-text-wrapper relative container">
                 <div class="home-message">
                     <p>Smart Education Center</p>
-                    <small>، يمكن للمتعلمين حجز مقعدهم والتسجيل في البرنامج من خلال منصة إلكترونية سهلة الاستخدام. هذه العملية تضمن للمتعلمين الوصول إلى جميع الموارد التعليمية وأدوات التعلم اللازمة.
-
-                    </small>
+                    <small> يمكن للمتعلمين حجز مقعدهم والتسجيل في البرنامج من خلال منصة إلكترونية سهلة الاستخدام هذه
+                        العملية تضمن للمتعلمين الوصول إلى جميع الموارد التعليمية وأدوات التعلم اللازمة</small>
                     <div class="btn-wrapper">
                         <div class="text-center">
-                            <a href="Packets.html" class="btn btn-primary wow slideInLeft">لجميع الرزمات</a> &nbsp;&nbsp;&nbsp;<a href="shop.html" class="btn btn-default wow slideInRight">لجميع المسارات</a>
+                            <a href="Packets.html" class="btn btn-primary wow slideInLeft">لجميع الرزمات</a>
+                            &nbsp;&nbsp;&nbsp;<a href="shop.html" class="btn btn-default wow slideInRight">لجميع
+                                المسارات</a>
                         </div>
                     </div><!-- end row -->
                 </div>
@@ -193,18 +228,25 @@ function sendFirasMessage(message) {
                 <div class="section-title text-center">
                     <h3>:المسارات السريعه </h3>
                     <p> ! فورا احجز وتعلم</p>
+
+                    <div class="section-button text-center">
+                        <a href="shop.html" class="btn btn-primary">لجميع الكرسات</a>
+                    </div>
+
                 </div><!-- end title -->
 
+
+
+
+
                 <div id="owl-01" class="owl-carousel owl-theme owl-theme-01">
-
-
-
                     <div class="caro-item">
                         <div class="course-box">
                             <div class="image-wrap entry">
                                 <img src="images/he.jpeg" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع العبرية'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
                                         دورة اللغة العبريه<i class="flaticon-add"></i>
@@ -214,10 +256,11 @@ function sendFirasMessage(message) {
                             <div class="course-details">
                                 <h4>
                                     <small>HEBREW</small>
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع العبريه'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
-                                        دورة اللغة العبريه<i ></i>
+                                        دورة اللغة العبريه<i></i>
                                     </a>
                                 </h4>
                                 <!-- <p>دورة "Kindergarten SMART HEBREW" هي برنامج تعليمي مصمم خصيصًا لتلاميذ الروضة والبستان بهدف تعليمهم اللغة العبرية (עברית מדוברת וכתובה )  بطريقة مبتكرة وفعالة.</p> -->
@@ -225,8 +268,8 @@ function sendFirasMessage(message) {
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a ><i class="fa fa-user"></i> 1-15 </a></li>
-                                        <li><a ><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
                                     </ul>
                                 </div><!-- end left -->
 
@@ -237,37 +280,35 @@ function sendFirasMessage(message) {
                             </div><!-- end footer -->
                         </div><!-- end box -->
                     </div><!-- end col -->
-
-
-
-
                     <div class="caro-item">
                         <div class="course-box">
                             <div class="image-wrap entry">
                                 <img src="images/eng.jpeg" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع الانجليزيه'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
-                                       دورة اللغة الإنجليزية  <i class="flaticon-add"></i>
+                                        دورة اللغة الإنجليزية <i class="flaticon-add"></i>
                                     </a>
                                 </div>
                             </div><!-- end image-wrap -->
                             <div class="course-details">
                                 <h4>
                                     <small> ENGLISH </small>
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع الانجليزيه'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
-                                      دورة اللغة الإنجليزية</a>
+                                        دورة اللغة الإنجليزية</a>
                                 </h4>
                                 <p></p>
                             </div><!-- end details -->
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a ><i class="fa fa-user"></i> 1-15 </a></li>
-                                        <li><a ><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
                                     </ul>
                                 </div><!-- end left -->
 
@@ -278,39 +319,34 @@ function sendFirasMessage(message) {
                             </div><!-- end footer -->
                         </div><!-- end box -->
                     </div><!-- end col -->
-
-
-
-
-
                     <div class="caro-item">
                         <div class="course-box">
                             <div class="image-wrap entry">
                                 <img src="images/pys.jpeg" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع الفيزياء'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
-                                      دورة الفيزياء</a>
+                                        دورة الفيزياء</a>
                                 </div>
                             </div><!-- end image-wrap -->
                             <div class="course-details">
                                 <h4>
                                     <small>Physics</small>
 
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع الفيزياء'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
                                         دورة الفيزياء</a>
-
-
                                 </h4>
                             </div><!-- end details -->
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a ><i class="fa fa-user"></i> 1-15 </a></li>
-                                        <li><a ><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
                                     </ul>
                                 </div><!-- end left -->
 
@@ -321,33 +357,34 @@ function sendFirasMessage(message) {
                             </div><!-- end footer -->
                         </div><!-- end box -->
                     </div><!-- end col -->
-
-
-
 
                     <div class="caro-item">
                         <div class="course-box">
                             <div class="image-wrap entry">
                                 <img src="images/byo.jpeg" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع البيولوجيا'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
-                                        دورة البيولوجيا</a>                                    </div>
+                                        دورة البيولوجيا</a>
+                                </div>
                             </div><!-- end image-wrap -->
                             <div class="course-details">
                                 <h4>
                                     <small>Biology</small>
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع البيولوجيا'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
-                                        دورة البيولوجيا</a>                                </h4>
+                                        دورة البيولوجيا</a>
+                                </h4>
                             </div><!-- end details -->
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a ><i class="fa fa-user"></i> 1-15 </a></li>
-                                        <li><a ><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
                                     </ul>
                                 </div><!-- end left -->
 
@@ -359,32 +396,33 @@ function sendFirasMessage(message) {
                         </div><!-- end box -->
                     </div><!-- end col -->
 
-
-
-
                     <div class="caro-item">
                         <div class="course-box">
                             <div class="image-wrap entry">
                                 <img src="images/chem.jpeg" alt="" class="img-responsive">
                                 <div class="magnifier">
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع الكيمياء'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
-                                        دورة الكيمياء</a>                                   </div>
+                                        دورة الكيمياء</a>
+                                </div>
                             </div><!-- end image-wrap -->
                             <div class="course-details">
                                 <h4>
                                     <small>Chimestry</small>
-                                    <a href="#" title="" onclick="var message = 
+                                    <a href="#" title=""
+                                        onclick="var message = 
                                     'اريد ان احصل على خدمه في موضوع الكيمياء'; 
                                     var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
-                                        دورة الكيمياء</a>                                   </h4>
+                                        دورة الكيمياء</a>
+                                </h4>
                             </div><!-- end details -->
                             <div class="course-footer clearfix">
                                 <div class="pull-left">
                                     <ul class="list-inline">
-                                        <li><a ><i class="fa fa-user"></i> 1-15 </a></li>
-                                        <li><a ><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
                                     </ul>
                                 </div><!-- end left -->
 
@@ -399,23 +437,11 @@ function sendFirasMessage(message) {
 
                 <hr class="invis">
 
-                <div class="section-button text-center">
-                    <a href="shop.html" class="btn btn-primary">لجميع الكرسات</a>
-                </div>
+
             </div><!-- end container -->
         </section>
 
-        <section class="section db p120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="tagline-message text-center">
-                            <small>قسم اتصل بنا هو وسيلة للتواصل مع فريقنا بكل يسر وسهولة. يمكن للزوار ملء النموذج المتاح لإرسال رسائلهم واستفساراتهم، كما يقدم القسم معلومات الاتصال المباشرة، مثل أرقام الهواتف وعناوين البريد الإلكتروني. يتيح لك القسم أيضًا الوصول إلى موقعنا على الخريطة، لتتمكن من العثور علينا بسهولة. نحن هنا لمساعدتك، فلا تتردد في التواصل معنا عبر هذا القسم.!</h3>
-                        </div>
-                    </div><!-- end col -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </section><!-- end section -->
+
 
         <section class="section gb nopadtop">
             <div class="container">
@@ -425,7 +451,8 @@ function sendFirasMessage(message) {
                         <div class="box m30">
                             <i class="flaticon-computer-tool-for-education"></i>
                             <h4>لكل الطلاب</h4>
-                            <p>مسارات تعليمية متنوعة مصممة لتلبية احتياجات كل طالب بمرونة وتخصيص، مع تدريبات من مدربين محترفين.</p>
+                            <p>مسارات تعليمية متنوعة مصممة لتلبية احتياجات كل طالب بمرونة وتخصيص، مع تدريبات من مدربين
+                                محترفين.</p>
                             <a href="shop.html" class="readmore">للمزيد</a>
                         </div>
                     </div><!-- end col -->
@@ -434,7 +461,9 @@ function sendFirasMessage(message) {
                         <div class="box m30">
                             <i class="flaticon-monitor-tablet-and-smartohone"></i>
                             <h4>فرصة التعلم عن بعد</h4>
-                            <p>نحن نقدم إمكانية التعلم الإلكتروني بواسطة منصات متعددة مثل Google Meet للتفاعل الفعّال، و ZOOM لجلسات التعلم المرئية المباشرة، و FaceTime للتواصل الشخصي، و WhatsApp للمناقشات والدعم المستمر.</p>
+                            <p>نحن نقدم إمكانية التعلم الإلكتروني بواسطة منصات متعددة مثل Google Meet للتفاعل الفعّال، و
+                                ZOOM لجلسات التعلم المرئية المباشرة، و FaceTime للتواصل الشخصي، و WhatsApp للمناقشات
+                                والدعم المستمر.</p>
                             <a href="shop.html" class="readmore">للمزيد</a>
                         </div>
                     </div><!-- end col -->
@@ -458,8 +487,10 @@ function sendFirasMessage(message) {
                     <div class="col-lg-4 col-md-4">
                         <div class="stat-count">
                             <h4 class="stat-timer">236</h4>
-                            <h3><i class="flaticon-black-graduation-cap-tool-of-university-student-for-head"></i> طلاب ناجحون</h3>
-                            <p>طلابنا يثقون بنا حتى بعد التخرج الجامعي، حيث نساعدهم على تحقيق أهدافهم المهنية والشخصية بالتوجيه والدعم المستمر.</p>
+                            <h3><i class="flaticon-black-graduation-cap-tool-of-university-student-for-head"></i> طلاب
+                                ناجحون</h3>
+                            <p>طلابنا يثقون بنا حتى بعد التخرج الجامعي، حيث نساعدهم على تحقيق أهدافهم المهنية والشخصية
+                                بالتوجيه والدعم المستمر.</p>
                         </div><!-- stat-count -->
                     </div><!-- end col -->
                     <div class="col-lg-4 col-md-4">
@@ -488,9 +519,11 @@ function sendFirasMessage(message) {
 
                     <div class="col-md-4">
                         <div class="box testimonial">
-                            <p class="testiname"><strong><img src="images/person3.jpeg" alt="" class="img-circle"> محمد أحمد</strong></p>
-                                <p>
-                            بمركز التعليم الذكي، يتم تقديم برامج تعليمية متطورة، تعتمد على تكنولوجيا حديثة لتحسين تجربة التعلم وتطوير مهارات الطلاب بطرق مبتكرة.                
+                            <p class="testiname"><strong><img src="images/person2.jpeg" alt="" class="img-circle"> محمد
+                                    أحمد</strong></p>
+                            <p>
+                                بمركز التعليم الذكي، يتم تقديم برامج تعليمية متطورة، تعتمد على تكنولوجيا حديثة لتحسين
+                                تجربة التعلم وتطوير مهارات الطلاب بطرق مبتكرة.
                             </p>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
@@ -504,8 +537,10 @@ function sendFirasMessage(message) {
 
                     <div class="col-md-4">
                         <div class="box testimonial">
-                            <p class="testiname"><strong><img src="images/person2.jpeg" alt="" class="img-circle">سارة يوسف</strong></p>
-                            <p>بمركز التعليم الذكي، تقدم حلول تعليمية مبتكرة، مدمجة بتقنيات متطورة لتعزيز تجارب التعلم وتمكين الطلاب.</p>
+                            <p class="testiname"><strong><img src="images/person1.jpeg" alt="" class="img-circle">سارة
+                                    يوسف</strong></p>
+                            <p>بمركز التعليم الذكي، تقدم حلول تعليمية مبتكرة، مدمجة بتقنيات متطورة لتعزيز تجارب التعلم
+                                وتمكين الطلاب.</p>
                             </p>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
@@ -519,10 +554,13 @@ function sendFirasMessage(message) {
 
                     <div class="col-md-4">
                         <div class="box testimonial">
-                            <p class="testiname"><strong><img src="images/person1.jpeg" alt="" class="img-circle"> علي حسن</strong></p>
-                            <p>في مركز التعليم الذكي، نوفر بيئة تعليمية ثورية تدمج أحدث التقنيات لتعزيز فعالية التعلم وتمكين الطلاب من تحقيق إمكانياتهم.</p>
+                            <p class="testiname"><strong><img src="images/person3.jpeg" alt="" class="img-circle"> علي
+                                    حسن</strong></p>
+                            <p>في مركز التعليم الذكي، نوفر بيئة تعليمية ثورية تدمج أحدث التقنيات لتعزيز فعالية التعلم
+                                وتمكين الطلاب من تحقيق إمكانياتهم.</p>
                             <div class="rating">
-                                <i class="fa fa-star"></i>        <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -533,107 +571,108 @@ function sendFirasMessage(message) {
                 </div><!-- end row -->
             </div><!-- end container -->
         </section>
-        
-        
-        
-<style>
 
-.uniqueShadowEffect {
-    position: absolute;
-    top: 500px;
-    left: 100px;
-    width: 500px;
-    height: 40px;
-    border-radius: 50%;
-    background: radial-gradient(#805d78, rgba(0,0,0,0) 70%);
-  }
+        <style>
+            .uniqueShadowEffect {
+                position: absolute;
+                top: 500px;
+                left: 100px;
+                width: 500px;
+                height: 40px;
+                border-radius: 50%;
+                background: radial-gradient(#805d78, rgba(0, 0, 0, 0) 70%);
+            }
 
-  .uniqueClippedBorder {
-    -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-    padding: 5px;
-    background: linear-gradient(grey, lightgrey);
-    width: 200px;
-    height: 200px;
-    max-height: 250px;
-    max-width: 250px;
-    transition: transform 0.2s;
-    position: absolute;
-    cursor: pointer;
-    z-index: 10;
-  }
+            .uniqueClippedBorder {
+                -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+                clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+                padding: 5px;
+                background: linear-gradient(grey, lightgrey);
+                width: 200px;
+                height: 200px;
+                max-height: 250px;
+                max-width: 250px;
+                transition: transform 0.2s;
+                position: absolute;
+                cursor: pointer;
+                z-index: 10;
+            }
 
-  .uniqueClippedBorder:hover {
-    transform: scale(1.2);
-    z-index: 10;
-  }
+            .uniqueClippedBorder:hover {
+                transform: scale(1.2);
+                z-index: 10;
+            }
 
-  .uniqueClippedBorder::before {
-    content: '';
-    position: absolute;
-    opacity: 0.5;
-    width: 350px;
-    height: 70px;
-    background: white;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transform: rotate(45deg);
-    transition: transform 0.5s;
-  }
+            .uniqueClippedBorder::before {
+                content: '';
+                position: absolute;
+                opacity: 0.5;
+                width: 350px;
+                height: 70px;
+                background: white;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                transform: rotate(45deg);
+                transition: transform 0.5s;
+            }
 
-  .uniqueClippedBorder:hover::before {
-    transform: translate(-100px, 400%) rotate(45deg);
-  }
+            .uniqueClippedBorder:hover::before {
+                transform: translate(-100px, 400%) rotate(45deg);
+            }
 
-  /* Position adjustments for each image container */
-  .uniqueClippedBorder:nth-child(1) {
-    top: 196px;
-    left: 118px;
-  }
+            /* Position adjustments for each image container */
+            .uniqueClippedBorder:nth-child(1) {
+                top: 196px;
+                left: 118px;
+            }
 
-  .uniqueClippedBorder:nth-child(2) {
-    top: 0;
-    left: 235px;
-  }
+            .uniqueClippedBorder:nth-child(2) {
+                top: 0;
+                left: 235px;
+            }
 
-  .uniqueClippedBorder:nth-child(3) {
-    top: 196px;
-    left: 353px;
-  }
+            .uniqueClippedBorder:nth-child(3) {
+                top: 196px;
+                left: 353px;
+            }
 
-  .uniqueClippedBorder:nth-child(4) {
-    top: 0;
-    left: 470px;
-  }
+            .uniqueClippedBorder:nth-child(4) {
+                top: 0;
+                left: 470px;
+            }
 
-  @media screen and (max-width: 500px) {
-    .uniqueClippedBorder {
-      width: 100px;
-      height: 100px;
-    }
+            @media screen and (max-width: 500px) {
+                .uniqueClippedBorder {
+                    width: 100px;
+                    height: 100px;
+                }
 
-    .uniqueClippedBorder:nth-child(1) { top: 0; left: 0; }
-    .uniqueClippedBorder:nth-child(2) { top: 0; left: 100px; }
-    .uniqueClippedBorder:nth-child(3) { top: 82px; left: 0; }
-    .uniqueClippedBorder:nth-child(4) { top: 82px; left: 100px; }
-  }
+                .uniqueClippedBorder:nth-child(1) {
+                    top: 0;
+                    left: 0;
+                }
 
- </style>
+                .uniqueClippedBorder:nth-child(2) {
+                    top: 0;
+                    left: 100px;
+                }
 
+                .uniqueClippedBorder:nth-child(3) {
+                    top: 82px;
+                    left: 0;
+                }
 
+                .uniqueClippedBorder:nth-child(4) {
+                    top: 82px;
+                    left: 100px;
+                }
+            }
+        </style>
 
         <section class="section gb">
             <div class="container">
 
-
-
-
-
-
-                
-
-                
             </div>
         </section>
         <div class="copyrights">
@@ -641,14 +680,14 @@ function sendFirasMessage(message) {
                 <div class="clearfix">
                     <div class="pull-left">
                         <div class="cop-logo">
-                            <a href="#"><img style="height: 200; width: 500;" src="images/logo.jpeg" alt=""></a>
+                            <a href="#"><img style="height: 50%; width: 100%;" src="images/logo.jpeg" alt=""></a>
                         </div>
                     </div>
-
                     <div class="pull-right">
                         <div class="footer-links">
                             <ul class="list-inline">
-                                <li>All Copy rights Reserved : <a href="https://html.design">Smart Education Center</a></li>
+                                <li>All Copy rights Reserved : <a href="https://html.design">Smart Education Center</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -667,4 +706,5 @@ function sendFirasMessage(message) {
     <script src="js/videobg.js"></script>
 
 </body>
+
 </html>
