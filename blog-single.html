@@ -4,7 +4,7 @@
 <html class="no-js " lang="ar"> <!--<![endif]-->
 
 <head lang="ar">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -217,14 +217,80 @@
                     <div class="row">
                         <div class="blog-meta">
                             <div class="blog-media">
-                                <li><a class="btn btn-primary" onclick="sendMessage('تخفيض الموقع')"><img
+                                <li><div class="btn btn-primary" ><img
                                             id="dynamicImage" src="images/A.jpeg" alt=""
-                                            class="img-responsive img-rounded">للتسجيل عبر الموقع و الحصول على تخفيض</a>
+                                            class="img-responsive img-rounded"></div>
                                 </li>
 
                                 <!-- Dynamic image source using template literals -->
                                 <img id="dynamicImage" src="images/A.jpeg" alt="" class="img-responsive img-rounded">
+                                <div class="w3-container">
 
+                                  
+                                    <div class="w3-row">
+                                      <a href="javascript:void(0)" onclick="openCity(event, 'London');">
+                                        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">للتسجيل</div>
+                                      </a>
+
+                                    </div>
+                                  
+                                    <div id="London" class="w3-container city" style="display:none">
+                                      <h2>للتسجيل</h2>
+                                      <form class="big-contact-form" role="search">
+                                        <input type="text" class="form-control" id="nameInput" placeholder="أدخل أسمك..">
+                                        <input type="email" class="form-control" id="emailInput" placeholder="أدخل البريد الإلكتروني..">
+                                        <input type="text" class="form-control" id="phoneInput" placeholder="هاتفك..">
+                                        <input type="text" class="form-control" id="subjectInput" placeholder="موضوع..">
+                                        <textarea class="form-control" id="messageInput" placeholder="الرسالة.."></textarea>
+                                        <button type="submit" class="btn btn-primary" onclick="sendMessage()">ابعث</button>
+                                      </form>
+        
+        <script>function sendMessage() {
+            // Prevent default form submission behavior
+            event.preventDefault();
+          
+            // Capture form data (assuming appropriate IDs for your input fields)
+            const name = document.getElementById("nameInput").value;
+            const email = document.getElementById("emailInput").value;
+            const phone = document.getElementById("phoneInput").value;
+            const subject = document.getElementById("subjectInput").value;
+            const message = document.getElementById("messageInput").value;
+          
+            // Construct the message to send in WhatsApp
+            const whatsappMessage = `*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Subject:* ${subject}\n*Message:* ${message}`;
+          
+            // Encode the message for URL inclusion
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+          
+            // Replace the placeholder number with your actual WhatsApp number
+            const whatsappNumber = '972585002080'; // Replace with your actual number (without leading + or zeroes)
+          
+            // Construct the WhatsApp link with the pre-composed message
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+          
+            // Open the WhatsApp link in a new window
+            window.open(whatsappUrl, '_blank');
+          }</script>
+                                    </div>
+                                  
+
+                                  </div>
+                                  
+                                  <script>
+                                  function openCity(evt, cityName) {
+                                    var i, x, tablinks;
+                                    x = document.getElementsByClassName("city");
+                                    for (i = 0; i < x.length; i++) {
+                                      x[i].style.display = "none";
+                                    }
+                                    tablinks = document.getElementsByClassName("tablink");
+                                    for (i = 0; i < x.length; i++) {
+                                      tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+                                    }
+                                    document.getElementById(cityName).style.display = "block";
+                                    evt.currentTarget.firstElementChild.className += " w3-border-red";
+                                  }
+                                  </script>
                                 <script>
                                     function updateImage() {
                                         const imageElement = document.getElementById("dynamicImage");
@@ -355,7 +421,23 @@
                                                 },
                                                 "25": {
                                                     "name": "اللغه الانجليزيه",
-                                                    "description": "تعليم اللغة الإنجليزية يهدف إلى تعلم المهارات الأساسية في القراءة والكتابة والاستماع والمحادثة باللغة الإنجليزية. تقدم الدورات الفرصة لتحسين مستوى اللغة للمبتدئين والمتوسطين والمتقدمين بطرق تفاعلية ومبتكرة."
+                                                    "description": "تعليم اللغة الإنجليزية يهدف إلى تعلم المهارات الأساسية في القراءة والكتابة والاستماع والمحادثة باللغة الإنجليزية. تقدم الدورات  الفرصة لتحسين مستوى اللغة للمبتدئين والمتوسطين والمتقدمين بطرق تفاعلية ومبتكرة."
+                                                },
+                                                "100": {
+                                                    "name": "نالا المغامره 4 لغات",
+                                                    "description": "ت  الفرصة لتحسين مستوى اللغة للمبتدئين والمتوسطين والمتقدمين بطرق تفاعلية ومبتكرة."
+                                                },
+                                                "101": {
+                                                    "name": "فلفول و الساحره 4 لغات",
+                                                    "description": "ت  الفرصة لتحسين مستوى اللغة للمبتدئين والمتوسطين والمتقدمين بطرق تفاعلية ومبتكرة."
+                                                },
+                                                "102": {
+                                                    "name": "رحله اثينا 4 لغات",
+                                                    "description": "ت  الفرصة لتحسين مستوى اللغة للمبتدئين والمتوسطين والمتقدمين بطرق تفاعلية ومبتكرة."
+                                                },
+                                                "103": {
+                                                    "name": "تومي 4 لغات",
+                                                    "description": "ت  الفرصة لتحسين مستوى اللغة للمبتدئين والمتوسطين والمتقدمين بطرق تفاعلية ومبتكرة."
                                                 }
                                             };
                                             // Get the saved number from localStorage
@@ -365,8 +447,8 @@
                                             if (savedNumber && descriptions.hasOwnProperty(savedNumber)) {
                                                 const { name, description } = descriptions[savedNumber];
                                                 // Use the name and description in your HTML
-                                                document.write(`<p style="text-align: center;color : red">الاسم: ${name}</p>`);
-                                                document.write(`<p style="text-align: center;color : red">تفاصيل: ${description}</p>`);
+                                                document.write(`<p style="text-align: center;color : black"> الاسم: ${name}</p>`);
+                                                document.write(`<p style="text-align: center;color : black"> تفاصيل: ${description}</p>`);
                                             } else {
                                                 // Handle the case if savedNumber doesn't exist in descriptions
                                                 document.write("<p>No description found for this number</p>");
