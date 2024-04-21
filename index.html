@@ -1,385 +1,695 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<!--[if IE 9]> <html class="no-js ie9 fixed-layout" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js " lang="ar"> <!--<![endif]-->
 
-<head>
+<head lang="ar">
+
     <meta charset="utf-8">
-    <title>Ateed - DuroS</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Smart Education Center</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+	<![endif]-->
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="container-xxl bg-white p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+<body lang="ar" style="text-align: right;">
+    <script>
 
+        function sendMessage(message) {
+            var whatsappUrl = `https://wa.me/972585002080?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            return false; // Prevent default link behavior
+        }
 
-        <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-            <a href="index.html" class="navbar-brand">
-                <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>AteeD - DuroS</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto">
-                    <a href="index.html" class="nav-item nav-link active">الرئيسية</a>
-                    <a href="classes.html" class="nav-item nav-link">دروس 1 : 1</a>
+        function sendFMessage(message) {
+            const encodedPhone = "OTcyNTM1NTUzNTA4";
+            const decodedPhone = atob(encodedPhone); 
+            const whatsappUrl = `https://wa.me/${decodedPhone}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            return false; 
+        }
 
-                    <a href="contact.html" class="nav-item nav-link">التواصل</a>
-                </div>
-                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">أنضم لنا<i class="fa fa-arrow-right ms-3"></i></a>
-            </div>
-        </nav>
-        <!-- Navbar End -->
+    </script>
 
-
-        <!-- Carousel Start -->
-        <div class="container-fluid p-0 mb-5">
-            <div class="owl-carousel header-carousel position-relative">
-                <div class="owl-carousel-item position-relative">
-                    <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-carousel-item position-relative">
-                    <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">عتيد بسيخومتري</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">طلاب عرابة والمنطقة بلّش الجد :) جاهزين لللقاء التعليمي الاول </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Carousel End -->
-
-
-        <!-- Facilities Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">🌟 هل أنت جاهز لتحقيق أحلامك الأكاديمية؟ 🌟</h1>
-                                                        <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">للحجز دوره اساسيه</a>
-                    <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Target / 800</a>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="facility-item">
-                            <div class="facility-icon bg-primary">
-                                <span class="bg-primary"></span>
-                                <i class="fa fa-bus-alt fa-3x text-primary"></i>
-                                <span class="bg-primary"></span>
-                            </div>
-                            <div class="facility-text bg-primary">
-                                <h3 class="text-primary mb-3">جلسات تدريبية مكثفة</h3>
-                                <p class="mb-0">نقدم جلسات فردية وجماعية تساعدك على التركيز على نقاط القوة لديك وتطوير المهارات التي تحتاج إلى تحسين.t</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="facility-item">
-                            <div class="facility-icon bg-success">
-                                <span class="bg-success"></span>
-                                <i class="fa fa-futbol fa-3x text-success"></i>
-                                <span class="bg-success"></span>
-                            </div>
-                            <div class="facility-text bg-success">
-                                <h3 class="text-success mb-3">دروس تفصيلية ومكثفة</h3>
-                                <p class="mb-0">نغطي كل قسم من أقسام الاختبار بعمق – الرياضيات، اللغة الإنجليزية، والمهارات اللفظية – باستخدام تقنيات تدريس متطورة وأساليب تفاعلية تجعل التعلم ممتعًا وفعالًا.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="facility-item">
-                            <div class="facility-icon bg-warning">
-                                <span class="bg-warning"></span>
-                                <i class="fa fa-home fa-3x text-warning"></i>
-                                <span class="bg-warning"></span>
-                            </div>
-                            <div class="facility-text bg-warning">
-                                <h3 class="text-warning mb-3">مواد دراسية متطورة</h3>
-                                <p class="mb-0">حصل على مجموعة شاملة من المواد التعليمية التي تشمل كتباً متخصصة، اختبارات تجريبية، وأدوات تفاعلية تعزز فهمك وتمكنك من ممارسة ما تعلمته في بيئة واقعية.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="facility-item">
-                            <div class="facility-icon bg-info">
-                                <span class="bg-info"></span>
-                                <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
-                                <span class="bg-info"></span>
-                            </div>
-                            <div class="facility-text bg-info">
-                                <h3 class="text-info mb-3">فريق تعليمي من الخبراء:</h3>
-                                <p class="mb-0">مدربون محترفون وذوو خبرة عالية في مجال اختبارات القياس النفسي يقدمون لك الدعم والتوجيه المستمر.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Facilities End -->
-
-
-        <!-- <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
-                            <div class="position-relative h-100">
-                                <img class="position-absolute w-100 h-100 rounded" src="img/call-to-action.jpg" style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Become A Teacher</h1>
-                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                                    Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
-                                </p>
-                                <a class="btn btn-primary py-3 px-5" href="">Get Started Now<i class="fa fa-arrow-right ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
-
-        <!-- Appointment Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">للتسجيل</h1>
-                                <form>
-                                    <div class="row g-3">
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
-                                                <label for="gname">الاسم</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
-                                                <label for="gmail"> Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cname" placeholder="Child Name">
-                                                <label for="cname"> اسم الدوره</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
-                                                <label for="message">رساله</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">ارسال</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
-                            <div class="position-relative h-100">
-                                <img class="position-absolute w-100 h-100 rounded" src="img/logo.jpeg" style="object-fit: cover;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Appointment End -->
-
-
-        <!-- Team Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">📅 سجل الآن واستفد من عروضنا الخاصة للمسجلين المبكرين</h1>
-                    <p>طلابنا يحققون أعلى الدرجات وينجحون في الوصول إلى الجامعات الرائدة، ما يشهد على فعالية برنامجنا</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item position-relative">
-                            <img class="img-fluid rounded-circle w-75" src="img/team-1.jpg" alt="">
-                            <div class="team-text">
-                                <h3>ايهاب قراقره</h3>
-                                <p>مدير المركز</p>
-                                <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item position-relative">
-                            <img class="img-fluid rounded-circle w-75" src="img/team-2.jpg" alt="">
-                            <div class="team-text">
-                                <h3>Full Name</h3>
-                                <p>Designation</p>
-                                <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item position-relative">
-                            <img class="img-fluid rounded-circle w-75" src="img/team-3.jpg" alt="">
-                            <div class="team-text">
-                                <h3>Full Name</h3>
-                                <p>Designation</p>
-                                <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Team End -->
-
-
-        <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <h3 class="text-white mb-4">لمزيد من المعلومات وللتسجيل</h3>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>ِعرابه</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                   
-                    <div class="col-lg-3 col-md-6">
-                        <h3 class="text-white mb-4">العلامات</h3>
-                        <div class="row g-2 pt-2">
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/Grade1.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/Grade2.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/Grade3.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/Grade4.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/Grade5.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/Grade6.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-            <div class="container">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">ِAteed Psychometry</a>, All Right Reserved. 
-							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							
-                        </div>
-                        <!-- <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <div id="preloader">
+        <img class="preloader" src="images/loader.gif" alt="">
     </div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <div id="wrapper">
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id="div-forms">
+                        <form id="login-form">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span class="flaticon-add" aria-hidden="true"></span>
+                            </button>
+                            <div class="modal-body">
+                                <input class="form-control" type="text" placeholder="What you are looking for?"
+                                    required>
+                            </div>
+                        </form><!-- End # Login Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header">
+            <div class="topbar clearfix">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="col-md-6 col-sm-6 text-left">
+                            <p>
+                                <strong><i class="fa fa-phone"></i></strong> 0585002080/1&nbsp;&nbsp;
+                                <strong><i class="fa fa-envelope"></i></strong> <a
+                                    href="mailto:#">service@smart-edc.org</a>
+                            </p>
+                        </div><!-- end left -->
+                        <div class="col-md-6 col-sm-6 hidden-xs text-right">
+                            <div class="social">
+                                <a class="facebook"
+                                    href="https://www.facebook.com/profile.php?id=100092013744951&name=xhp_nt__fb__action__open_user"
+                                    data-tooltip="tooltip" data-placement="bottom" title="Facebook"><i
+                                        class="fa fa-facebook"></i></a>
+                                <a class="instagram"
+                                    href="https://www.instagram.com/smeduc7?igsh=bmM0d2gxNGRmczV1&utm_source=qr"
+                                    data-tooltip="tooltip" data-placement="bottom" title="instagram"><i
+                                        class="fa fa-instagram"></i></a>
+                            </div><!-- end social -->
+                        </div><!-- end left -->
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div><!-- end topbar -->
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+            <div class="container">
+                <nav class="navbar navbar-default yamm">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">القائمه</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo-normal">
+                            <a class="navbar-brand" href="index.html"><img style="height: 60%; width: 150%;"
+                                    src="images/logo.jpeg" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="index.html">الرئيسيه</a></li>
+                            <li class="dropdown yamm-fw yamm-half"><a href="#" data-toggle="dropdown"
+                                    class="dropdown-toggle active">درس عالسريع<b class="fa fa-angle-down"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="yamm-content clearfix">
+                                            <div class="row-fluid">
+                                                <div class="col-md-6 col-sm-6">
+                                                    <h4>العروض السريعه</h4>
+                                                    <ul>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالعربيه لجميع الطبقات')">درس
+                                                                بالعربيه لجميع الطبقات</a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس انجليزيه لجميع الطبقات')">درس
+                                                                انجليزيه لجميع الطبقات</a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالعبريه لجميع الطبقات')"> درس
+                                                                بالعبريه لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بيولودجيا لجميع الطبقات')">
+                                                                درس بيولودجيا لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس كيمياء لجميع الطبقات')"> درس
+                                                                كيمياء لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس فيزياء لجميع الطبقات')"> درس
+                                                                فيزياء لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالمدنيات لجميع الطبقات')">
+                                                                درس بالمدنيات لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالجغرافيا لجميع الطبقات')">
+                                                                درس بالجغرافيا لجميع الطبقات </a></li>
+                                                        <li><a href="#"
+                                                                onclick="sendMessage(' درس بالمدتيات لجميع الطبقات')">
+                                                                درس بالمدتيات لجميع الطبقات </a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="menu-widget text-center">
+                                                        <div class="image-wrap entry">
+                                                            <img src="images/BookBCover.jpeg" alt=""
+                                                                class="img-responsive">
+                                                            <div class="magnifier">
+                                                                <a href="#" onclick="sendMessage('رزمه الاحلام')"
+                                                                    title=""><i class="flaticon-add"></i></a>
+                                                            </div>
+                                                        </div><!-- end image-wrap -->
+                                                        <h5><a href="#">سرابي</a></h5>
+                                                        <small>حسب الطلب : 3 لغات</small>
+                                                        <a href="#" onclick="sendFMessage('رزمه سرابي')"
+                                                            class="menu-button">للعرض</a>
+                                                    </div><!-- end widget -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown hassubmenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-expanded="false">مسارات <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="shop.html">لكل المسارات</a></li>
+                                    <li><a href="page-contact.html">لفحص دروس خاصه</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown hassubmenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-expanded="false">الرزمات <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="Packets.html">لكل الرزمات</a></li>
+                                    <li><a href="page-contact.html">لفحص رزمات خاصه</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="page-contact.html">للتواصل</a></li>
+
+                        </ul>
+                    </div>
+                </nav><!-- end navbar -->
+            </div><!-- end container -->
+        </header>
+
+        <section id="home" class="video-section js-height-full">
+            <div class="overlay"></div>
+            <div class="home-text-wrapper relative container">
+                <div class="home-message">
+                    <p>Smart Education Center</p>
+                    <small> يمكن للمتعلمين حجز مقعدهم والتسجيل في البرنامج من خلال منصة إلكترونية سهلة الاستخدام هذه
+                        العملية تضمن للمتعلمين الوصول إلى جميع الموارد التعليمية وأدوات التعلم اللازمة</small>
+                    <div class="btn-wrapper">
+                        <div class="text-center">
+                            <a href="Packets.html" class="btn btn-primary wow slideInLeft">لجميع الرزمات</a>
+                            &nbsp;&nbsp;&nbsp;<a href="shop.html" class="btn btn-default wow slideInRight">لجميع
+                                المسارات</a>
+                        </div>
+                    </div><!-- end row -->
+                </div>
+            </div>
+            <div class="slider-bottom">
+                <span>للمزيد <i class="fa fa-angle-down"></i></span>
+            </div>
+        </section>
+
+
+        <section class="section gb">
+            <div class="container">
+                <div class="section-title text-center">
+                    <p> ! فورا احجز وتعلم</p>
+                </div><!-- end title -->
+
+                <div id="owl-01" class="owl-carousel owl-theme owl-theme-01">
+                    <div class="caro-item">
+                        <div class="course-box">
+                            <div class="image-wrap entry">
+                                <img src="images/he.jpeg" alt="" class="img-responsive">
+                                <div class="magnifier">
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع العبرية'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة اللغة العبريه<i class="flaticon-add"></i>
+                                    </a>
+                                </div>
+                            </div><!-- end image-wrap -->
+                            <div class="course-details">
+                                <h4>
+                                    <small>HEBREW</small>
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع العبريه'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة اللغة العبريه<i></i>
+                                    </a>
+                                </h4>
+                                <!-- <p>دورة "Kindergarten SMART HEBREW" هي برنامج تعليمي مصمم خصيصًا لتلاميذ الروضة والبستان بهدف تعليمهم اللغة العبرية (עברית מדוברת וכתובה )  بطريقة مبتكرة وفعالة.</p> -->
+                            </div><!-- end details -->
+                            <div class="course-footer clearfix">
+                                <div class="pull-left">
+                                    <ul class="list-inline">
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                    </ul>
+                                </div><!-- end left -->
+
+                                <div class="pull-right">
+                                    <ul class="list-inline">
+                                    </ul>
+                                </div><!-- end left -->
+                            </div><!-- end footer -->
+                        </div><!-- end box -->
+                    </div><!-- end col -->
+                    <div class="caro-item">
+                        <div class="course-box">
+                            <div class="image-wrap entry">
+                                <img src="images/eng.jpeg" alt="" class="img-responsive">
+                                <div class="magnifier">
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع الانجليزيه'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة اللغة الإنجليزية <i class="flaticon-add"></i>
+                                    </a>
+                                </div>
+                            </div><!-- end image-wrap -->
+                            <div class="course-details">
+                                <h4>
+                                    <small> ENGLISH </small>
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع الانجليزيه'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة اللغة الإنجليزية</a>
+                                </h4>
+                                <p></p>
+                            </div><!-- end details -->
+                            <div class="course-footer clearfix">
+                                <div class="pull-left">
+                                    <ul class="list-inline">
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                    </ul>
+                                </div><!-- end left -->
+
+                                <div class="pull-right">
+                                    <ul class="list-inline">
+                                    </ul>
+                                </div><!-- end left -->
+                            </div><!-- end footer -->
+                        </div><!-- end box -->
+                    </div><!-- end col -->
+                    <div class="caro-item">
+                        <div class="course-box">
+                            <div class="image-wrap entry">
+                                <img src="images/pys.jpeg" alt="" class="img-responsive">
+                                <div class="magnifier">
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع الفيزياء'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة الفيزياء</a>
+                                </div>
+                            </div><!-- end image-wrap -->
+                            <div class="course-details">
+                                <h4>
+                                    <small>Physics</small>
+
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع الفيزياء'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة الفيزياء</a>
+                                </h4>
+                            </div><!-- end details -->
+                            <div class="course-footer clearfix">
+                                <div class="pull-left">
+                                    <ul class="list-inline">
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                    </ul>
+                                </div><!-- end left -->
+
+                                <div class="pull-right">
+                                    <ul class="list-inline">
+                                    </ul>
+                                </div><!-- end left -->
+                            </div><!-- end footer -->
+                        </div><!-- end box -->
+                    </div><!-- end col -->
+
+                    <div class="caro-item">
+                        <div class="course-box">
+                            <div class="image-wrap entry">
+                                <img src="images/byo.jpeg" alt="" class="img-responsive">
+                                <div class="magnifier">
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع البيولوجيا'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة البيولوجيا</a>
+                                </div>
+                            </div><!-- end image-wrap -->
+                            <div class="course-details">
+                                <h4>
+                                    <small>Biology</small>
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع البيولوجيا'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة البيولوجيا</a>
+                                </h4>
+                            </div><!-- end details -->
+                            <div class="course-footer clearfix">
+                                <div class="pull-left">
+                                    <ul class="list-inline">
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                    </ul>
+                                </div><!-- end left -->
+
+                                <div class="pull-right">
+                                    <ul class="list-inline">
+                                    </ul>
+                                </div><!-- end left -->
+                            </div><!-- end footer -->
+                        </div><!-- end box -->
+                    </div><!-- end col -->
+
+                    <div class="caro-item">
+                        <div class="course-box">
+                            <div class="image-wrap entry">
+                                <img src="images/chem.jpeg" alt="" class="img-responsive">
+                                <div class="magnifier">
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع الكيمياء'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة الكيمياء</a>
+                                </div>
+                            </div><!-- end image-wrap -->
+                            <div class="course-details">
+                                <h4>
+                                    <small>Chimestry</small>
+                                    <a href="#" title=""
+                                        onclick="var message = 
+                                    'اريد ان احصل على خدمه في موضوع الكيمياء'; 
+                                    var whatsappUrl = 'https://wa.me/972585002080?text=' + encodeURIComponent(message); window.open(whatsappUrl, '_blank');">
+                                        دورة الكيمياء</a>
+                                </h4>
+                            </div><!-- end details -->
+                            <div class="course-footer clearfix">
+                                <div class="pull-left">
+                                    <ul class="list-inline">
+                                        <li><a><i class="fa fa-user"></i> 1-15 </a></li>
+                                        <li><a><i class="fa fa-clock-o"></i> حسب الساعات </a></li>
+                                    </ul>
+                                </div><!-- end left -->
+
+                                <div class="pull-right">
+                                    <ul class="list-inline">
+                                    </ul>
+                                </div><!-- end left -->
+                            </div><!-- end footer -->
+                        </div><!-- end box -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+                <hr class="invis">
+            </div><!-- end container -->
+        </section>
+
+        <section class="section gb nopadtop">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="box m30">
+                            <i class="flaticon-computer-tool-for-education"></i>
+                            <h4>لكل الطلاب</h4>
+                            <p>مسارات تعليمية متنوعة مصممة لتلبية احتياجات كل طالب بمرونة وتخصيص، مع تدريبات من مدربين
+                                محترفين.</p>
+                            <a href="shop.html" class="readmore">للمزيد</a>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class="col-md-6">
+                        <div class="box m30">
+                            <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                            <h4>فرصة التعلم عن بعد</h4>
+                            <p>نحن نقدم إمكانية التعلم الإلكتروني بواسطة منصات متعددة مثل Google Meet للتفاعل الفعّال، و
+                                ZOOM لجلسات التعلم المرئية المباشرة، و FaceTime للتواصل الشخصي، و WhatsApp للمناقشات
+                                والدعم المستمر.</p>
+                            <a href="shop.html" class="readmore">للمزيد</a>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class="col-md-3">
+                        <div class="box m30">
+                            <i class="flaticon-download-business-statistics-symbol-of-a-graphic"></i>
+                            <h4>ارتفاع مضمون</h4>
+                            <p>نحن نضمن متابعة تقدم الطلاب بأعلى مستوى من التفصيل والدقة لضمان تحقيق النجاح الكامل.</p>
+                            <a href="shop.html" class="readmore">للمزيد</a>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+                <hr class="invis">
+            </div><!-- end container -->
+        </section>
+
+        <section class="section db">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="stat-count">
+                            <h4 class="stat-timer">236</h4>
+                            <h3><i class="flaticon-black-graduation-cap-tool-of-university-student-for-head"></i> طلاب
+                                ناجحون</h3>
+                            <p>طلابنا يثقون بنا حتى بعد التخرج الجامعي، حيث نساعدهم على تحقيق أهدافهم المهنية والشخصية
+                                بالتوجيه والدعم المستمر.</p>
+                        </div><!-- stat-count -->
+                    </div><!-- end col -->
+                    <div class="col-lg-4 col-md-4">
+                        <div class="stat-count">
+                            <h4 class="stat-timer">85</h4>
+                            <h3><i class="flaticon-online-course"></i> كرس ثابت</h3>
+                            <p>نقدم دوراتنا الثابتة في كافة مناطق الشمال لتوفير الفرص التعليمية لجميع الطلاب.</p>
+                        </div><!-- stat-count -->
+                    </div><!-- end col -->
+                    <div class="col-lg-4 col-md-4">
+                        <div class="stat-count">
+                            <h4 class="stat-timer">1569</h4>
+                            <h3><i class="flaticon-coffee-cup"></i> مجموع الزيادة بمعدلات طلابنا</h3>
+                            <p>النتائج مبشرة بشكل كاف، حيث تُظهر تحسنًا ملموسًا في معدلات أداء طلابنا.</p>
+                        </div><!-- stat-count -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h3>: كلمات من اصدقاء المعهد</h3>
+                </div><!-- end title -->
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="box testimonial">
+                            <p class="testiname"><strong><img src="images/person2.jpeg" alt="" class="img-circle"> محمد
+                                    أحمد</strong></p>
+                            <p>
+                                بمركز التعليم الذكي، يتم تقديم برامج تعليمية متطورة، تعتمد على تكنولوجيا حديثة لتحسين
+                                تجربة التعلم وتطوير مهارات الطلاب بطرق مبتكرة.
+                            </p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div><!-- end testimonial -->
+                    </div><!-- end col -->
+
+                    <div class="col-md-4">
+                        <div class="box testimonial">
+                            <p class="testiname"><strong><img src="images/person1.jpeg" alt="" class="img-circle">سارة
+                                    يوسف</strong></p>
+                            <p>بمركز التعليم الذكي، تقدم حلول تعليمية مبتكرة، مدمجة بتقنيات متطورة لتعزيز تجارب التعلم
+                                وتمكين الطلاب.</p>
+                            </p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div><!-- end testimonial -->
+                    </div><!-- end col -->
+
+                    <div class="col-md-4">
+                        <div class="box testimonial">
+                            <p class="testiname"><strong><img src="images/person3.jpeg" alt="" class="img-circle"> علي
+                                    حسن</strong></p>
+                            <p>في مركز التعليم الذكي، نوفر بيئة تعليمية ثورية تدمج أحدث التقنيات لتعزيز فعالية التعلم
+                                وتمكين الطلاب من تحقيق إمكانياتهم.</p>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div><!-- end testimonial -->
+                    </div><!-- end col -->
+
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+
+        <style>
+            .uniqueShadowEffect {
+                position: absolute;
+                top: 500px;
+                left: 100px;
+                width: 500px;
+                height: 40px;
+                border-radius: 50%;
+                background: radial-gradient(#805d78, rgba(0, 0, 0, 0) 70%);
+            }
+
+            .uniqueClippedBorder {
+                -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+                clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+                padding: 5px;
+                background: linear-gradient(grey, lightgrey);
+                width: 200px;
+                height: 200px;
+                max-height: 250px;
+                max-width: 250px;
+                transition: transform 0.2s;
+                position: absolute;
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .uniqueClippedBorder:hover {
+                transform: scale(1.2);
+                z-index: 10;
+            }
+
+            .uniqueClippedBorder::before {
+                content: '';
+                position: absolute;
+                opacity: 0.5;
+                width: 350px;
+                height: 70px;
+                background: white;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                transform: rotate(45deg);
+                transition: transform 0.5s;
+            }
+
+            .uniqueClippedBorder:hover::before {
+                transform: translate(-100px, 400%) rotate(45deg);
+            }
+
+            /* Position adjustments for each image container */
+            .uniqueClippedBorder:nth-child(1) {
+                top: 196px;
+                left: 118px;
+            }
+
+            .uniqueClippedBorder:nth-child(2) {
+                top: 0;
+                left: 235px;
+            }
+
+            .uniqueClippedBorder:nth-child(3) {
+                top: 196px;
+                left: 353px;
+            }
+
+            .uniqueClippedBorder:nth-child(4) {
+                top: 0;
+                left: 470px;
+            }
+
+            @media screen and (max-width: 500px) {
+                .uniqueClippedBorder {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                .uniqueClippedBorder:nth-child(1) {
+                    top: 0;
+                    left: 0;
+                }
+
+                .uniqueClippedBorder:nth-child(2) {
+                    top: 0;
+                    left: 100px;
+                }
+
+                .uniqueClippedBorder:nth-child(3) {
+                    top: 82px;
+                    left: 0;
+                }
+
+                .uniqueClippedBorder:nth-child(4) {
+                    top: 82px;
+                    left: 100px;
+                }
+            }
+        </style>
+
+        <section class="section gb">
+            <div class="container">
+
+            </div>
+        </section>
+        <div class="copyrights">
+            <div class="container">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <div class="cop-logo">
+                            <a href="#"><img style="height: 50%; width: 100%;" src="images/logo.jpeg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <div class="footer-links">
+                            <ul class="list-inline">
+                                <li>All Copy rights Reserved : <a href="#">Smart Education Center</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end container -->
+        </div><!-- end copy -->
+    </div><!-- end wrapper -->
+
+    <!-- jQuery Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/animate.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- VIDEO BG PLUGINS -->
+    <script src="js/videobg.js"></script>
+
 </body>
 
 </html>
