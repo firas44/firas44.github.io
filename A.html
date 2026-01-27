@@ -1,1424 +1,1556 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎪 مدينة المعرفة - موقع تعليمي للأطفال - سجى دراوشه</title>
-    
-    <!-- Bootstrap CSS RTL -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
-    <style>
-        :root {
-            --primary: #FF6B8B;
-            --secondary: #4ECDC4;
-            --accent: #FFD166;
-            --success: #06D6A0;
-            --info: #118AB2;
-            --dark: #073B4C;
-            --light: #F8F9FA;
-        }
-        
-        * {
-            font-family: 'Cairo', sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: var(--dark);
-            background-attachment: fixed;
-        }
-        
-        .main-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 30px 30px 0 0;
-            min-height: 100vh;
-            box-shadow: 0 -10px 50px rgba(0,0,0,0.1);
-        }
-        
-        /* Header */
-        .site-header {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--info) 100%);
-            border-radius: 30px 30px 0 0;
-            padding: 30px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .teacher-badge {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 10px 25px;
-            display: inline-block;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .floating-animals {
-            position: absolute;
-            font-size: 40px;
-            opacity: 0.3;
-            z-index: 1;
-        }
-        
-        .animal1 { top: 20px; right: 20px; animation: float 8s infinite ease-in-out; }
-        .animal2 { top: 60px; left: 30px; animation: float 10s infinite ease-in-out 1s; }
-        .animal3 { bottom: 40px; right: 100px; animation: float 12s infinite ease-in-out 2s; }
-        .animal4 { bottom: 20px; left: 100px; animation: float 9s infinite ease-in-out 3s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-        
-        /* Game Cards */
-        .game-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 25px;
-            border: none;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .game-header {
-            background: linear-gradient(90deg, var(--primary) 0%, #FF8E53 100%);
-            color: white;
-            padding: 20px;
-            position: relative;
-        }
-        
-        .math-game .game-header { background: linear-gradient(90deg, #FF6B8B 0%, #FF8E53 100%); }
-        .science-game .game-header { background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 100%); }
-        .arabic-game .game-header { background: linear-gradient(90deg, #9D4EDD 0%, #C471ED 100%); }
-        .memory-game .game-header { background: linear-gradient(90deg, #FFD166 0%, #FF9A3C 100%); color: #333; }
-        
-        .game-body {
-            padding: 25px;
-        }
-        
-        /* Buttons */
-        .game-btn {
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 700;
-            border: none;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            font-size: 1.1rem;
-        }
-        
-        .game-btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .game-btn:hover:before {
-            left: 100%;
-        }
-        
-        .game-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .btn-math { background: linear-gradient(90deg, #FF6B8B 0%, #FF8E53 100%); color: white; }
-        .btn-science { background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 100%); color: white; }
-        .btn-arabic { background: linear-gradient(90deg, #9D4EDD 0%, #C471ED 100%); color: white; }
-        .btn-memory { background: linear-gradient(90deg, #FFD166 0%, #FF9A3C 100%); color: #333; }
-        
-        /* Game Elements */
-        .score-display {
-            background: linear-gradient(90deg, var(--accent) 0%, #FFB347 100%);
-            color: #333;
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 800;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(255, 209, 102, 0.3);
-            border: 3px solid white;
-        }
-        
-        .question-box {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border-radius: 20px;
-            padding: 25px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin: 20px 0;
-            border: 3px dashed var(--info);
-            color: var(--dark);
-        }
-        
-        .answer-option {
-            background: white;
-            border: 3px solid #e9ecef;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 10px 0;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .answer-option:hover {
-            transform: translateX(-5px);
-            border-color: var(--secondary);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.2);
-        }
-        
-        .answer-option.correct {
-            background: linear-gradient(90deg, #06D6A0 0%, #04B586 100%);
-            color: white;
-            border-color: #06D6A0;
-            animation: pulse 0.5s;
-        }
-        
-        .answer-option.wrong {
-            background: linear-gradient(90deg, #EF476F 0%, #D43A5E 100%);
-            color: white;
-            border-color: #EF476F;
-            animation: shake 0.5s;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
-        }
-        
-        /* Memory Game */
-        .memory-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .memory-card {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            transform-style: preserve-3d;
-            position: relative;
-        }
-        
-        .memory-card.flipped {
-            background: white;
-            transform: rotateY(180deg);
-        }
-        
-        .memory-card.matched {
-            background: linear-gradient(135deg, #06D6A0 0%, #04B586 100%);
-            transform: scale(0.95);
-            cursor: default;
-        }
-        
-        .memory-card .back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 900;
-            color: white;
-        }
-        
-        .memory-card .front {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: rotateY(180deg);
-            font-size: 2rem;
-        }
-        
-        /* Resources Section */
-        .resource-card {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--primary);
-            transition: all 0.3s;
-        }
-        
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        }
-        
-        .resource-link {
-            color: var(--info);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .resource-link:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-        
-        /* Timer */
-        .timer-display {
-            background: linear-gradient(90deg, #EF476F 0%, #D43A5E 100%);
-            color: white;
-            border-radius: 50px;
-            padding: 10px 25px;
-            font-weight: 800;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(239, 71, 111, 0.3);
-        }
-        
-        /* Confetti */
-        .confetti {
-            position: fixed;
-            width: 15px;
-            height: 15px;
-            background-color: var(--primary);
-            top: -10px;
-            z-index: 9999;
-        }
-        
-        /* Footer */
-        .site-footer {
-            background: linear-gradient(90deg, var(--dark) 0%, #052936 100%);
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: 50px;
-            border-radius: 30px 30px 0 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .memory-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .question-box {
-                font-size: 1.2rem;
-                padding: 15px;
-            }
-            
-            .game-btn {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-        }
-        
-        /* Progress Bar */
-        .progress-container {
-            background: #e9ecef;
-            border-radius: 10px;
-            height: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--success) 0%, var(--secondary) 100%);
-            border-radius: 10px;
-            transition: width 0.5s ease;
-        }
-    </style>
-</head>
-<body>
-    <!-- Floating Animals -->
-    <div class="floating-animals animal1">🐱</div>
-    <div class="floating-animals animal2">🐶</div>
-    <div class="floating-animals animal3">🐰</div>
-    <div class="floating-animals animal4">🐯</div>
-    
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Header -->
-        <header class="site-header">
-            <div class="container header-content">
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <h1 class="display-4 fw-bold text-white animate__animated animate__bounceInDown">
-                            🎪 مدينة المعرفة
-                        </h1>
-                        <p class="lead text-white mb-4 animate__animated animate__fadeIn">
-                            موقع تعليمي تفاعلي للأطفال - ألعاب تعليمية مسلية
-                        </p>
-                        <div class="teacher-badge animate__animated animate__zoomIn">
-                            <i class="fas fa-chalkboard-teacher me-2"></i>
-                            <span class="fw-bold">المعلمة: سجى دراوشه</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <div class="score-display animate__animated animate__pulse animate__infinite">
-                            <i class="fas fa-trophy me-2"></i>
-                            النقاط: <span id="totalScore">0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        
-        <!-- Main Content -->
-        <main class="container py-5">
-            <!-- Games Section -->
-            <div class="row mb-5">
-                <div class="col-12">
-                    <h2 class="fw-bold mb-4 text-center" style="color: var(--dark);">
-                        <i class="fas fa-gamepad me-2"></i>الألعاب التعليمية
-                    </h2>
-                </div>
-            </div>
-            
-            <!-- Math Game -->
-            <div class="row mb-5">
-                <div class="col-lg-6">
-                    <div class="game-card math-game animate__animated animate__fadeInLeft">
-                        <div class="game-header">
-                            <h3 class="mb-0"><i class="fas fa-calculator me-2"></i>لعبة الرياضيات</h3>
-                        </div>
-                        <div class="game-body">
-                            <div class="text-center mb-4">
-                                <div class="score-display">
-                                    <i class="fas fa-star me-2"></i>النقاط: <span id="mathScore">0</span>
-                                </div>
-                            </div>
-                            
-                            <div id="mathGameArea">
-                                <div class="question-box" id="mathQuestion">
-                                    اضغط بدء اللعبة
-                                </div>
-                                
-                                <div class="row" id="mathAnswers">
-                                    <!-- Answers will be generated here -->
-                                </div>
-                                
-                                <div class="text-center mt-4">
-                                    <button class="game-btn btn-math" id="startMathGame">
-                                        <i class="fas fa-play me-2"></i>بدء اللعبة
-                                    </button>
-                                    <button class="game-btn btn-math ms-2" id="nextMathQuestion" style="display: none;">
-                                        <i class="fas fa-forward me-2"></i>سؤال تالي
-                                    </button>
-                                </div>
-                                
-                                <div class="progress-container mt-3">
-                                    <div class="progress-bar" id="mathProgress" style="width: 0%"></div>
-                                </div>
-                                <div class="text-center small mt-1">
-                                    <span id="mathProgressText">0/10</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Science Game -->
-                <div class="col-lg-6">
-                    <div class="game-card science-game animate__animated animate__fadeInRight">
-                        <div class="game-header">
-                            <h3 class="mb-0"><i class="fas fa-flask me-2"></i>لعبة العلوم</h3>
-                        </div>
-                        <div class="game-body">
-                            <div class="text-center mb-4">
-                                <div class="score-display">
-                                    <i class="fas fa-star me-2"></i>النقاط: <span id="scienceScore">0</span>
-                                </div>
-                            </div>
-                            
-                            <div id="scienceGameArea">
-                                <div class="question-box" id="scienceQuestion">
-                                    اضغط بدء اللعبة
-                                </div>
-                                
-                                <div class="row" id="scienceAnswers">
-                                    <!-- Answers will be generated here -->
-                                </div>
-                                
-                                <div class="text-center mt-4">
-                                    <button class="game-btn btn-science" id="startScienceGame">
-                                        <i class="fas fa-play me-2"></i>بدء اللعبة
-                                    </button>
-                                    <button class="game-btn btn-science ms-2" id="nextScienceQuestion" style="display: none;">
-                                        <i class="fas fa-forward me-2"></i>سؤال تالي
-                                    </button>
-                                </div>
-                                
-                                <div class="progress-container mt-3">
-                                    <div class="progress-bar" id="scienceProgress" style="width: 0%"></div>
-                                </div>
-                                <div class="text-center small mt-1">
-                                    <span id="scienceProgressText">0/8</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Arabic & Memory Games -->
-            <div class="row mb-5">
-                <div class="col-lg-6">
-                    <div class="game-card arabic-game animate__animated animate__fadeInLeft">
-                        <div class="game-header">
-                            <h3 class="mb-0"><i class="fas fa-book-open me-2"></i>لعبة اللغة العربية</h3>
-                        </div>
-                        <div class="game-body">
-                            <div class="text-center mb-4">
-                                <div class="score-display">
-                                    <i class="fas fa-star me-2"></i>النقاط: <span id="arabicScore">0</span>
-                                </div>
-                            </div>
-                            
-                            <div id="arabicGameArea">
-                                <div class="question-box" id="arabicQuestion">
-                                    اضغط بدء اللعبة
-                                </div>
-                                
-                                <div class="row" id="arabicAnswers">
-                                    <!-- Answers will be generated here -->
-                                </div>
-                                
-                                <div class="text-center mt-4">
-                                    <button class="game-btn btn-arabic" id="startArabicGame">
-                                        <i class="fas fa-play me-2"></i>بدء اللعبة
-                                    </button>
-                                    <button class="game-btn btn-arabic ms-2" id="nextArabicQuestion" style="display: none;">
-                                        <i class="fas fa-forward me-2"></i>سؤال تالي
-                                    </button>
-                                </div>
-                                
-                                <div class="progress-container mt-3">
-                                    <div class="progress-bar" id="arabicProgress" style="width: 0%"></div>
-                                </div>
-                                <div class="text-center small mt-1">
-                                    <span id="arabicProgressText">0/8</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Memory Game -->
-                <div class="col-lg-6">
-                    <div class="game-card memory-game animate__animated animate__fadeInRight">
-                        <div class="game-header">
-                            <h3 class="mb-0"><i class="fas fa-brain me-2"></i>لعبة الذاكرة</h3>
-                        </div>
-                        <div class="game-body">
-                            <div class="text-center mb-4">
-                                <div class="timer-display">
-                                    <i class="fas fa-clock me-2"></i>الوقت: <span id="timer">60</span> ثانية
-                                </div>
-                                <div class="score-display mt-3">
-                                    <i class="fas fa-star me-2"></i>الأزواج: <span id="matchedPairs">0</span>/8
-                                </div>
-                            </div>
-                            
-                            <div id="memoryGameArea">
-                                <div class="memory-grid" id="memoryCards">
-                                    <!-- Memory cards will be generated here -->
-                                </div>
-                                
-                                <div class="text-center mt-4">
-                                    <button class="game-btn btn-memory" id="startMemoryGame">
-                                        <i class="fas fa-play me-2"></i>بدء اللعبة
-                                    </button>
-                                    <button class="game-btn btn-memory ms-2" id="restartMemoryGame" style="display: none;">
-                                        <i class="fas fa-redo me-2"></i>إعادة اللعبة
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Resources Section -->
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="fw-bold mb-4 text-center" style="color: var(--dark);">
-                        <i class="fas fa-book me-2"></i>الموارد التعليمية
-                    </h2>
-                </div>
-                
-                <!-- Math Resources -->
-                <div class="col-md-6 mb-4">
-                    <div class="resource-card animate__animated animate__fadeInUp">
-                        <h4 class="fw-bold mb-3" style="color: var(--primary);">
-                            <i class="fas fa-calculator me-2"></i>موارد الرياضيات
-                        </h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <a href="https://www.khanacademy.org/math/early-math" class="resource-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> أكاديمية خان للرياضيات المبكرة
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://www.mathplayground.com/" class="resource-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> Math Playground - ألعاب رياضيات
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://www.coolmath4kids.com/" class="resource-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> Cool Math 4 Kids
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Science Resources -->
-                <div class="col-md-6 mb-4">
-                    <div class="resource-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
-                        <h4 class="fw-bold mb-3" style="color: var(--secondary);">
-                            <i class="fas fa-flask me-2"></i>موارد العلوم
-                        </h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <a href="https://kids.nationalgeographic.com/" class="resource-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> National Geographic Kids
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://www.sciencekids.co.nz/" class="resource-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> Science Kids
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://pbskids.org/games/science/" class="resource-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> ألعاب علوم PBS Kids
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Arabic Resources -->
-                <div class="col-md-6 mb-4">
-                    <div class="resource-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                        <h4 class="fw-bold mb-3" style="color: #9D4EDD;">
-                            <i class="fas fa-book-open me-2"></i>موارد اللغة العربية
-                        </h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <a href="https://www.alefbata.com/" class="resource-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> موقع ألف باء
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://www.noorart.com/arabic-for-kids" class="resource-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i> نور آرت للعربية
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Educational Videos -->
-                <div class="col-md-6 mb-4">
-                    <div class="resource-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
-                        <h4 class="fw-bold mb-3" style="color: var(--accent);">
-                            <i class="fas fa-video me-2"></i>فيديوهات تعليمية
-                        </h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <a href="https://www.youtube.com/c/SesameStreetArabic" class="resource-link" target="_blank">
-                                    <i class="fab fa-youtube"></i> شارع السمسم العربي
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://www.youtube.com/c/BabyBusArabic" class="resource-link" target="_blank">
-                                    <i class="fab fa-youtube"></i> BabyBus العربي
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </main>
-        
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <h5 class="fw-bold mb-3">
-                            <i class="fas fa-graduation-cap me-2"></i>عن الموقع
-                        </h5>
-                        <p>موقع تعليمي تفاعلي يقدم ألعابًا تعليمية ممتعة للأطفال في الرياضيات والعلوم واللغة العربية، صممته المعلمة سجى دراوشه.</p>
-                    </div>
-                    
-                    <div class="col-md-6 mb-4">
-                        <h5 class="fw-bold mb-3">
-                            <i class="fas fa-envelope me-2"></i>للتواصل
-                        </h5>
-                        <p>البريد الإلكتروني: hisham.abdu@gmail.com</p>
-                        <p>جميع الألعاب تعمل بدون اتصال بالإنترنت!</p>
-                    </div>
-                </div>
-                
-                <hr class="bg-light">
-                
-                <div class="text-center pt-3">
-                    <p class="mb-0">
-                        <i class="fas fa-heart text-danger"></i> صُمم بحب للأطفال - جميع الحقوق محفوظة 2023
-                    </p>
-                </div>
-            </div>
-        </footer>
-    </div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>🌈 مدينة الأطفال التعليمية - المعلمة سجى دراوشه</title>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // ========= GLOBAL VARIABLES =========
-        let totalScore = 0;
-        let mathScore = 0;
-        let scienceScore = 0;
-        let arabicScore = 0;
-        
-        let mathGameActive = false;
-        let scienceGameActive = false;
-        let arabicGameActive = false;
-        let memoryGameActive = false;
-        
-        let mathCurrentQuestion = 0;
-        let scienceCurrentQuestion = 0;
-        let arabicCurrentQuestion = 0;
-        
-        let timer = 60;
-        let timerInterval;
-        let matchedPairs = 0;
-        let memoryCards = [];
-        let flippedCards = [];
-        let canFlip = true;
-        
-        // ========= GAME QUESTIONS DATABASE =========
-        const mathQuestions = [
-            {
-                question: "٥ + ٣ = ?",
-                answers: ["٧", "٨", "٩", "٦"],
-                correct: 1
-            },
-            {
-                question: "١٠ - ٤ = ?",
-                answers: ["٥", "٦", "٧", "٨"],
-                correct: 1
-            },
-            {
-                question: "٢ × ٣ = ?",
-                answers: ["٤", "٥", "٦", "٧"],
-                correct: 2
-            },
-            {
-                question: "٨ ÷ ٢ = ?",
-                answers: ["٢", "٣", "٤", "٥"],
-                correct: 2
-            },
-            {
-                question: "٧ + ٢ = ?",
-                answers: ["٨", "٩", "١٠", "١١"],
-                correct: 1
-            },
-            {
-                question: "١٢ - ٥ = ?",
-                answers: ["٦", "٧", "٨", "٩"],
-                correct: 1
-            },
-            {
-                question: "٤ × ٢ = ?",
-                answers: ["٦", "٧", "٨", "٩"],
-                correct: 2
-            },
-            {
-                question: "٩ ÷ ٣ = ?",
-                answers: ["٢", "٣", "٤", "٥"],
-                correct: 1
-            },
-            {
-                question: "٦ + ٦ = ?",
-                answers: ["١١", "١٢", "١٣", "١٤"],
-                correct: 1
-            },
-            {
-                question: "١٥ - ٧ = ?",
-                answers: ["٧", "٨", "٩", "١٠"],
-                correct: 1
-            }
-        ];
-        
-        const scienceQuestions = [
-            {
-                question: "أي جزء من النبات يمتص الماء؟",
-                answers: ["الجذور", "الأوراق", "الزهرة", "الثمرة"],
-                correct: 0
-            },
-            {
-                question: "أي حيوان يعيش في الماء؟",
-                answers: ["أسد", "نمر", "سمكة", "فيل"],
-                correct: 2
-            },
-            {
-                question: "ما لون التفاحة الناضجة؟",
-                answers: ["أزرق", "أخضر", "أحمر", "أسود"],
-                correct: 2
-            },
-            {
-                question: "ماذا تأكل البقرة؟",
-                answers: ["لحم", "عشب", "أسماك", "حلويات"],
-                correct: 1
-            },
-            {
-                question: "أين يعيش الدب القطبي؟",
-                answers: ["الصحراء", "القطب الشمالي", "الغابة", "المزرعة"],
-                correct: 1
-            },
-            {
-                question: "ما الذي تحتاجه النار لتشتعل؟",
-                answers: ["ماء", "هواء", "ثلج", "ظلام"],
-                correct: 1
-            },
-            {
-                question: "كيف يسمى صغير القط؟",
-                answers: ["جرو", "هر", "مهر", "كتكوت"],
-                correct: 1
-            },
-            {
-                question: "ما شكل الكرة؟",
-                answers: ["مربع", "مثلث", "مستطيل", "دائري"],
-                correct: 3
-            }
-        ];
-        
-        const arabicQuestions = [
-            {
-                question: "ما أول حرف في كلمة 'مدرسة'؟",
-                answers: ["م", "د", "ر", "س"],
-                correct: 0
-            },
-            {
-                question: "ما جمع 'كتاب'؟",
-                answers: ["كتب", "كُتيب", "مكتب", "كاتب"],
-                correct: 0
-            },
-            {
-                question: "ما عكس 'كبير'؟",
-                answers: ["طويل", "صغير", "عريض", "ثقيل"],
-                correct: 1
-            },
-            {
-                question: "كم حرف في كلمة 'تفاحة'؟",
-                answers: ["٤", "٥", "٦", "٧"],
-                correct: 1
-            },
-            {
-                question: "ما نوع ال 'قلم'؟",
-                answers: ["مذكر", "مؤنث", "جماد", "حيوان"],
-                correct: 0
-            },
-            {
-                question: "ما آخر حرف في كلمة 'شمس'؟",
-                answers: ["ش", "م", "س", "ء"],
-                correct: 2
-            },
-            {
-                question: "ما معنى 'سريع'؟",
-                answers: ["بطيء", "كبير", "خائف", "سريع"],
-                correct: 3
-            },
-            {
-                question: "ما أول حرف في 'تفاحة'؟",
-                answers: ["ت", "ف", "ح", "ة"],
-                correct: 0
-            }
-        ];
-        
-        const memoryEmojis = ['🐱', '🐶', '🐰', '🐯', '🐸', '🐼', '🐵', '🐻'];
-        
-        // ========= UTILITY FUNCTIONS =========
-        function updateScores() {
-            document.getElementById('totalScore').textContent = totalScore;
-            document.getElementById('mathScore').textContent = mathScore;
-            document.getElementById('scienceScore').textContent = scienceScore;
-            document.getElementById('arabicScore').textContent = arabicScore;
+  <!-- Bootstrap RTL -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Alertify (IMPORTANT: in HEAD so it is ready before JS uses it) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+  <style>
+    :root{
+      --kid-pink:#FF85A2;
+      --kid-blue:#3DC2FF;
+      --kid-yellow:#FFD166;
+      --kid-green:#06D6A0;
+      --kid-purple:#9D4EDD;
+      --kid-orange:#FF9E6D;
+      --dark:#2D3047;
+      --light:#F8F9FA;
+    }
+    *{font-family:'Cairo',sans-serif;box-sizing:border-box}
+    body{
+      background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
+      min-height:100vh;color:var(--dark);background-attachment:fixed;overflow-x:hidden;
+    }
+
+    /* Header */
+    .site-header{
+      background:linear-gradient(90deg,var(--kid-pink) 0%,var(--kid-purple) 100%);
+      border-radius:0 0 40px 40px;
+      padding:28px 0;
+      position:relative;overflow:hidden;
+      box-shadow:0 10px 40px rgba(157,78,221,.2);
+    }
+    .header-design{position:absolute;inset:0;z-index:1;overflow:hidden}
+    .bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.10);animation:float 15s infinite ease-in-out}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-30px) rotate(180deg)}}
+
+    .teacher-card{
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(10px);
+      border-radius:25px;
+      padding:22px;
+      box-shadow:0 15px 35px rgba(0,0,0,.10);
+      border:3px solid #fff;
+      position:relative;z-index:2;
+    }
+
+    /* Nav */
+    .top-nav{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .nav-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border-radius:999px;
+      text-decoration:none;color:var(--dark);
+      background:#fff;border:1px solid rgba(0,0,0,.06);
+      transition:.2s;
+      white-space:nowrap;
+    }
+    .nav-pill:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.07)}
+    .nav-scroll{overflow:auto;scrollbar-width:thin}
+
+    /* Main */
+    .main-container{padding:35px 0}
+    .section-title{
+      position:relative;padding-right:25px;margin-bottom:26px
+    }
+    .section-title:before{
+      content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);
+      width:10px;height:100%;
+      background:linear-gradient(to bottom,var(--kid-pink),var(--kid-purple));
+      border-radius:10px;
+    }
+
+    /* Cards */
+    .edu-card{
+      background:#fff;border-radius:25px;overflow:hidden;
+      box-shadow:0 15px 35px rgba(0,0,0,.08);
+      transition:all .35s ease;
+      margin-bottom:24px;border:3px solid #fff;height:100%;
+    }
+    .edu-card:hover{transform:translateY(-10px);box-shadow:0 25px 50px rgba(0,0,0,.14)}
+    .card-header{padding:20px;color:#fff;position:relative;overflow:hidden}
+    .doc-card .card-header{background:linear-gradient(90deg,#3DC2FF 0%,#118AB2 100%)}
+    .presentation-card .card-header{background:linear-gradient(90deg,#FF9E6D 0%,#EF476F 100%)}
+    .games-card .card-header{background:linear-gradient(90deg,#FFD166 0%,#FF9A3C 100%);color:#333}
+    .video-card .card-header{background:linear-gradient(90deg,#06D6A0 0%,#04B586 100%)}
+    .gallery-card .card-header{background:linear-gradient(90deg,#9D4EDD 0%,#C471ED 100%)}
+    .links-card .card-header{background:linear-gradient(90deg,#4ECDC4 0%,#44A08D 100%)}
+
+    .card-body{padding:20px}
+
+    /* Items */
+    .doc-item{
+      border-right:5px solid var(--kid-blue);
+      padding:14px;margin-bottom:12px;background:var(--light);
+      border-radius:16px;transition:.25s;position:relative;overflow:hidden;
+    }
+    .doc-item:hover{transform:translateX(-8px);box-shadow:0 10px 20px rgba(61,194,255,.10);background:#fff}
+    .doc-meta{font-size:.95rem;color:#666}
+    .tiny{font-size:.9rem;color:#6c757d}
+
+    /* Buttons */
+    .edu-btn{
+      border-radius:999px;padding:10px 18px;font-weight:800;border:none;
+      transition:.25s;position:relative;overflow:hidden;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      text-decoration:none;
+    }
+    .edu-btn:hover{transform:translateY(-2px)}
+    .btn-view{background:linear-gradient(90deg,#3DC2FF 0%,#118AB2 100%);color:#fff}
+    .btn-add{background:linear-gradient(90deg,var(--kid-pink) 0%,var(--kid-purple) 100%);color:#fff}
+    .btn-soft{background:#fff;border:1px solid rgba(0,0,0,.08);color:var(--dark)}
+    .btn-math{background:linear-gradient(90deg,#FF6B8B 0%,#FF8E53 100%);color:#fff}
+    .btn-science{background:linear-gradient(90deg,#4ECDC4 0%,#44A08D 100%);color:#fff}
+    .btn-arabic{background:linear-gradient(90deg,#9D4EDD 0%,#C471ED 100%);color:#fff}
+    .btn-game{background:linear-gradient(90deg,#FFD166 0%,#FF9A3C 100%);color:#333}
+
+    /* Score */
+    .score-box{
+      background:linear-gradient(90deg,var(--kid-yellow) 0%,var(--kid-orange) 100%);
+      color:#333;border-radius:25px;padding:18px;border:4px solid #fff;
+      box-shadow:0 12px 28px rgba(0,0,0,.08);
+    }
+
+    /* Gallery */
+    .image-gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+      gap:12px;
+    }
+    .edu-image{border-radius:16px;overflow:hidden;height:185px;position:relative;cursor:pointer}
+    .edu-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .edu-image:hover img{transform:scale(1.1)}
+    .image-overlay{
+      position:absolute;inset:auto 0 0 0;
+      background:linear-gradient(transparent,rgba(0,0,0,.70));
+      color:#fff;padding:10px;transform:translateY(100%);transition:.25s
+    }
+    .edu-image:hover .image-overlay{transform:translateY(0)}
+
+    /* Videos */
+    .video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;margin:10px 0}
+    .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+    /* Quiz */
+    .game-wrap{background:#fff;border-radius:20px;padding:18px;border:2px dashed var(--kid-yellow)}
+    .question-box{
+      background:linear-gradient(135deg,rgba(255,133,162,.10) 0%,rgba(157,78,221,.10) 100%);
+      border-radius:18px;padding:18px;font-size:1.25rem;font-weight:900;text-align:center;
+      margin:14px 0;border:3px solid var(--kid-pink);
+    }
+    .answer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}
+    .answer-option{
+      background:#fff;border:3px solid #e9ecef;border-radius:14px;padding:14px;cursor:pointer;
+      transition:.2s;font-weight:800;text-align:center
+    }
+    .answer-option:hover{transform:translateY(-3px);border-color:var(--kid-blue);box-shadow:0 10px 18px rgba(61,194,255,.10)}
+    .answer-option.correct{background:linear-gradient(90deg,#06D6A0 0%,#04B586 100%);color:#fff;border-color:#06D6A0}
+    .answer-option.wrong{background:linear-gradient(90deg,#EF476F 0%,#D43A5E 100%);color:#fff;border-color:#EF476F}
+    .progress-container{background:#e9ecef;border-radius:10px;height:18px;overflow:hidden}
+    .progress-barx{height:100%;background:linear-gradient(90deg,var(--kid-pink) 0%,var(--kid-purple) 100%);border-radius:10px;transition:width .35s ease}
+
+    /* Memory game */
+    .memory-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px
+    }
+    .memory-card{
+      height:72px;border-radius:14px;border:2px solid rgba(0,0,0,.08);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.6rem;font-weight:900;background:#fff;cursor:pointer;
+      transition:.2s;
+      user-select:none;
+    }
+    .memory-card:hover{transform:translateY(-2px);box-shadow:0 10px 16px rgba(0,0,0,.08)}
+    .memory-card.revealed{background:linear-gradient(90deg,#3DC2FF 0%,#118AB2 100%);color:#fff;border-color:transparent}
+    .memory-card.matched{background:linear-gradient(90deg,#06D6A0 0%,#04B586 100%);color:#fff;border-color:transparent}
+
+    /* Speed math */
+    .speed-box{
+      background:linear-gradient(135deg,rgba(61,194,255,.10) 0%,rgba(6,214,160,.10) 100%);
+      border:2px solid rgba(61,194,255,.25);
+      border-radius:18px;padding:14px;margin-top:12px
+    }
+
+    /* Footer */
+    .site-footer{
+      background:linear-gradient(90deg,var(--dark) 0%,#1a1c2e 100%);
+      color:#fff;padding:45px 0 18px;margin-top:40px;border-radius:40px 40px 0 0;
+    }
+    .contact-info{background:rgba(255,255,255,.10);border-radius:18px;padding:16px;backdrop-filter:blur(10px)}
+
+    /* Confetti */
+    .confetti{position:fixed;width:10px;height:10px;top:-10px;z-index:9999;pointer-events:none}
+
+    @media (max-width:768px){
+      .answer-grid{grid-template-columns:1fr}
+      .image-gallery{grid-template-columns:repeat(2,1fr)}
+      .memory-grid{grid-template-columns:repeat(3,1fr)}
+      .question-box{font-size:1.1rem}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top nav -->
+  <div class="top-nav py-2">
+    <div class="container">
+      <div class="nav-scroll d-flex gap-2">
+        <a class="nav-pill" href="#documents"><i class="fa-solid fa-file-lines"></i> المستندات</a>
+        <a class="nav-pill" href="#presentations"><i class="fa-solid fa-desktop"></i> العروض</a>
+        <a class="nav-pill" href="#worksheets"><i class="fa-solid fa-file-pdf"></i> أوراق عمل</a>
+        <a class="nav-pill" href="#games"><i class="fa-solid fa-gamepad"></i> ألعاب</a>
+        <a class="nav-pill" href="#images"><i class="fa-solid fa-images"></i> صور</a>
+        <a class="nav-pill" href="#videos"><i class="fa-brands fa-youtube"></i> فيديو</a>
+        <a class="nav-pill" href="#links"><i class="fa-solid fa-link"></i> روابط</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-design" id="headerBubbles"></div>
+
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-8">
+          <div class="teacher-card animate__animated animate__fadeInLeft">
+            <h1 class="display-5 fw-black mb-2" style="color:var(--kid-purple)">
+              <i class="fas fa-graduation-cap me-2"></i>مدينة الأطفال التعليمية
+            </h1>
+            <p class="lead mb-3" style="color:var(--dark)">
+              موقع تعليمي تفاعلي شامل للمرحلة الابتدائية (مستندات + عروض + ألعاب + فيديو + روابط)
+            </p>
+            <div class="d-flex align-items-center">
+              <div class="me-3">
+                <i class="fas fa-chalkboard-teacher fa-2x" style="color:var(--kid-pink)"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-1" style="color:var(--dark)">المعلمة: سجى دراوشه</h4>
+                <p class="mb-0 text-muted">
+                  <i class="fas fa-envelope me-2"></i>البريد للمشاركة: <strong>hisham.abdu@gmail.com</strong>
+                </p>
+                <div class="tiny mt-1">
+                  ✅ مهم: انسخي روابط Google Docs/Slides الحقيقية من حسابك والصقيها هنا (ممكن تحفظيها داخل الموقع).
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2">
+              <button class="edu-btn btn-add" id="openLinksManagerBtn">
+                <i class="fa-solid fa-pen-to-square"></i> إدارة روابط المستندات والعروض
+              </button>
+              <button class="edu-btn btn-soft" id="resetBtn">
+                <i class="fa-solid fa-rotate-left"></i> تصفير النقاط/البيانات
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 text-center">
+          <div class="score-box animate__animated animate__pulse animate__infinite">
+            <h3 class="fw-bold mb-1"><i class="fas fa-trophy me-2"></i>النقاط</h3>
+            <div class="display-4 fw-black" id="totalScore">٠</div>
+            <div class="tiny">انقري على الموارد/العناصر + العب الألعاب لزيادة النقاط 🎉</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="main-container">
+    <div class="container">
+
+      <!-- Documents -->
+      <section class="mb-4" id="documents">
+        <h2 class="section-title fw-black display-6" style="color:var(--kid-blue)">
+          <i class="fas fa-file-alt me-2"></i>المستندات التعليمية (Word/Docs)
+        </h2>
+
+        <div class="edu-card doc-card animate__animated animate__fadeInUp">
+          <div class="card-header">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+              <h3 class="mb-0"><i class="fa-solid fa-folder-open me-2"></i>٤ مستندات أصلية (روابط من حسابك)</h3>
+              <span class="badge text-bg-light text-dark">اضغطي "إدارة الروابط" لإضافة الروابط الصحيحة</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row g-3" id="docsList"></div>
+
+            <div class="alert alert-warning mt-3 mb-0">
+              <strong>ملاحظة مهمة:</strong>
+              الروابط التي تبدأ بـ docs.google.com لازم تكون من مستنداتك أنتِ (Original) ومشاركة مع
+              <strong>hisham.abdu@gmail.com</strong> (View أو Edit).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Presentations -->
+      <section class="mb-4" id="presentations">
+        <h2 class="section-title fw-black display-6" style="color:var(--kid-pink)">
+          <i class="fas fa-desktop me-2"></i>العروض التقديمية (PowerPoint/Slides)
+        </h2>
+
+        <div class="edu-card presentation-card animate__animated animate__fadeInUp">
+          <div class="card-header">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+              <h3 class="mb-0"><i class="fa-solid fa-chalkboard me-2"></i>٤ عروض أصلية</h3>
+              <span class="badge text-bg-light text-dark">إضافة الروابط من داخل Google Slides</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row g-3" id="slidesList"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Worksheets -->
+      <section class="mb-4" id="worksheets">
+        <h2 class="section-title fw-black display-6" style="color:var(--kid-blue)">
+          <i class="fa-solid fa-file-pdf me-2"></i>أوراق عمل PDF جاهزة (محتوى إضافي قوي)
+        </h2>
+
+        <div class="edu-card links-card animate__animated animate__fadeInUp">
+          <div class="card-header">
+            <h3 class="mb-0"><i class="fa-solid fa-star me-2"></i>مصادر أوراق عمل للطباعة</h3>
+          </div>
+          <div class="card-body">
+            <div class="doc-item" data-points="4">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-black">K5Learning — أوراق عمل رياضيات مجانية (PDF)</div>
+                  <div class="doc-meta">أوراق عمل + تمارين جاهزة للطباعة</div>
+                </div>
+                <a class="edu-btn btn-view" target="_blank" href="https://www.k5learning.com/free-math-worksheets" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                </a>
+              </div>
+            </div>
+
+            <div class="doc-item" data-points="4">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-black">Math Center — الصف الأول (أوراق عمل + ألعاب تفاعلية)</div>
+                  <div class="doc-meta">تمارين رقمية + صفحات عمل</div>
+                </div>
+                <a class="edu-btn btn-view" target="_blank" href="https://math-center.org/ar-DZ/worksheets/1st/" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                </a>
+              </div>
+            </div>
+
+            <div class="doc-item" data-points="4">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-black">English Worksheets — للأنشطة والورق</div>
+                  <div class="doc-meta">مفيد للتلوين/القراءة/القص واللصق</div>
+                </div>
+                <a class="edu-btn btn-view" target="_blank" href="https://en.islcollective.com/" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                </a>
+              </div>
+            </div>
+
+            <div class="tiny mt-2">
+              ⭐ هذه الروابط “تشتغل” وبتعطيك محتوى إضافي قوي بالموقع (حتى لو مستنداتك الأصلية موجودة لحالها).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Games -->
+      <section class="mb-4" id="games">
+        <h2 class="section-title fw-black display-6" style="color:var(--kid-green)">
+          <i class="fas fa-gamepad me-2"></i>الألعاب التعليمية (أكثر + أقوى)
+        </h2>
+
+        <div class="edu-card games-card animate__animated animate__fadeInUp">
+          <div class="card-header">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+              <h3 class="mb-0"><i class="fa-solid fa-brain me-2"></i>اختاري لعبة 🎮</h3>
+              <span class="badge text-bg-light text-dark">3 ألعاب داخل الصفحة</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <ul class="nav nav-pills mb-3" id="gamesTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="quiz-tab" data-bs-toggle="pill" data-bs-target="#quiz" type="button" role="tab">
+                  <i class="fa-solid fa-circle-question me-1"></i> كويز (10 أسئلة)
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="memory-tab" data-bs-toggle="pill" data-bs-target="#memory" type="button" role="tab">
+                  <i class="fa-solid fa-clone me-1"></i> ذاكرة
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="speed-tab" data-bs-toggle="pill" data-bs-target="#speed" type="button" role="tab">
+                  <i class="fa-solid fa-bolt me-1"></i> حساب سريع (وقت)
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- Quiz -->
+              <div class="tab-pane fade show active" id="quiz" role="tabpanel">
+                <div class="game-wrap">
+                  <div class="text-center mb-2">
+                    <h4 id="quizTitle" class="fw-black mb-2">لعبة الكويز</h4>
+                    <div class="d-flex justify-content-center flex-wrap gap-2">
+                      <span class="badge text-bg-dark">
+                        <i class="fa-solid fa-star me-1"></i> نقاط اللعبة: <span id="gameScore">٠</span>
+                      </span>
+                      <span class="badge text-bg-primary">
+                        <i class="fa-solid fa-list-ol me-1"></i> سؤال: <span id="questionNumber">١</span>/١٠
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="question-box" id="questionBox">اضغطي على نوع اللعبة للبدء ✨</div>
+                  <div class="answer-grid" id="answersGrid"></div>
+
+                  <div class="d-flex justify-content-center flex-wrap gap-2 mt-2">
+                    <button class="edu-btn btn-math" data-start-quiz="math"><i class="fa-solid fa-calculator"></i> رياضيات</button>
+                    <button class="edu-btn btn-science" data-start-quiz="science"><i class="fa-solid fa-flask"></i> علوم</button>
+                    <button class="edu-btn btn-arabic" data-start-quiz="arabic"><i class="fa-solid fa-book-open"></i> عربية</button>
+                    <button class="edu-btn btn-game" data-start-quiz="general"><i class="fa-solid fa-puzzle-piece"></i> عامة</button>
+                  </div>
+
+                  <div class="progress-container mt-3">
+                    <div class="progress-barx" id="gameProgress" style="width:0%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Memory -->
+              <div class="tab-pane fade" id="memory" role="tabpanel">
+                <div class="game-wrap">
+                  <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <div>
+                      <div class="fw-black">لعبة الذاكرة 🧠</div>
+                      <div class="tiny">افتحي كرتين متشابهين. كل تطابق = +15 نقطة</div>
+                    </div>
+                    <button class="edu-btn btn-add" id="memoryRestart"><i class="fa-solid fa-rotate"></i> إعادة</button>
+                  </div>
+
+                  <div class="memory-grid" id="memoryGrid"></div>
+
+                  <div class="mt-2">
+                    <span class="badge text-bg-success">مطابقات: <span id="memoryMatches">٠</span>/٨</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Speed Math -->
+              <div class="tab-pane fade" id="speed" role="tabpanel">
+                <div class="game-wrap">
+                  <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <div>
+                      <div class="fw-black">الحساب السريع ⚡</div>
+                      <div class="tiny">أجيبي بسرعة قبل ما يخلص الوقت! كل إجابة صحيحة = +10</div>
+                    </div>
+                    <button class="edu-btn btn-add" id="speedStart"><i class="fa-solid fa-play"></i> بدء</button>
+                  </div>
+
+                  <div class="speed-box">
+                    <div class="d-flex justify-content-between flex-wrap gap-2">
+                      <span class="badge text-bg-dark">الوقت: <span id="speedTime">٠</span> ث</span>
+                      <span class="badge text-bg-primary">النتيجة: <span id="speedScore">٠</span></span>
+                    </div>
+
+                    <div class="question-box mt-3" id="speedQuestion">اضغطي "بدء"</div>
+
+                    <div class="input-group mt-2">
+                      <input id="speedAnswer" type="number" class="form-control" placeholder="اكتبي الإجابة هنا" />
+                      <button class="btn btn-primary" id="speedSubmit">إرسال</button>
+                    </div>
+
+                    <div class="tiny mt-2" id="speedHint"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- tab-content -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Images -->
+      <section class="mb-4" id="images">
+        <h2 class="section-title fw-black display-6" style="color:var(--kid-orange)">
+          <i class="fas fa-images me-2"></i>الصور التعليمية
+        </h2>
+
+        <div class="edu-card gallery-card animate__animated animate__fadeInUp">
+          <div class="card-header">
+            <h3 class="mb-0"><i class="fa-solid fa-camera-retro me-2"></i>معرض صور</h3>
+          </div>
+          <div class="card-body">
+            <div class="image-gallery">
+              <div class="edu-image" data-points="2">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="رياضيات للأطفال">
+                <div class="image-overlay"><small>رياضيات ممتعة</small></div>
+              </div>
+              <div class="edu-image" data-points="2">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="تجارب علمية">
+                <div class="image-overlay"><small>تجارب علمية</small></div>
+              </div>
+              <div class="edu-image" data-points="2">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="القراءة والكتابة">
+                <div class="image-overlay"><small>قراءة وكتابة</small></div>
+              </div>
+              <div class="edu-image" data-points="2">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae695a6c9f35?auto=format&fit=crop&w=800&q=80" alt="ألعاب تعليمية">
+                <div class="image-overlay"><small>ألعاب تعليمية</small></div>
+              </div>
+            </div>
+            <div class="tiny mt-2">👆 أي نقرة على صورة = نقاط ✨</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Videos -->
+      <section class="mb-4" id="videos">
+        <h2 class="section-title fw-black display-6" style="color:var(--kid-purple)">
+          <i class="fas fa-video me-2"></i>الفيديوهات التعليمية (يوتيوب)
+        </h2>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="edu-card video-card animate__animated animate__fadeInUp">
+              <div class="card-header">
+                <h3 class="mb-0"><i class="fa-brands fa-youtube me-2"></i>رياضيات (أغنية الجمع)</h3>
+              </div>
+              <div class="card-body">
+                <div class="video-container">
+                  <iframe src="https://www.youtube.com/embed/pk4GoC8XQ5E" title="أغنية الجمع للأطفال" allowfullscreen></iframe>
+                </div>
+                <div class="tiny">فيديو ممتع لتعلّم الجمع 🎵</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="edu-card video-card animate__animated animate__fadeInUp">
+              <div class="card-header">
+                <h3 class="mb-0"><i class="fa-brands fa-youtube me-2"></i>علوم (دورة الماء)</h3>
+              </div>
+              <div class="card-body">
+                <div class="video-container">
+                  <iframe src="https://www.youtube.com/embed/ctBO8Leo8WU" title="دورة الماء للأطفال" allowfullscreen></iframe>
+                </div>
+                <div class="tiny">شرح مبسّط لدورة الماء 💧</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="edu-card video-card animate__animated animate__fadeInUp">
+              <div class="card-header">
+                <h3 class="mb-0"><i class="fa-brands fa-youtube me-2"></i>فضاء (النظام الشمسي)</h3>
+              </div>
+              <div class="card-body">
+                <div class="video-container">
+                  <iframe src="https://www.youtube.com/embed/XVYaz-D2MYE" title="النظام الشمسي للأطفال" allowfullscreen></iframe>
+                </div>
+                <div class="tiny">كواكب ونجوم للأطفال 🌍✨</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Links -->
+      <section class="mb-4" id="links">
+        <h2 class="section-title fw-black display-6" style="color:var(--kid-blue)">
+          <i class="fas fa-link me-2"></i>روابط تعليمية مفيدة (كلها شغّالة)
+        </h2>
+
+        <div class="edu-card links-card animate__animated animate__fadeInUp">
+          <div class="card-header">
+            <h3 class="mb-0"><i class="fa-solid fa-globe me-2"></i>مكتبة روابط</h3>
+          </div>
+          <div class="card-body">
+            <div class="doc-item" data-points="3">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-black">أكاديمية خان (عربي)</div>
+                  <div class="doc-meta">دروس وتمارين مجانية</div>
+                </div>
+                <a class="edu-btn btn-view" target="_blank" href="https://ar.khanacademy.org/" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                </a>
+              </div>
+            </div>
+
+            <div class="doc-item" data-points="3">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-black">PBS KIDS Games</div>
+                  <div class="doc-meta">ألعاب تعليمية كثيرة للأطفال</div>
+                </div>
+                <a class="edu-btn btn-view" target="_blank" href="https://pbskids.org/games" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                </a>
+              </div>
+            </div>
+
+            <div class="doc-item" data-points="3">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-black">National Geographic Kids</div>
+                  <div class="doc-meta">علوم + حيوانات + فضاء</div>
+                </div>
+                <a class="edu-btn btn-view" target="_blank" href="https://kids.nationalgeographic.com/" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                </a>
+              </div>
+            </div>
+
+            <div class="doc-item" data-points="3">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-black">3asafeer — ألعاب عربية للأطفال</div>
+                  <div class="doc-meta">لغة + قراءة + ألعاب</div>
+                </div>
+                <a class="edu-btn btn-view" target="_blank" href="https://3asafeer.com/en/games" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                </a>
+              </div>
+            </div>
+
+            <div class="doc-item" data-points="3">
+              <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                  <div class="fw-black">CoolMath4Kids — ألعاب رياضيات</div>
+                  <div class="doc-meta">ألعاب ومسائل</div>
+                </div>
+                <a class="edu-btn btn-view" target="_blank" href="https://www.coolmath4kids.com/" rel="noopener">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                </a>
+              </div>
+            </div>
+
+            <div class="tiny mt-2">✅ أي نقرة على عنصر = نقاط (بدون تكرار).</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <div class="contact-info">
+            <h4 class="fw-black mb-2"><i class="fa-solid fa-info-circle me-2"></i>معلومات التواصل</h4>
+            <div class="mb-1"><i class="fa-solid fa-user-graduate me-2"></i><strong>المعلمة:</strong> سجى دراوشه</div>
+            <div class="mb-1"><i class="fa-solid fa-envelope me-2"></i><strong>البريد:</strong> hisham.abdu@gmail.com</div>
+            <div class="mb-0"><i class="fa-solid fa-calendar-day me-2"></i><strong>تاريخ التقديم:</strong> 14 يناير</div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <h4 class="fw-black mb-2"><i class="fa-solid fa-check-circle me-2"></i>مميزات الموقع</h4>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>٤ مستندات + ٤ عروض (روابط تُدار داخل الموقع)</li>
+            <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>٣ ألعاب تفاعلية</li>
+            <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>صور + فيديو + روابط جاهزة</li>
+            <li class="mb-1"><i class="fa-solid fa-check text-success me-2"></i>نظام نقاط وتحفيز بدون أخطاء</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+          <h4 class="fw-black mb-2"><i class="fa-solid fa-graduation-cap me-2"></i>عن المشروع</h4>
+          <p class="mb-2">هذا قالب “جاهز وقوي” — فقط أضيفي روابط المستندات/العروض الأصلية من حسابك.</p>
+          <button class="edu-btn btn-add" id="showAllFeaturesBtn">
+            <i class="fa-solid fa-list"></i> عرض كل المميزات
+          </button>
+        </div>
+      </div>
+
+      <hr class="bg-light mt-4">
+
+      <div class="text-center">
+        <div class="tiny">🌈 صُمم بحب للأطفال — المعلمة سجى دراوشه</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Links Manager Modal -->
+  <div class="modal fade" id="linksModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content" dir="rtl">
+        <div class="modal-header">
+          <h5 class="modal-title fw-black"><i class="fa-solid fa-pen-to-square me-2"></i>إدارة روابط المستندات والعروض</h5>
+          <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="alert alert-info">
+            ✨ الصقي هنا روابط Google Docs / Google Slides الحقيقية من حسابك.
+            بعد الحفظ، ستظهر تلقائيًا في الصفحة.
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <h6 class="fw-black">المستندات (٤)</h6>
+              <div id="docsInputs"></div>
+              <button class="edu-btn btn-soft w-100 mt-2" id="fillDocsDemo">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> تعبئة أمثلة (للتجربة)
+              </button>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fw-black">العروض (٤)</h6>
+              <div id="slidesInputs"></div>
+              <button class="edu-btn btn-soft w-100 mt-2" id="fillSlidesDemo">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> تعبئة أمثلة (للتجربة)
+              </button>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <h6 class="fw-black">ملاحظات سريعة</h6>
+              <ul class="mb-0">
+                <li>لازم المستندات والعروض تكون <strong>أصلية</strong> من حسابك.</li>
+                <li>لازم تعملي <strong>Share</strong> مع <strong>hisham.abdu@gmail.com</strong> (View أو Edit).</li>
+                <li>بعد الحفظ، افتحي الصفحة من جديد أو اضغطي “تحديث”.</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex gap-2 flex-wrap">
+                <button class="edu-btn btn-add" id="saveLinksBtn">
+                  <i class="fa-solid fa-floppy-disk"></i> حفظ الروابط
+                </button>
+                <button class="edu-btn btn-soft" id="clearLinksBtn">
+                  <i class="fa-solid fa-trash"></i> حذف كل الروابط
+                </button>
+                <button class="edu-btn btn-view" id="refreshListsBtn">
+                  <i class="fa-solid fa-rotate"></i> تحديث العرض
+                </button>
+              </div>
+              <div class="tiny mt-2">✅ الروابط تُحفظ تلقائيًا داخل المتصفح (LocalStorage).</div>
+            </div>
+          </div>
+
+        </div><!-- modal-body -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (must be before our scripts that use modal/tabs) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // =========================
+    // Alertify config
+    // =========================
+    alertify.defaults.transition = "slide";
+    alertify.defaults.glossary.title = "مدينة الأطفال التعليمية";
+    // Bootstrap-ish buttons:
+    alertify.defaults.theme.ok = "btn btn-primary";
+    alertify.defaults.theme.cancel = "btn btn-secondary";
+
+    // =========================
+    // Helpers: Arabic digits
+    // =========================
+    const AR_DIGITS = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+    const toArabicNumber = (n) => String(n).replace(/\d/g, d => AR_DIGITS[Number(d)]);
+    const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+
+    // =========================
+    // Score + storage keys
+    // =========================
+    const LS = {
+      score: "kidsEdu_score_v1",
+      links: "kidsEdu_links_v1"
+    };
+
+    let totalScore = 0;
+
+    function loadScore() {
+      const raw = localStorage.getItem(LS.score);
+      totalScore = raw ? Number(raw) || 0 : 0;
+      renderTotalScore();
+    }
+
+    function saveScore() {
+      localStorage.setItem(LS.score, String(totalScore));
+    }
+
+    function renderTotalScore() {
+      const el = document.getElementById("totalScore");
+      if (el) el.textContent = toArabicNumber(totalScore);
+    }
+
+    function addPoints(points) {
+      totalScore += Number(points) || 0;
+      saveScore();
+      renderTotalScore();
+      createConfetti(70);
+      playSuccessSound();
+    }
+
+    // =========================
+    // Confetti
+    // =========================
+    function createConfetti(count = 80) {
+      const colors = ['#FF85A2', '#3DC2FF', '#FFD166', '#06D6A0', '#9D4EDD', '#FF9E6D'];
+      for (let i = 0; i < count; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random() * 100 + 'vw';
+        c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        c.style.transform = `rotate(${Math.random() * 360}deg)`;
+        document.body.appendChild(c);
+
+        const duration = Math.random() * 2200 + 1600;
+        const drift = (Math.random() - 0.5) * 120;
+
+        const anim = c.animate([
+          { top: '-10px', transform: `translateX(0px) rotate(0deg)` },
+          { top: '100vh', transform: `translateX(${drift}px) rotate(${Math.random() * 720}deg)` }
+        ], { duration, easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)' });
+
+        anim.onfinish = () => c.remove();
+      }
+    }
+
+    // =========================
+    // Sounds (safe + short)
+    // =========================
+    function beep(freq = 600, type = 'sine', time = 0.12, gain = 0.12) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const g = ctx.createGain();
+        osc.connect(g); g.connect(ctx.destination);
+        osc.frequency.value = freq;
+        osc.type = type;
+        g.gain.setValueAtTime(gain, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + time);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + time);
+      } catch {}
+    }
+    function playSuccessSound(){ beep(820,'triangle',0.12,0.10); }
+    function playWrongSound(){ beep(260,'sawtooth',0.10,0.09); }
+    function playWelcomeSound(){ beep(640,'sine',0.12,0.10); }
+
+    // =========================
+    // Header bubbles
+    // =========================
+    function createBubbles() {
+      const container = document.getElementById('headerBubbles');
+      if (!container) return;
+      container.innerHTML = "";
+      for (let i = 0; i < 18; i++) {
+        const b = document.createElement('div');
+        b.className = 'bubble';
+        const size = Math.random() * 90 + 40;
+        b.style.width = size + 'px';
+        b.style.height = size + 'px';
+        b.style.left = Math.random() * 100 + '%';
+        b.style.top = Math.random() * 100 + '%';
+        b.style.animationDelay = Math.random() * 5 + 's';
+        b.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        container.appendChild(b);
+      }
+    }
+
+    // =========================
+    // Links Manager (Docs/Slides)
+    // =========================
+    const defaultLinksModel = () => ({
+      docs: [
+        { title: "مستند ١ (اكتبي العنوان)", url: "" },
+        { title: "مستند ٢ (اكتبي العنوان)", url: "" },
+        { title: "مستند ٣ (اكتبي العنوان)", url: "" },
+        { title: "مستند ٤ (اكتبي العنوان)", url: "" },
+      ],
+      slides: [
+        { title: "عرض ١ (اكتبي العنوان)", url: "" },
+        { title: "عرض ٢ (اكتبي العنوان)", url: "" },
+        { title: "عرض ٣ (اكتبي العنوان)", url: "" },
+        { title: "عرض ٤ (اكتبي العنوان)", url: "" },
+      ]
+    });
+
+    function loadLinksModel() {
+      const raw = localStorage.getItem(LS.links);
+      if (!raw) return defaultLinksModel();
+      try {
+        const obj = JSON.parse(raw);
+        const model = defaultLinksModel();
+
+        if (Array.isArray(obj?.docs)) {
+          obj.docs.slice(0,4).forEach((x,i) => {
+            model.docs[i] = { title: (x?.title || model.docs[i].title), url: (x?.url || "") };
+          });
         }
-        
-        function createConfetti() {
-            const colors = ['#FF6B8B', '#4ECDC4', '#FFD166', '#06D6A0', '#118AB2', '#9D4EDD'];
-            for (let i = 0; i < 150; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                document.body.appendChild(confetti);
-                
-                // Animation
-                const animation = confetti.animate([
-                    { top: '-10px', transform: `rotate(0deg)` },
-                    { top: '100vh', transform: `rotate(${Math.random() * 720}deg)` }
-                ], {
-                    duration: Math.random() * 3000 + 2000,
-                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
-                });
-                
-                animation.onfinish = () => confetti.remove();
-            }
+        if (Array.isArray(obj?.slides)) {
+          obj.slides.slice(0,4).forEach((x,i) => {
+            model.slides[i] = { title: (x?.title || model.slides[i].title), url: (x?.url || "") };
+          });
         }
-        
-        function playSuccessSound() {
-            // Create simple beep sounds using Web Audio API
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.value = 800;
-            oscillator.type = 'sine';
-            
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.5);
+        return model;
+      } catch {
+        return defaultLinksModel();
+      }
+    }
+
+    function saveLinksModel(model) {
+      localStorage.setItem(LS.links, JSON.stringify(model));
+    }
+
+    function isValidUrl(u) {
+      try { new URL(u); return true; } catch { return false; }
+    }
+
+    function renderLinksLists() {
+      const model = loadLinksModel();
+      renderDocsList(model);
+      renderSlidesList(model);
+    }
+
+    function renderDocsList(model) {
+      const container = document.getElementById("docsList");
+      if (!container) return;
+      container.innerHTML = "";
+
+      model.docs.forEach((d, idx) => {
+        const col = document.createElement("div");
+        col.className = "col-md-6";
+
+        const urlOk = d.url && isValidUrl(d.url);
+        col.innerHTML = `
+          <div class="doc-item" data-points="5">
+            <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+              <div>
+                <div class="fw-black"><i class="fa-solid fa-file-word me-1"></i> ${escapeHtml(d.title || ("مستند " + (idx+1)))}</div>
+                <div class="doc-meta">مستند Google Docs / Word — مطلوب أن يكون أصلي</div>
+                ${urlOk ? `<div class="tiny text-success mt-1"><i class="fa-solid fa-check"></i> الرابط جاهز</div>`
+                        : `<div class="tiny text-danger mt-1"><i class="fa-solid fa-triangle-exclamation"></i> أضيفي الرابط من “إدارة الروابط”</div>`}
+              </div>
+              ${urlOk ? `<a class="edu-btn btn-view" target="_blank" rel="noopener" href="${escapeAttr(d.url)}">
+                          <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                        </a>`
+                      : `<button class="edu-btn btn-soft" type="button" data-open-manager>
+                          <i class="fa-solid fa-pen-to-square"></i> إضافة رابط
+                        </button>`}
+            </div>
+          </div>
+        `;
+        container.appendChild(col);
+      });
+    }
+
+    function renderSlidesList(model) {
+      const container = document.getElementById("slidesList");
+      if (!container) return;
+      container.innerHTML = "";
+
+      model.slides.forEach((s, idx) => {
+        const col = document.createElement("div");
+        col.className = "col-md-6";
+
+        const urlOk = s.url && isValidUrl(s.url);
+        col.innerHTML = `
+          <div class="doc-item" data-points="5">
+            <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+              <div>
+                <div class="fw-black"><i class="fa-solid fa-file-powerpoint me-1"></i> ${escapeHtml(s.title || ("عرض " + (idx+1)))}</div>
+                <div class="doc-meta">عرض Google Slides / PowerPoint — مطلوب أن يكون أصلي</div>
+                ${urlOk ? `<div class="tiny text-success mt-1"><i class="fa-solid fa-check"></i> الرابط جاهز</div>`
+                        : `<div class="tiny text-danger mt-1"><i class="fa-solid fa-triangle-exclamation"></i> أضيفي الرابط من “إدارة الروابط”</div>`}
+              </div>
+              ${urlOk ? `<a class="edu-btn btn-view" target="_blank" rel="noopener" href="${escapeAttr(s.url)}">
+                          <i class="fa-solid fa-arrow-up-right-from-square"></i> فتح
+                        </a>`
+                      : `<button class="edu-btn btn-soft" type="button" data-open-manager>
+                          <i class="fa-solid fa-pen-to-square"></i> إضافة رابط
+                        </button>`}
+            </div>
+          </div>
+        `;
+        container.appendChild(col);
+      });
+    }
+
+    function renderLinksInputs() {
+      const model = loadLinksModel();
+
+      const docsInputs = document.getElementById("docsInputs");
+      const slidesInputs = document.getElementById("slidesInputs");
+      if (!docsInputs || !slidesInputs) return;
+
+      docsInputs.innerHTML = "";
+      slidesInputs.innerHTML = "";
+
+      model.docs.forEach((d, i) => {
+        docsInputs.appendChild(makeLinkInputRow("doc", i, d.title, d.url));
+      });
+      model.slides.forEach((s, i) => {
+        slidesInputs.appendChild(makeLinkInputRow("slide", i, s.title, s.url));
+      });
+    }
+
+    function makeLinkInputRow(type, idx, title, url) {
+      const wrap = document.createElement("div");
+      wrap.className = "mb-2";
+      wrap.innerHTML = `
+        <div class="input-group">
+          <span class="input-group-text">${type === "doc" ? "مستند" : "عرض"} ${toArabicNumber(idx+1)}</span>
+          <input class="form-control" placeholder="العنوان" data-link-title="${type}:${idx}" value="${escapeAttr(title || "")}">
+          <input class="form-control" placeholder="الرابط (URL)" data-link-url="${type}:${idx}" value="${escapeAttr(url || "")}">
+        </div>
+      `;
+      return wrap;
+    }
+
+    function collectInputsToModel() {
+      const model = defaultLinksModel();
+
+      document.querySelectorAll("[data-link-title]").forEach(inp => {
+        const [type, idx] = inp.getAttribute("data-link-title").split(":");
+        const i = Number(idx);
+        if (type === "doc") model.docs[i].title = inp.value.trim() || model.docs[i].title;
+        if (type === "slide") model.slides[i].title = inp.value.trim() || model.slides[i].title;
+      });
+
+      document.querySelectorAll("[data-link-url]").forEach(inp => {
+        const [type, idx] = inp.getAttribute("data-link-url").split(":");
+        const i = Number(idx);
+        const v = inp.value.trim();
+        if (type === "doc") model.docs[i].url = v;
+        if (type === "slide") model.slides[i].url = v;
+      });
+
+      return model;
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+    function escapeAttr(str){ return escapeHtml(str); }
+
+    // =========================
+    // Quiz game (10 questions)
+    // =========================
+    let gameScore = 0;
+    let currentQuestion = 0;
+    let quizQuestions = [];
+
+    const baseQuestions = {
+      math: [
+        { q: "٥ + ٣ = ؟", a: ["٧","٨","٩","٦"], c: 1 },
+        { q: "١٠ - ٤ = ؟", a: ["٥","٦","٧","٨"], c: 1 },
+        { q: "٢ × ٣ = ؟", a: ["٤","٥","٦","٧"], c: 2 },
+        { q: "٨ ÷ ٢ = ؟", a: ["٢","٣","٤","٥"], c: 2 },
+        { q: "ما الشكل الذي له ٣ أضلاع؟", a: ["مربع","مستطيل","مثلث","دائرة"], c: 2 },
+      ],
+      science: [
+        { q: "أي جزء من النبات يمتص الماء؟", a: ["الجذور","الأوراق","الزهرة","الثمرة"], c: 0 },
+        { q: "أي حيوان يعيش في الماء؟", a: ["أسد","نمر","سمكة","فيل"], c: 2 },
+        { q: "ما الذي تحتاجه النار لتشتعل؟", a: ["ماء","هواء","ثلج","ظلام"], c: 1 },
+        { q: "أين يعيش الدب القطبي؟", a: ["الصحراء","القطب الشمالي","الغابة","المزرعة"], c: 1 },
+        { q: "ما الكوكب الأقرب للشمس؟", a: ["الأرض","عطارد","المريخ","زحل"], c: 1 },
+      ],
+      arabic: [
+        { q: "ما أول حرف في كلمة (مدرسة)؟", a: ["م","د","ر","س"], c: 0 },
+        { q: "ما جمع (كتاب)؟", a: ["كتب","كُتيب","مكتب","كاتب"], c: 0 },
+        { q: "ما عكس (كبير)؟", a: ["طويل","صغير","عريض","ثقيل"], c: 1 },
+        { q: "كم حرف في كلمة (تفاحة)؟", a: ["٤","٥","٦","٧"], c: 1 },
+        { q: "كلمة (شمس) هي…", a: ["مذكر","مؤنث","جمع","فعل"], c: 1 },
+      ],
+      general: [
+        { q: "كم يوم في الأسبوع؟", a: ["٥","٦","٧","٨"], c: 2 },
+        { q: "ما لون التفاحة الناضجة غالبًا؟", a: ["أزرق","أخضر","أحمر","أسود"], c: 2 },
+        { q: "ما أكبر كوكب في المجموعة الشمسية؟", a: ["الأرض","المشتري","المريخ","الزهرة"], c: 1 },
+        { q: "أي مما يلي طائر؟", a: ["سمكة","قطة","عصفور","سلحفاة"], c: 2 },
+        { q: "الماء يتجمد عند…", a: ["٠°","١٠°","٥٠°","١٠٠°"], c: 0 },
+      ]
+    };
+
+    function makeExtraMath(n=5){
+      const arr = [];
+      for(let i=0;i<n;i++){
+        const x = Math.floor(Math.random()*9)+1;
+        const y = Math.floor(Math.random()*9)+1;
+        const correct = x+y;
+        const options = new Set([correct]);
+        while(options.size<4){
+          options.add(correct + (Math.floor(Math.random()*5)-2));
         }
-        
-        function playWrongSound() {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.value = 300;
-            oscillator.type = 'sawtooth';
-            
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.3);
+        const opts = Array.from(options).map(v => toArabicNumber(clamp(v,0,99)));
+        // shuffle
+        for(let j=opts.length-1;j>0;j--){
+          const k = Math.floor(Math.random()*(j+1));
+          [opts[j],opts[k]]=[opts[k],opts[j]];
         }
-        
-        // ========= MATH GAME FUNCTIONS =========
-        function startMathGame() {
-            mathGameActive = true;
-            mathCurrentQuestion = 0;
-            mathScore = 0;
-            updateScores();
-            
-            document.getElementById('startMathGame').style.display = 'none';
-            document.getElementById('nextMathQuestion').style.display = 'inline-block';
-            
-            showMathQuestion();
+        const c = opts.indexOf(toArabicNumber(correct));
+        arr.push({ q: `${toArabicNumber(x)} + ${toArabicNumber(y)} = ؟`, a: opts, c });
+      }
+      return arr;
+    }
+
+    function startQuiz(type){
+      gameScore = 0;
+      currentQuestion = 0;
+
+      const pack = [...baseQuestions[type]];
+      if(type==="math") pack.push(...makeExtraMath(6));
+
+      // pick 10 questions (shuffle then slice)
+      shuffle(pack);
+      quizQuestions = pack.slice(0,10);
+
+      document.getElementById("quizTitle").textContent = `لعبة الكويز — ${quizLabel(type)}`;
+      renderQuizScore();
+      showQuizQuestion();
+    }
+
+    function quizLabel(type){
+      return ({math:"رياضيات",science:"علوم",arabic:"عربية",general:"عامة"})[type] || "كويز";
+    }
+
+    function renderQuizScore(){
+      document.getElementById("gameScore").textContent = toArabicNumber(gameScore);
+      document.getElementById("questionNumber").textContent = toArabicNumber(currentQuestion+1);
+    }
+
+    function showQuizQuestion(){
+      const box = document.getElementById("questionBox");
+      const grid = document.getElementById("answersGrid");
+      const prog = document.getElementById("gameProgress");
+
+      if(currentQuestion >= quizQuestions.length){
+        box.innerHTML = `🎉 انتهى الكويز!<br>نقاطك: <strong>${toArabicNumber(gameScore)}</strong><br><span class="tiny">اختاري نوعًا آخر للبدء من جديد</span>`;
+        grid.innerHTML = "";
+        prog.style.width = "100%";
+        createConfetti(120);
+        return;
+      }
+
+      const q = quizQuestions[currentQuestion];
+      box.textContent = q.q;
+
+      renderQuizScore();
+      prog.style.width = `${((currentQuestion+1)/quizQuestions.length)*100}%`;
+
+      grid.innerHTML = "";
+      q.a.forEach((txt, idx) => {
+        const el = document.createElement("div");
+        el.className = "answer-option";
+        el.textContent = txt;
+        el.addEventListener("click", () => checkQuizAnswer(el, idx, q.c));
+        grid.appendChild(el);
+      });
+    }
+
+    function checkQuizAnswer(clickedEl, selected, correct){
+      const all = Array.from(document.querySelectorAll("#answersGrid .answer-option"));
+      all.forEach(x => x.style.pointerEvents="none");
+
+      if(selected === correct){
+        clickedEl.classList.add("correct");
+        gameScore += 10;
+        addPoints(10); // adds to totalScore too
+        renderQuizScore();
+        setTimeout(() => {
+          currentQuestion++;
+          showQuizQuestion();
+        }, 700);
+      } else {
+        clickedEl.classList.add("wrong");
+        playWrongSound();
+        setTimeout(() => {
+          all[correct]?.classList.add("correct");
+        }, 300);
+        setTimeout(() => {
+          currentQuestion++;
+          showQuizQuestion();
+        }, 900);
+      }
+    }
+
+    function shuffle(arr){
+      for(let i=arr.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [arr[i],arr[j]]=[arr[j],arr[i]];
+      }
+    }
+
+    // =========================
+    // Memory game
+    // =========================
+    const memoryIcons = ["🍎","🍎","🚀","🚀","⚽","⚽","🌙","🌙","🐟","🐟","📚","📚","🎨","🎨","🧩","🧩"];
+    let memState = {
+      first: null,
+      lock: false,
+      matched: 0
+    };
+
+    function startMemory(){
+      memState = { first:null, lock:false, matched:0 };
+      document.getElementById("memoryMatches").textContent = toArabicNumber(0);
+
+      const grid = document.getElementById("memoryGrid");
+      grid.innerHTML = "";
+
+      const deck = [...memoryIcons];
+      shuffle(deck);
+
+      deck.forEach((icon, idx) => {
+        const card = document.createElement("div");
+        card.className = "memory-card";
+        card.dataset.icon = icon;
+        card.dataset.idx = String(idx);
+        card.textContent = "؟";
+        card.addEventListener("click", () => flipMemory(card));
+        grid.appendChild(card);
+      });
+    }
+
+    function flipMemory(card){
+      if(memState.lock) return;
+      if(card.classList.contains("matched") || card.classList.contains("revealed")) return;
+
+      card.classList.add("revealed");
+      card.textContent = card.dataset.icon;
+
+      if(!memState.first){
+        memState.first = card;
+        return;
+      }
+
+      // second pick
+      memState.lock = true;
+      const first = memState.first;
+      const second = card;
+
+      if(first.dataset.icon === second.dataset.icon){
+        setTimeout(() => {
+          first.classList.remove("revealed");
+          second.classList.remove("revealed");
+          first.classList.add("matched");
+          second.classList.add("matched");
+          memState.first = null;
+          memState.lock = false;
+
+          memState.matched++;
+          document.getElementById("memoryMatches").textContent = toArabicNumber(memState.matched);
+
+          addPoints(15);
+          createConfetti(60);
+
+          if(memState.matched >= 8){
+            alertify.success("🎉 ممتاز! أنهيتي لعبة الذاكرة!");
+            createConfetti(180);
+          }
+        }, 350);
+      } else {
+        setTimeout(() => {
+          first.classList.remove("revealed");
+          second.classList.remove("revealed");
+          first.textContent = "؟";
+          second.textContent = "؟";
+          memState.first = null;
+          memState.lock = false;
+        }, 650);
+      }
+    }
+
+    // =========================
+    // Speed math
+    // =========================
+    let speed = {
+      running:false,
+      time:0,
+      score:0,
+      timer:null,
+      current:{x:0,y:0,op:"+",ans:0}
+    };
+
+    function startSpeed(){
+      if(speed.running) return;
+      speed.running = true;
+      speed.time = 30;
+      speed.score = 0;
+      document.getElementById("speedScore").textContent = toArabicNumber(speed.score);
+      document.getElementById("speedTime").textContent = toArabicNumber(speed.time);
+      document.getElementById("speedHint").textContent = "ابدئي الآن!";
+
+      nextSpeedQuestion();
+      document.getElementById("speedAnswer").value = "";
+      document.getElementById("speedAnswer").focus();
+
+      speed.timer = setInterval(() => {
+        speed.time--;
+        document.getElementById("speedTime").textContent = toArabicNumber(speed.time);
+        if(speed.time <= 0){
+          stopSpeed();
         }
-        
-        function showMathQuestion() {
-            const question = mathQuestions[mathCurrentQuestion];
-            const mathGameArea = document.getElementById('mathGameArea');
-            
-            // Update question
-            document.getElementById('mathQuestion').textContent = question.question;
-            
-            // Update progress
-            const progress = ((mathCurrentQuestion + 1) / mathQuestions.length) * 100;
-            document.getElementById('mathProgress').style.width = `${progress}%`;
-            document.getElementById('mathProgressText').textContent = `${mathCurrentQuestion + 1}/${mathQuestions.length}`;
-            
-            // Clear previous answers
-            const answersContainer = document.getElementById('mathAnswers');
-            answersContainer.innerHTML = '';
-            
-            // Create new answer buttons
-            question.answers.forEach((answer, index) => {
-                const col = document.createElement('div');
-                col.className = 'col-6 mb-3';
-                
-                const answerBtn = document.createElement('div');
-                answerBtn.className = 'answer-option';
-                answerBtn.textContent = answer;
-                answerBtn.dataset.index = index;
-                
-                answerBtn.addEventListener('click', function() {
-                    if (parseInt(this.dataset.index) === question.correct) {
-                        this.classList.add('correct');
-                        mathScore += 10;
-                        totalScore += 10;
-                        updateScores();
-                        playSuccessSound();
-                        createConfetti();
-                        
-                        setTimeout(() => {
-                            if (mathCurrentQuestion < mathQuestions.length - 1) {
-                                mathCurrentQuestion++;
-                                showMathQuestion();
-                            } else {
-                                endMathGame();
-                            }
-                        }, 1000);
-                    } else {
-                        this.classList.add('wrong');
-                        playWrongSound();
-                        
-                        // Show correct answer
-                        setTimeout(() => {
-                            const allAnswers = answersContainer.querySelectorAll('.answer-option');
-                            allAnswers[question.correct].classList.add('correct');
-                        }, 500);
-                        
-                        setTimeout(() => {
-                            if (mathCurrentQuestion < mathQuestions.length - 1) {
-                                mathCurrentQuestion++;
-                                showMathQuestion();
-                            } else {
-                                endMathGame();
-                            }
-                        }, 1500);
-                    }
-                });
-                
-                col.appendChild(answerBtn);
-                answersContainer.appendChild(col);
-            });
+      }, 1000);
+    }
+
+    function stopSpeed(){
+      speed.running = false;
+      clearInterval(speed.timer);
+      speed.timer = null;
+
+      document.getElementById("speedQuestion").innerHTML = `⏱️ انتهى الوقت!<br>نتيجتك: <strong>${toArabicNumber(speed.score)}</strong>`;
+      document.getElementById("speedHint").textContent = "اضغطي بدء للعب مرة أخرى.";
+      createConfetti(120);
+    }
+
+    function nextSpeedQuestion(){
+      const x = Math.floor(Math.random()*12)+1;
+      const y = Math.floor(Math.random()*12)+1;
+      const ops = ["+","-","×"];
+      const op = ops[Math.floor(Math.random()*ops.length)];
+      let ans = 0;
+      if(op === "+") ans = x+y;
+      if(op === "-") ans = x-y;
+      if(op === "×") ans = x*y;
+
+      speed.current = {x,y,op,ans};
+      document.getElementById("speedQuestion").textContent =
+        `${toArabicNumber(x)} ${op} ${toArabicNumber(y)} = ؟`;
+    }
+
+    function submitSpeed(){
+      if(!speed.running) return;
+
+      const input = document.getElementById("speedAnswer");
+      const v = Number(input.value);
+      input.value = "";
+
+      if(v === speed.current.ans){
+        speed.score += 10;
+        document.getElementById("speedScore").textContent = toArabicNumber(speed.score);
+        addPoints(10);
+        document.getElementById("speedHint").textContent = "✅ صح!";
+        playSuccessSound();
+        nextSpeedQuestion();
+      } else {
+        document.getElementById("speedHint").textContent = `❌ خطأ — الإجابة كانت: ${toArabicNumber(speed.current.ans)}`;
+        playWrongSound();
+        nextSpeedQuestion();
+      }
+    }
+
+    // =========================
+    // Show all features
+    // =========================
+    function showAllFeatures(){
+      const html = `
+        <div class="alert alert-info mb-0">
+          <h6 class="fw-bold mb-2">📋 جميع متطلبات المشروع متوفرة:</h6>
+          <ol class="mb-0">
+            <li>✅ ٤ مستندات أصلية (روابط تُدار داخل الموقع)</li>
+            <li>✅ ٤ عروض أصلية (روابط تُدار داخل الموقع)</li>
+            <li>✅ أوراق عمل PDF جاهزة (محتوى إضافي)</li>
+            <li>✅ ٣ ألعاب تفاعلية (كويز + ذاكرة + حساب سريع)</li>
+            <li>✅ صور تعليمية + فيديوهات + روابط شغالة</li>
+            <li>✅ نظام نقاط وتحفيز بدون تكرار</li>
+          </ol>
+        </div>
+      `;
+      alertify.alert("مميزات الموقع", html);
+    }
+
+    // =========================
+    // Click points (NO duplicates)
+    // - only elements with data-points will give points
+    // - don't add points when clicking inside modal
+    // =========================
+    function setupPointsClicking(){
+      document.addEventListener("click", (e) => {
+        // ignore clicks inside modal
+        if(e.target.closest(".modal")) return;
+
+        const el = e.target.closest("[data-points]");
+        if(!el) return;
+
+        const points = Number(el.getAttribute("data-points") || "0");
+        if(points > 0) addPoints(points);
+      });
+    }
+
+    // =========================
+    // Wire UI
+    // =========================
+    document.addEventListener("DOMContentLoaded", () => {
+      loadScore();
+      createBubbles();
+      playWelcomeSound();
+      setupPointsClicking();
+      renderLinksLists();
+
+      // Bootstrap modal instance
+      const linksModalEl = document.getElementById("linksModal");
+      const linksModal = new bootstrap.Modal(linksModalEl);
+
+      // open manager
+      document.getElementById("openLinksManagerBtn")?.addEventListener("click", () => {
+        renderLinksInputs();
+        linksModal.show();
+      });
+
+      // any "add link" button in lists
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-open-manager]");
+        if(!btn) return;
+        renderLinksInputs();
+        linksModal.show();
+      });
+
+      // save links
+      document.getElementById("saveLinksBtn")?.addEventListener("click", () => {
+        const model = collectInputsToModel();
+
+        // light validation: warn if url not google docs/slides (allowed but warn)
+        const allUrls = [...model.docs.map(x=>x.url), ...model.slides.map(x=>x.url)].filter(Boolean);
+        const bad = allUrls.filter(u => !u.includes("docs.google.com"));
+        saveLinksModel(model);
+        renderLinksLists();
+
+        if(bad.length){
+          alertify.warning("تم الحفظ ✅ (ملاحظة: بعض الروابط ليست من docs.google.com)");
+        } else {
+          alertify.success("تم حفظ الروابط ✅");
         }
-        
-        function endMathGame() {
-            mathGameActive = false;
-            document.getElementById('mathQuestion').textContent = `🎉 انتهت اللعبة! النقاط: ${mathScore}`;
-            document.getElementById('mathAnswers').innerHTML = '';
-            document.getElementById('startMathGame').style.display = 'inline-block';
-            document.getElementById('nextMathQuestion').style.display = 'none';
-            document.getElementById('startMathGame').textContent = '🔄 إعادة اللعبة';
-            createConfetti();
-        }
-        
-        // ========= SCIENCE GAME FUNCTIONS =========
-        function startScienceGame() {
-            scienceGameActive = true;
-            scienceCurrentQuestion = 0;
-            scienceScore = 0;
-            updateScores();
-            
-            document.getElementById('startScienceGame').style.display = 'none';
-            document.getElementById('nextScienceQuestion').style.display = 'inline-block';
-            
-            showScienceQuestion();
-        }
-        
-        function showScienceQuestion() {
-            const question = scienceQuestions[scienceCurrentQuestion];
-            const scienceGameArea = document.getElementById('scienceGameArea');
-            
-            // Update question
-            document.getElementById('scienceQuestion').textContent = question.question;
-            
-            // Update progress
-            const progress = ((scienceCurrentQuestion + 1) / scienceQuestions.length) * 100;
-            document.getElementById('scienceProgress').style.width = `${progress}%`;
-            document.getElementById('scienceProgressText').textContent = `${scienceCurrentQuestion + 1}/${scienceQuestions.length}`;
-            
-            // Clear previous answers
-            const answersContainer = document.getElementById('scienceAnswers');
-            answersContainer.innerHTML = '';
-            
-            // Create new answer buttons
-            question.answers.forEach((answer, index) => {
-                const col = document.createElement('div');
-                col.className = 'col-6 mb-3';
-                
-                const answerBtn = document.createElement('div');
-                answerBtn.className = 'answer-option';
-                answerBtn.textContent = answer;
-                answerBtn.dataset.index = index;
-                
-                answerBtn.addEventListener('click', function() {
-                    if (parseInt(this.dataset.index) === question.correct) {
-                        this.classList.add('correct');
-                        scienceScore += 10;
-                        totalScore += 10;
-                        updateScores();
-                        playSuccessSound();
-                        createConfetti();
-                        
-                        setTimeout(() => {
-                            if (scienceCurrentQuestion < scienceQuestions.length - 1) {
-                                scienceCurrentQuestion++;
-                                showScienceQuestion();
-                            } else {
-                                endScienceGame();
-                            }
-                        }, 1000);
-                    } else {
-                        this.classList.add('wrong');
-                        playWrongSound();
-                        
-                        // Show correct answer
-                        setTimeout(() => {
-                            const allAnswers = answersContainer.querySelectorAll('.answer-option');
-                            allAnswers[question.correct].classList.add('correct');
-                        }, 500);
-                        
-                        setTimeout(() => {
-                            if (scienceCurrentQuestion < scienceQuestions.length - 1) {
-                                scienceCurrentQuestion++;
-                                showScienceQuestion();
-                            } else {
-                                endScienceGame();
-                            }
-                        }, 1500);
-                    }
-                });
-                
-                col.appendChild(answerBtn);
-                answersContainer.appendChild(col);
-            });
-        }
-        
-        function endScienceGame() {
-            scienceGameActive = false;
-            document.getElementById('scienceQuestion').textContent = `🎉 انتهت اللعبة! النقاط: ${scienceScore}`;
-            document.getElementById('scienceAnswers').innerHTML = '';
-            document.getElementById('startScienceGame').style.display = 'inline-block';
-            document.getElementById('nextScienceQuestion').style.display = 'none';
-            document.getElementById('startScienceGame').textContent = '🔄 إعادة اللعبة';
-            createConfetti();
-        }
-        
-        // ========= ARABIC GAME FUNCTIONS =========
-        function startArabicGame() {
-            arabicGameActive = true;
-            arabicCurrentQuestion = 0;
-            arabicScore = 0;
-            updateScores();
-            
-            document.getElementById('startArabicGame').style.display = 'none';
-            document.getElementById('nextArabicQuestion').style.display = 'inline-block';
-            
-            showArabicQuestion();
-        }
-        
-        function showArabicQuestion() {
-            const question = arabicQuestions[arabicCurrentQuestion];
-            const arabicGameArea = document.getElementById('arabicGameArea');
-            
-            // Update question
-            document.getElementById('arabicQuestion').textContent = question.question;
-            
-            // Update progress
-            const progress = ((arabicCurrentQuestion + 1) / arabicQuestions.length) * 100;
-            document.getElementById('arabicProgress').style.width = `${progress}%`;
-            document.getElementById('arabicProgressText').textContent = `${arabicCurrentQuestion + 1}/${arabicQuestions.length}`;
-            
-            // Clear previous answers
-            const answersContainer = document.getElementById('arabicAnswers');
-            answersContainer.innerHTML = '';
-            
-            // Create new answer buttons
-            question.answers.forEach((answer, index) => {
-                const col = document.createElement('div');
-                col.className = 'col-6 mb-3';
-                
-                const answerBtn = document.createElement('div');
-                answerBtn.className = 'answer-option';
-                answerBtn.textContent = answer;
-                answerBtn.dataset.index = index;
-                
-                answerBtn.addEventListener('click', function() {
-                    if (parseInt(this.dataset.index) === question.correct) {
-                        this.classList.add('correct');
-                        arabicScore += 10;
-                        totalScore += 10;
-                        updateScores();
-                        playSuccessSound();
-                        createConfetti();
-                        
-                        setTimeout(() => {
-                            if (arabicCurrentQuestion < arabicQuestions.length - 1) {
-                                arabicCurrentQuestion++;
-                                showArabicQuestion();
-                            } else {
-                                endArabicGame();
-                            }
-                        }, 1000);
-                    } else {
-                        this.classList.add('wrong');
-                        playWrongSound();
-                        
-                        // Show correct answer
-                        setTimeout(() => {
-                            const allAnswers = answersContainer.querySelectorAll('.answer-option');
-                            allAnswers[question.correct].classList.add('correct');
-                        }, 500);
-                        
-                        setTimeout(() => {
-                            if (arabicCurrentQuestion < arabicQuestions.length - 1) {
-                                arabicCurrentQuestion++;
-                                showArabicQuestion();
-                            } else {
-                                endArabicGame();
-                            }
-                        }, 1500);
-                    }
-                });
-                
-                col.appendChild(answerBtn);
-                answersContainer.appendChild(col);
-            });
-        }
-        
-        function endArabicGame() {
-            arabicGameActive = false;
-            document.getElementById('arabicQuestion').textContent = `🎉 انتهت اللعبة! النقاط: ${arabicScore}`;
-            document.getElementById('arabicAnswers').innerHTML = '';
-            document.getElementById('startArabicGame').style.display = 'inline-block';
-            document.getElementById('nextArabicQuestion').style.display = 'none';
-            document.getElementById('startArabicGame').textContent = '🔄 إعادة اللعبة';
-            createConfetti();
-        }
-        
-        // ========= MEMORY GAME FUNCTIONS =========
-        function startMemoryGame() {
-            memoryGameActive = true;
-            matchedPairs = 0;
-            timer = 60;
-            flippedCards = [];
-            canFlip = true;
-            
-            document.getElementById('startMemoryGame').style.display = 'none';
-            document.getElementById('restartMemoryGame').style.display = 'inline-block';
-            document.getElementById('timer').textContent = timer;
-            document.getElementById('matchedPairs').textContent = matchedPairs;
-            
-            createMemoryCards();
-            startTimer();
-        }
-        
-        function createMemoryCards() {
-            const memoryContainer = document.getElementById('memoryCards');
-            memoryContainer.innerHTML = '';
-            
-            // Duplicate and shuffle emojis
-            let cards = [...memoryEmojis, ...memoryEmojis];
-            cards = cards.sort(() => Math.random() - 0.5);
-            
-            cards.forEach((emoji, index) => {
-                const card = document.createElement('div');
-                card.className = 'memory-card';
-                card.dataset.index = index;
-                card.dataset.emoji = emoji;
-                
-                const back = document.createElement('div');
-                back.className = 'back';
-                back.textContent = '?';
-                
-                const front = document.createElement('div');
-                front.className = 'front';
-                front.textContent = emoji;
-                
-                card.appendChild(back);
-                card.appendChild(front);
-                
-                card.addEventListener('click', () => flipCard(card));
-                
-                memoryContainer.appendChild(card);
-            });
-        }
-        
-        function flipCard(card) {
-            if (!canFlip || card.classList.contains('flipped') || card.classList.contains('matched')) return;
-            
-            card.classList.add('flipped');
-            flippedCards.push(card);
-            
-            if (flippedCards.length === 2) {
-                canFlip = false;
-                
-                const card1 = flippedCards[0];
-                const card2 = flippedCards[1];
-                
-                if (card1.dataset.emoji === card2.dataset.emoji) {
-                    // Match found
-                    setTimeout(() => {
-                        card1.classList.add('matched');
-                        card2.classList.add('matched');
-                        card1.classList.remove('flipped');
-                        card2.classList.remove('flipped');
-                        
-                        matchedPairs++;
-                        document.getElementById('matchedPairs').textContent = matchedPairs;
-                        
-                        totalScore += 20;
-                        updateScores();
-                        playSuccessSound();
-                        
-                        if (matchedPairs === 8) {
-                            clearInterval(timerInterval);
-                            createConfetti();
-                            document.getElementById('timer').innerHTML = '🎉 فوز!';
-                            totalScore += 100;
-                            updateScores();
-                        }
-                        
-                        flippedCards = [];
-                        canFlip = true;
-                    }, 500);
-                } else {
-                    // No match
-                    setTimeout(() => {
-                        card1.classList.remove('flipped');
-                        card2.classList.remove('flipped');
-                        flippedCards = [];
-                        canFlip = true;
-                    }, 1000);
-                }
-            }
-        }
-        
-        function startTimer() {
-            clearInterval(timerInterval);
-            
-            timerInterval = setInterval(() => {
-                timer--;
-                document.getElementById('timer').textContent = timer;
-                
-                if (timer <= 0) {
-                    clearInterval(timerInterval);
-                    document.getElementById('timer').innerHTML = '⏰ انتهى الوقت!';
-                    
-                    // Flip all cards
-                    const cards = document.querySelectorAll('.memory-card');
-                    cards.forEach(card => {
-                        if (!card.classList.contains('matched')) {
-                            card.classList.add('flipped');
-                        }
-                    });
-                }
-            }, 1000);
-        }
-        
-        function restartMemoryGame() {
-            clearInterval(timerInterval);
-            startMemoryGame();
-        }
-        
-        // ========= EVENT LISTENERS =========
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize scores
-            updateScores();
-            
-            // Math Game Events
-            document.getElementById('startMathGame').addEventListener('click', startMathGame);
-            document.getElementById('nextMathQuestion').addEventListener('click', function() {
-                if (mathCurrentQuestion < mathQuestions.length - 1) {
-                    mathCurrentQuestion++;
-                    showMathQuestion();
-                } else {
-                    endMathGame();
-                }
-            });
-            
-            // Science Game Events
-            document.getElementById('startScienceGame').addEventListener('click', startScienceGame);
-            document.getElementById('nextScienceQuestion').addEventListener('click', function() {
-                if (scienceCurrentQuestion < scienceQuestions.length - 1) {
-                    scienceCurrentQuestion++;
-                    showScienceQuestion();
-                } else {
-                    endScienceGame();
-                }
-            });
-            
-            // Arabic Game Events
-            document.getElementById('startArabicGame').addEventListener('click', startArabicGame);
-            document.getElementById('nextArabicQuestion').addEventListener('click', function() {
-                if (arabicCurrentQuestion < arabicQuestions.length - 1) {
-                    arabicCurrentQuestion++;
-                    showArabicQuestion();
-                } else {
-                    endArabicGame();
-                }
-            });
-            
-            // Memory Game Events
-            document.getElementById('startMemoryGame').addEventListener('click', startMemoryGame);
-            document.getElementById('restartMemoryGame').addEventListener('click', restartMemoryGame);
-            
-            // Resource link clicks add points
-            document.querySelectorAll('.resource-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    totalScore += 5;
-                    updateScores();
-                });
-            });
-            
-            // Welcome message
-            setTimeout(() => {
-                playSuccessSound();
-                createConfetti();
-            }, 1000);
+        createConfetti(80);
+      });
+
+      // clear links
+      document.getElementById("clearLinksBtn")?.addEventListener("click", () => {
+        alertify.confirm(
+          "تأكيد",
+          "هل تريدين حذف كل روابط المستندات والعروض؟",
+          () => {
+            localStorage.removeItem(LS.links);
+            renderLinksLists();
+            alertify.success("تم الحذف ✅");
+          },
+          () => {}
+        );
+      });
+
+      // refresh lists
+      document.getElementById("refreshListsBtn")?.addEventListener("click", () => {
+        renderLinksLists();
+        alertify.message("تم التحديث ✅");
+      });
+
+      // demo fill buttons
+      document.getElementById("fillDocsDemo")?.addEventListener("click", () => {
+        // demo URLs (not real docs) for layout test only
+        const model = loadLinksModel();
+        model.docs = model.docs.map((d,i)=>({
+          title: `مستند تجريبي ${toArabicNumber(i+1)}`,
+          url: "https://ar.khanacademy.org/" // safe demo link
+        }));
+        saveLinksModel(model);
+        renderLinksInputs();
+        alertify.message("تمت تعبئة أمثلة للمستندات (للتجربة فقط)");
+      });
+
+      document.getElementById("fillSlidesDemo")?.addEventListener("click", () => {
+        const model = loadLinksModel();
+        model.slides = model.slides.map((s,i)=>({
+          title: `عرض تجريبي ${toArabicNumber(i+1)}`,
+          url: "https://pbskids.org/games"
+        }));
+        saveLinksModel(model);
+        renderLinksInputs();
+        alertify.message("تمت تعبئة أمثلة للعروض (للتجربة فقط)");
+      });
+
+      // reset button
+      document.getElementById("resetBtn")?.addEventListener("click", () => {
+        alertify.confirm(
+          "تأكيد",
+          "تصفير النقاط والبيانات (الروابط والنقاط)؟",
+          () => {
+            localStorage.removeItem(LS.score);
+            localStorage.removeItem(LS.links);
+            loadScore();
+            renderLinksLists();
+            alertify.success("تم التصفير ✅");
+          },
+          () => {}
+        );
+      });
+
+      // show features
+      document.getElementById("showAllFeaturesBtn")?.addEventListener("click", showAllFeatures);
+
+      // quiz start buttons
+      document.querySelectorAll("[data-start-quiz]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const type = btn.getAttribute("data-start-quiz");
+          startQuiz(type);
         });
-    </script>
+      });
+
+      // memory
+      startMemory();
+      document.getElementById("memoryRestart")?.addEventListener("click", startMemory);
+
+      // speed
+      document.getElementById("speedStart")?.addEventListener("click", startSpeed);
+      document.getElementById("speedSubmit")?.addEventListener("click", submitSpeed);
+      document.getElementById("speedAnswer")?.addEventListener("keydown", (e) => {
+        if(e.key === "Enter") submitSpeed();
+      });
+    });
+  </script>
 </body>
 </html>
 
