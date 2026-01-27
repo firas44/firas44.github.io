@@ -5,16 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🏰 حديقة الأطفال التعليمية - المعلمة سجى</title>
     
-    <!-- Bootstrap CSS RTL -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Amiri:wght@400;700&family=Lalezar&display=swap" rel="stylesheet">
     
-    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <style>
@@ -44,7 +39,6 @@
             background-attachment: fixed;
         }
         
-        /* Clouds Animation */
         .cloud {
             position: absolute;
             background: rgba(255, 255, 255, 0.9);
@@ -58,7 +52,6 @@
             100% { transform: translateX(-100vw); }
         }
         
-        /* Header with Playground Theme */
         .playground-header {
             background: linear-gradient(135deg, var(--kid-green) 0%, var(--kid-blue) 100%);
             border-radius: 0 0 60px 60px;
@@ -134,7 +127,6 @@
             transform: translateX(-50%);
         }
         
-        /* Floating Animals */
         .floating-animal {
             position: absolute;
             font-size: 2.5rem;
@@ -147,14 +139,12 @@
             50% { transform: translateY(-20px) rotate(10deg); }
         }
         
-        /* Main Content */
         .content-garden {
             padding: 40px 0;
             position: relative;
             z-index: 2;
         }
         
-        /* Learning Tree */
         .learning-tree {
             background: #8B4513;
             width: 30px;
@@ -188,7 +178,6 @@
             50% { transform: rotate(5deg); }
         }
         
-        /* Subject Flowers */
         .subject-flower {
             background: white;
             border-radius: 25px;
@@ -249,7 +238,6 @@
         .games-flower .flower-center { background: #FFD166; color: #333; }
         .games-flower .petal { background: #FF9A3C; }
         
-        /* Learning Path */
         .learning-path {
             background: url('data:image/svg+xml,<svg width="100" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0,10 Q25,0 50,10 T100,10" stroke="%23FFD166" stroke-width="8" fill="none" stroke-dasharray="10,10"/></svg>');
             background-repeat: repeat-x;
@@ -274,7 +262,6 @@
             transform: translateY(-50%);
         }
         
-        /* Resource Cards */
         .resource-card {
             background: white;
             border-radius: 20px;
@@ -304,7 +291,6 @@
             margin-left: 15px;
         }
         
-        /* Photo Gallery */
         .photo-garden {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -346,7 +332,6 @@
             font-weight: bold;
         }
         
-        /* Interactive Games */
         .game-playground {
             background: linear-gradient(135deg, var(--kid-yellow) 0%, var(--kid-orange) 100%);
             border-radius: 30px;
@@ -384,7 +369,6 @@
             transform: rotate(15deg);
         }
         
-        /* Question Cards */
         .question-card {
             background: white;
             border-radius: 25px;
@@ -412,7 +396,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        /* Answer Buttons */
         .answer-btn {
             background: white;
             border: 4px solid var(--kid-blue);
@@ -452,7 +435,6 @@
             50% { transform: scale(1.1); }
         }
         
-        /* Progress Bar */
         .progress-garden {
             background: #E8F4FC;
             border-radius: 20px;
@@ -487,7 +469,6 @@
             100% { transform: translateX(100%); }
         }
         
-        /* Score Display */
         .score-sun {
             width: 120px;
             height: 120px;
@@ -519,7 +500,6 @@
             transform-origin: bottom center;
         }
         
-        /* Footer */
         .playground-footer {
             background: linear-gradient(135deg, #2D3047 0%, #1a1c2e 100%);
             color: white;
@@ -561,7 +541,6 @@
             border-radius: 50%;
         }
         
-        /* Buttons */
         .playground-btn {
             background: linear-gradient(135deg, var(--kid-pink) 0%, var(--kid-purple) 100%);
             color: white;
@@ -588,7 +567,6 @@
             transform: translateY(-2px) scale(1.02);
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .photo-garden {
                 grid-template-columns: repeat(2, 1fr);
@@ -604,7 +582,6 @@
             }
         }
         
-        /* Sound Toggle */
         .sound-toggle {
             position: fixed;
             bottom: 20px;
@@ -628,7 +605,6 @@
             transform: scale(1.1);
         }
         
-        /* Loading Animation */
         .loading-butterfly {
             position: fixed;
             top: 50%;
@@ -648,22 +624,17 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
     <div id="loadingScreen" class="loading-butterfly">
         <i class="fas fa-butterfly fa-5x" style="color: var(--kid-pink);"></i>
     </div>
 
-    <!-- Sound Toggle -->
     <div class="sound-toggle" onclick="toggleSound()">
         <i class="fas fa-volume-up"></i>
     </div>
 
-    <!-- Clouds -->
     <div id="cloudsContainer"></div>
 
-    <!-- Header -->
     <header class="playground-header">
-        <!-- Floating Animals -->
         <div class="floating-animal" style="top: 20px; left: 10%;">
             <i class="fas fa-dove"></i>
         </div>
@@ -723,10 +694,8 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="content-garden">
         <div class="container">
-            <!-- Learning Path -->
             <div class="learning-path">
                 <div class="path-stop" style="right: 0%;">١</div>
                 <div class="path-stop" style="right: 25%;">٢</div>
@@ -735,7 +704,6 @@
                 <div class="path-stop" style="right: 100%;">٥</div>
             </div>
             
-            <!-- Section 1: Subject Flowers -->
             <section class="mb-5" hidden>
                 <h2 class="text-center fw-bold display-5 mb-5" style="color: var(--kid-purple);">
                     <i class="fas fa-seedling me-3"></i>أزهار المعرفة
@@ -800,7 +768,6 @@
                 </div>
             </section>
    
-<!-- ================== MODAL ================== -->
 <div id="photoModal"
   style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:999999; padding:30px;"
   onclick="closePhotoModal()">
@@ -822,7 +789,6 @@
   </div>
 </div>
 
-<!-- ================== JS ================== -->
 <script>
   function openPhotoModal(card){
     if (typeof addStars === "function") addStars(2);
@@ -853,10 +819,8 @@
     if (e.key === "Escape") closePhotoModal();
   });
 </script>
-<!-- ================== END ================== -->
 
             
-            <!-- Section 3: Games Playground -->
             <section class="mb-5" id="gamesSection">
                 <h2 class="text-center fw-bold display-5 mb-5" style="color: var(--kid-green);">
                     <i class="fas fa-gamepad me-3"></i>ملعب الألعاب التعليمية
@@ -909,14 +873,12 @@
                 </div>
             </section>
             
-            <!-- Section 4: Learning Resources -->
             <section class="mb-5">
                 <h2 class="text-center fw-bold display-5 mb-5" style="color: var(--kid-orange);">
                     <i class="fas fa-book me-3"></i>كنوز المعرفة
                 </h2>
                 
                 <div class="row">
-                    <!-- Math Resources -->
                     <div class="col-md-6 mb-4">
                         <div class="resource-card" onclick="addStars(5)">
                             <div class="d-flex align-items-center">
@@ -947,7 +909,6 @@
       <h5 class="fw-bold mb-1">تعلم الأرقام</h5>
       <p class="mb-2 text-muted">فيديو تعليمي ممتع مع الأغاني</p>
 
-      <!-- VIDEO PREVIEW (NO SOUND) -->
       <div class="video-container mt-2"
            style="border-radius:16px !important; overflow:hidden !important; box-shadow:0 12px 30px rgba(0,0,0,.15) !important;">
 
@@ -980,8 +941,6 @@
 </div>
 
                     </div>
-                    
-                    <!-- Science Resources -->
                     <div class="col-md-6 mb-4">
                         <div class="resource-card" onclick="addStars(5)">
                             <div class="d-flex align-items-center">
@@ -1012,7 +971,6 @@
       <h5 class="fw-bold mb-1">عالم الحيوانات</h5>
       <p class="mb-2 text-muted">فيديو تعليمي ممتع عن الحيوانات</p>
 
-      <!-- VIDEO PREVIEW (NO SOUND) -->
       <div class="video-container mt-2"
            style="
              border-radius:16px !important;
@@ -1061,7 +1019,6 @@
 
       <div class="row">
 
-        <!-- 1: عصافير -->
         <div class="col-md-4 mb-3">
           <a href="https://3asafeer.com/index?page=play" target="_blank" rel="noopener" class="text-decoration-none">
             <div class="resource-card text-center"
@@ -1073,7 +1030,6 @@
           </a>
         </div>
 
-        <!-- 2: بلبل -->
         <div class="col-md-4 mb-3">
           <a href="https://www.bulbul4kids.com/" target="_blank" rel="noopener" class="text-decoration-none">
             <div class="resource-card text-center"
@@ -1085,7 +1041,6 @@
           </a>
         </div>
 
-        <!-- 3: أ ب ت -->
         <div class="col-md-4 mb-3">
           <a href="https://www.alefbata.com/" target="_blank" rel="noopener" class="text-decoration-none">
             <div class="resource-card text-center"
@@ -1097,7 +1052,6 @@
           </a>
         </div>
 
-        <!-- 4: كتكوتي -->
         <div class="col-md-4 mb-3">
           <a href="https://www.katkuti.com/" target="_blank" rel="noopener" class="text-decoration-none">
             <div class="resource-card text-center"
@@ -1109,7 +1063,6 @@
           </a>
         </div>
 
-        <!-- 5: أقرأ بالعربية -->
         <div class="col-md-4 mb-3">
           <a href="https://ar.ireadarabic.com/" target="_blank" rel="noopener" class="text-decoration-none">
             <div class="resource-card text-center"
@@ -1121,7 +1074,6 @@
           </a>
         </div>
 
-        <!-- 6: ماتيفيك (عربي) -->
         <div class="col-md-4 mb-3">
           <a href="https://www.matific.com/isr/ar/home/" target="_blank" rel="noopener" class="text-decoration-none">
             <div class="resource-card text-center"
@@ -1133,7 +1085,6 @@
           </a>
         </div>
 
-        <!-- 7: توينكل عربي (تفاعلي) -->
         <div class="col-md-4 mb-3">
           <a href="https://www.twinkl.com/resources/kuwait-middle-east/kuwait-national-curriculum-kuwait/interactive-ar"
              target="_blank" rel="noopener" class="text-decoration-none">
@@ -1146,7 +1097,6 @@
           </a>
         </div>
 
-        <!-- 8: صغارنا -->
         <div class="col-md-4 mb-3">
           <a href="https://www.sgharna.com/" target="_blank" rel="noopener" class="text-decoration-none">
             <div class="resource-card text-center"
@@ -1158,7 +1108,6 @@
           </a>
         </div>
 
-        <!-- 9: ووردوول عربي (ألعاب صفّية) -->
         <div class="col-md-4 mb-3">
           <a href="https://wordwall.net/ar-sa/community/%D8%A7%D9%84%D8%B9%D8%A7%D8%A8-%D8%AA%D8%B9%D9%84%D9%8A%D9%85%D9%8A%D8%A9"
              target="_blank" rel="noopener" class="text-decoration-none">
@@ -1178,10 +1127,6 @@
 
             </section>
 
-
-                     
-            <!-- Section 2: Photo Gallery -->
-<!-- ================== KIDS CARTOON GARDEN (20) + MODAL + JS ================== -->
 <section class="mb-5">
   <h2 class="text-center fw-bold display-4 mb-5" style="color: var(--kid-blue) !important;">
     <i class="fas fa-camera me-3"></i>حديقة الصور التعليمية
@@ -1198,8 +1143,6 @@
       box-shadow:0 18px 55px rgba(0,0,0,.10) !important;
     ">
 
-    <!-- helper: big cartoon tile style -->
-    <!-- 1 Numbers -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F522.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;transition:transform .25s ease !important;"
@@ -1213,7 +1156,6 @@
       </div>
     </div>
 
-    <!-- 2 Counting / Abacus -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F9EE.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1227,7 +1169,6 @@
       </div>
     </div>
 
-    <!-- 3 Shapes -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F7E6.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1241,7 +1182,6 @@
       </div>
     </div>
 
-    <!-- 4 Colors / Palette -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F3A8.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1255,7 +1195,6 @@
       </div>
     </div>
 
-    <!-- 5 Puzzle -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F9E9.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1269,7 +1208,6 @@
       </div>
     </div>
 
-    <!-- 6 Blocks / Building -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F9F1.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1283,7 +1221,6 @@
       </div>
     </div>
 
-    <!-- 7 Reading / Book -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F4D6.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1297,7 +1234,6 @@
       </div>
     </div>
 
-    <!-- 8 Writing / Pencil -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/270F.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1311,7 +1247,6 @@
       </div>
     </div>
 
-    <!-- 9 Arabic Letters (tiles as "ABC" style) -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F524.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1325,7 +1260,6 @@
       </div>
     </div>
 
-    <!-- 10 Science / Microscope -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F52C.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1339,7 +1273,6 @@
       </div>
     </div>
 
-    <!-- 11 Art / Crayon -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F58D.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1353,7 +1286,6 @@
       </div>
     </div>
 
-    <!-- 12 Music / Notes -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F3B6.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1367,7 +1299,6 @@
       </div>
     </div>
 
-    <!-- 13 Movement / Running -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F3C3.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1381,7 +1312,6 @@
       </div>
     </div>
 
-    <!-- 14 Feelings / Happy -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F60A.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1395,7 +1325,6 @@
       </div>
     </div>
 
-    <!-- 15 Animals / Bear -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F43B.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1409,7 +1338,6 @@
       </div>
     </div>
 
-    <!-- 16 Fruits / Apple -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F34E.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1423,7 +1351,6 @@
       </div>
     </div>
 
-    <!-- 17 Weather / Sun -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/2600.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1437,7 +1364,6 @@
       </div>
     </div>
 
-    <!-- 18 Transport / Bus -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F68C.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1451,7 +1377,6 @@
       </div>
     </div>
 
-    <!-- 19 Space / Rocket -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F680.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1465,7 +1390,6 @@
       </div>
     </div>
 
-    <!-- 20 Teamwork / Handshake -->
     <div class="learning-photo" onclick="openPhotoModal(this)"
       data-full="https://openmoji.org/data/color/svg/1F91D.svg"
       style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
@@ -1485,7 +1409,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="playground-footer">
         <div class="container">
             <div class="row">
@@ -1567,20 +1490,15 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // ========= GLOBAL VARIABLES =========
         let totalStars = 0;
         let gameStars = 0;
         let currentGameQuestion = 0;
         let currentGameType = '';
         let gameQuestions = [];
         let soundEnabled = true;
-        
-        // ========= GAME QUESTIONS =========
-       // ✅ More questions (Arabic, kid-friendly). Just paste + replace your arrays with these:
 
 const mathQuestions = [
   { question: "٥ + ٣ = ؟", answers: ["٧", "٨", "٩", "٦"], correct: 1 },
@@ -1589,7 +1507,6 @@ const mathQuestions = [
   { question: "ما الشكل الذي له ٣ أضلاع؟", answers: ["مربع", "مستطيل", "مثلث", "دائرة"], correct: 2 },
   { question: "ما العدد الذي يلي ٩؟", answers: ["٨", "١٠", "١١", "١٢"], correct: 1 },
 
-  // +15 NEW (easy for kids)
   { question: "١ + ٢ = ؟", answers: ["٢", "٣", "٤", "٥"], correct: 1 },
   { question: "٤ + ١ = ؟", answers: ["٥", "٣", "٤", "٦"], correct: 0 },
   { question: "٦ - ٢ = ؟", answers: ["٣", "٤", "٥", "٢"], correct: 1 },
@@ -1614,7 +1531,6 @@ const scienceQuestions = [
   { question: "أين يعيش الدب القطبي؟", answers: ["الصحراء", "القطب الشمالي", "الغابة", "المزرعة"], correct: 1 },
   { question: "ما شكل الكرة؟", answers: ["مربع", "مثلث", "مستطيل", "دائري"], correct: 3 },
 
-  // +15 NEW (preschool friendly)
   { question: "أي شيء نستخدمه للشرب؟", answers: ["كوب", "حذاء", "قلم", "كتاب"], correct: 0 },
   { question: "ما الشيء الذي نراه في الليل؟", answers: ["الشمس", "القمر", "قوس قزح", "زهرة"], correct: 1 },
   { question: "ما الذي نحتاجه للتنفس؟", answers: ["هواء", "رمل", "حجر", "معدن"], correct: 0 },
@@ -1639,7 +1555,6 @@ const arabicQuestions = [
   { question: "كم حرف في كلمة 'تفاحة'؟", answers: ["٤", "٥", "٦", "٧"], correct: 1 },
   { question: "ما أول حرف في كلمة 'قطة'؟", answers: ["ق", "ط", "ة", "و"], correct: 0 },
 
-  // +15 NEW (very easy)
   { question: "ما أول حرف في كلمة 'باب'؟", answers: ["ب", "ا", "د", "م"], correct: 0 },
   { question: "ما أول حرف في كلمة 'موز'؟", answers: ["م", "و", "ز", "ن"], correct: 0 },
   { question: "ما أول حرف في كلمة 'بيت'؟", answers: ["ب", "ي", "ت", "س"], correct: 0 },
@@ -1664,7 +1579,6 @@ const animalQuestions = [
   { question: "أي حيوان يعطينا الحليب؟", answers: ["قطة", "حصان", "بقرة", "دجاجة"], correct: 2 },
   { question: "ما صوت الأسد؟", answers: ["مواء", "نهيق", "زئير", "نقيق"], correct: 2 },
 
-  // +15 NEW
   { question: "أي حيوان يقول 'هاو هاو'؟", answers: ["قط", "كلب", "بطة", "حصان"], correct: 1 },
   { question: "أي حيوان يقول 'موو'؟", answers: ["بقرة", "قطة", "دجاجة", "أرنب"], correct: 0 },
   { question: "أي حيوان يحب الجزر؟", answers: ["أرنب", "أسد", "سمكة", "ذئب"], correct: 0 },
@@ -1683,26 +1597,19 @@ const animalQuestions = [
 ];
 
         
-        // ========= INITIALIZATION =========
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide loading screen
             setTimeout(() => {
                 document.getElementById('loadingScreen').style.display = 'none';
             }, 1500);
             
-            // Create clouds
             createClouds();
             
-            // Create floating animals
             createFloatingAnimals();
             
-            // Initialize scores
             updateScores();
             
-            // Start background music
             playBackgroundMusic();
             
-            // Add click events for stars
             document.querySelectorAll('.learning-photo, .resource-card').forEach(item => {
                 item.addEventListener('click', function() {
                     if (!this.classList.contains('clicked')) {
@@ -1713,7 +1620,6 @@ const animalQuestions = [
             });
         });
         
-        // ========= CLOUDS & ANIMATIONS =========
         function createClouds() {
             const container = document.getElementById('cloudsContainer');
             for (let i = 0; i < 8; i++) {
@@ -1744,7 +1650,6 @@ const animalQuestions = [
             }
         }
         
-        // ========= SOUND FUNCTIONS =========
         function toggleSound() {
             soundEnabled = !soundEnabled;
             const icon = document.querySelector('.sound-toggle i');
@@ -1760,7 +1665,6 @@ const animalQuestions = [
         function playBackgroundMusic() {
             if (!soundEnabled) return;
             
-            // Create background music using Web Audio API
             try {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 const oscillator = audioContext.createOscillator();
@@ -1776,7 +1680,6 @@ const animalQuestions = [
                 
                 oscillator.start();
                 
-                // Store reference to stop later
                 window.backgroundMusic = { audioContext, oscillator, gainNode };
             } catch (e) {
                 console.log('Background music not supported');
@@ -1829,7 +1732,6 @@ const animalQuestions = [
             oscillator.stop(audioContext.currentTime + 0.5);
         }
         
-        // ========= STAR SYSTEM =========
         function addStars(count) {
             totalStars += count;
             gameStars += count;
@@ -1842,7 +1744,6 @@ const animalQuestions = [
             document.getElementById('totalScore').textContent = totalStars;
             document.getElementById('gameScore').textContent = gameStars;
             
-            // Animate the sun
             const sun = document.getElementById('totalScoreDisplay');
             sun.style.transform = `scale(${1 + totalStars * 0.001})`;
         }
@@ -1860,7 +1761,6 @@ const animalQuestions = [
                 star.style.pointerEvents = 'none';
                 document.body.appendChild(star);
                 
-                // Animate star
                 const animation = star.animate([
                     { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
                     { transform: `translateY(-${Math.random() * 200 + 100}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
@@ -1873,7 +1773,6 @@ const animalQuestions = [
             }
         }
         
-        // ========= GAME FUNCTIONS =========
         function startMathGame() {
             currentGameType = 'math';
             currentGameQuestion = 0;
@@ -1919,14 +1818,11 @@ const animalQuestions = [
             
             const question = gameQuestions[currentGameQuestion];
             
-            // Update question
             document.getElementById('gameQuestion').textContent = question.question;
             
-            // Update progress
             const progress = ((currentGameQuestion + 1) / gameQuestions.length) * 100;
             document.getElementById('gameProgress').style.width = `${progress}%`;
             
-            // Update answer buttons
             const buttons = document.querySelectorAll('.answer-btn');
             buttons.forEach((btn, index) => {
                 btn.textContent = question.answers[index];
@@ -1939,11 +1835,9 @@ const animalQuestions = [
             const question = gameQuestions[currentGameQuestion];
             const buttons = document.querySelectorAll('.answer-btn');
             
-            // Disable all buttons
             buttons.forEach(btn => btn.disabled = true);
             
             if (selectedIndex === question.correct) {
-                // Correct answer
                 buttons[selectedIndex].classList.add('correct');
                 addStars(10);
                 playSuccessSound();
@@ -1953,7 +1847,6 @@ const animalQuestions = [
                     showNextQuestion();
                 }, 1000);
             } else {
-                // Wrong answer
                 buttons[selectedIndex].classList.add('wrong');
                 buttons[question.correct].classList.add('correct');
                 playWrongSound();
@@ -1978,7 +1871,6 @@ const animalQuestions = [
             createStarEffect();
         }
         
-        // ========= UI FUNCTIONS =========
         function openSubject(subject) {
             let message = '';
             switch(subject) {
@@ -2021,13 +1913,11 @@ const animalQuestions = [
         }
     </script>
     
-    <!-- Alertify CSS & JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     
     <script>
-        // Configure alertify for kids
         alertify.defaults.transition = "zoom";
         alertify.defaults.theme.ok = "btn playground-btn";
         alertify.defaults.theme.cancel = "btn btn-secondary";
