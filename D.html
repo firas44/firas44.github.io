@@ -801,78 +801,362 @@
             </section>
             
             <!-- Section 2: Photo Gallery -->
-            <section class="mb-5">
-                <h2 class="text-center fw-bold display-5 mb-5" style="color: var(--kid-blue);">
-                    <i class="fas fa-camera me-3"></i>حديقة الصور التعليمية
-                </h2>
-                
-                <div class="photo-garden">
-                    <!-- Math Photos -->
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="رياضيات للأطفال">
-                        <div class="photo-label">أطفال يتعلمون الرياضيات</div>
-                    </div>
-                    
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="أرقام ملونة">
-                        <div class="photo-label">أرقام ملونة وجميلة</div>
-                    </div>
-                    
-                    <!-- Science Photos -->
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="علوم للأطفال">
-                        <div class="photo-label">تجارب علمية ممتعة</div>
-                    </div>
-                    
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1516627145497-ae695a6c9f35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ألعاب تعليمية">
-                        <div class="photo-label">ألعاب تعليمية تفاعلية</div>
-                    </div>
-                    
-                    <!-- Arabic Photos -->
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="قراءة عربية">
-                        <div class="photo-label">تعلم القراءة العربية</div>
-                    </div>
-                    
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="كتابة عربية">
-                        <div class="photo-label">ممارسة الكتابة العربية</div>
-                    </div>
-                    
-                    <!-- General Learning -->
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="فصول دراسية">
-                        <div class="photo-label">فصول دراسية تفاعلية</div>
-                    </div>
-                    
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="أنشطة جماعية">
-                        <div class="photo-label">أنشطة تعليمية جماعية</div>
-                    </div>
-                    
-                    <!-- Extra Photos -->
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ألعاب إبداعية">
-                        <div class="photo-label">ألعاب إبداعية</div>
-                    </div>
-                    
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="تعلم الفن">
-                        <div class="photo-label">تعلم الفن والإبداع</div>
-                    </div>
-                    
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="تعلم الموسيقى">
-                        <div class="photo-label">تعلم الموسيقى</div>
-                    </div>
-                    
-                    <div class="learning-photo" onclick="addStars(2)">
-                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="تعاون">
-                        <div class="photo-label">التعاون والعمل الجماعي</div>
-                    </div>
-                </div>
-            </section>
+<!-- ================== KIDS CARTOON GARDEN (20) + MODAL + JS ================== -->
+<section class="mb-5">
+  <h2 class="text-center fw-bold display-4 mb-5" style="color: var(--kid-blue) !important;">
+    <i class="fas fa-camera me-3"></i>حديقة الصور التعليمية
+  </h2>
+
+  <div class="photo-garden"
+    style="
+      display:grid !important;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr)) !important;
+      gap:28px !important;
+      padding:28px !important;
+      background:linear-gradient(135deg,#fff6fb,#e8f7ff) !important;
+      border-radius:32px !important;
+      box-shadow:0 18px 55px rgba(0,0,0,.10) !important;
+    ">
+
+    <!-- helper: big cartoon tile style -->
+    <!-- 1 Numbers -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F522.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;transition:transform .25s ease !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff9e6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F522.svg" alt="تعلم الأرقام"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🔢 تعلم الأرقام
+      </div>
+    </div>
+
+    <!-- 2 Counting / Abacus -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F9EE.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#ecfff1 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F9EE.svg" alt="العد"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🧮 العد بسهولة
+      </div>
+    </div>
+
+    <!-- 3 Shapes -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F7E6.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#eef6ff !important;">
+        <img src="https://openmoji.org/data/color/svg/1F7E6.svg" alt="تعلم الأشكال"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🔺 تعلم الأشكال
+      </div>
+    </div>
+
+    <!-- 4 Colors / Palette -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F3A8.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff0f6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F3A8.svg" alt="تعلم الألوان"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🎨 تعلم الألوان
+      </div>
+    </div>
+
+    <!-- 5 Puzzle -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F9E9.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#f4f0ff !important;">
+        <img src="https://openmoji.org/data/color/svg/1F9E9.svg" alt="لعبة تركيب"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🧩 لعبة تركيب
+      </div>
+    </div>
+
+    <!-- 6 Blocks / Building -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F9F1.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#ecfffb !important;">
+        <img src="https://openmoji.org/data/color/svg/1F9F1.svg" alt="مكعبات"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🧱 مكعبات بناء
+      </div>
+    </div>
+
+    <!-- 7 Reading / Book -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F4D6.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff9e6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F4D6.svg" alt="قراءة"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        📖 وقت القراءة
+      </div>
+    </div>
+
+    <!-- 8 Writing / Pencil -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/270F.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#eef6ff !important;">
+        <img src="https://openmoji.org/data/color/svg/270F.svg" alt="كتابة"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        ✏️ كتابة بسيطة
+      </div>
+    </div>
+
+    <!-- 9 Arabic Letters (tiles as "ABC" style) -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F524.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff0f6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F524.svg" alt="حروف"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🔤 تعلم الحروف
+      </div>
+    </div>
+
+    <!-- 10 Science / Microscope -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F52C.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#ecfff1 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F52C.svg" alt="علوم"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🔬 علوم ممتعة
+      </div>
+    </div>
+
+    <!-- 11 Art / Crayon -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F58D.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff9e6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F58D.svg" alt="تلوين"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🖍️ التلوين
+      </div>
+    </div>
+
+    <!-- 12 Music / Notes -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F3B6.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#eef6ff !important;">
+        <img src="https://openmoji.org/data/color/svg/1F3B6.svg" alt="موسيقى"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🎵 موسيقى
+      </div>
+    </div>
+
+    <!-- 13 Movement / Running -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F3C3.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#ecfff1 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F3C3.svg" alt="حركة"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🏃‍♂️ حركة ونشاط
+      </div>
+    </div>
+
+    <!-- 14 Feelings / Happy -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F60A.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff0f6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F60A.svg" alt="مشاعر"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🙂 مشاعر سعيدة
+      </div>
+    </div>
+
+    <!-- 15 Animals / Bear -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F43B.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff9e6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F43B.svg" alt="حيوانات"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🐻 حيوانات لطيفة
+      </div>
+    </div>
+
+    <!-- 16 Fruits / Apple -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F34E.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#ecfff1 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F34E.svg" alt="فواكه"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🍎 فواكه صحية
+      </div>
+    </div>
+
+    <!-- 17 Weather / Sun -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/2600.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#eef6ff !important;">
+        <img src="https://openmoji.org/data/color/svg/2600.svg" alt="طقس"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        ☀️ الطقس
+      </div>
+    </div>
+
+    <!-- 18 Transport / Bus -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F68C.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff0f6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F68C.svg" alt="مواصلات"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🚌 المواصلات
+      </div>
+    </div>
+
+    <!-- 19 Space / Rocket -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F680.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff9e6 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F680.svg" alt="فضاء"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🚀 رحلة إلى الفضاء
+      </div>
+    </div>
+
+    <!-- 20 Teamwork / Handshake -->
+    <div class="learning-photo" onclick="openPhotoModal(this)"
+      data-full="https://openmoji.org/data/color/svg/1F91D.svg"
+      style="background:#fff !important;border-radius:32px !important;overflow:hidden !important;cursor:pointer !important;box-shadow:0 22px 65px rgba(0,0,0,.16) !important;"
+      onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+      <div style="height:320px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#ecfff1 !important;">
+        <img src="https://openmoji.org/data/color/svg/1F91D.svg" alt="تعاون"
+          style="width:78% !important;height:78% !important;object-fit:contain !important;">
+      </div>
+      <div style="padding:18px !important;font-size:1.55rem !important;font-weight:900 !important;text-align:center !important;color:#0b3d91 !important;">
+        🤝 التعاون
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================== MODAL ================== -->
+<div id="photoModal"
+  style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:999999; padding:30px;"
+  onclick="closePhotoModal()">
+
+  <div style="max-width:1100px; margin:40px auto; background:#fff; border-radius:32px; overflow:hidden; position:relative; box-shadow:0 30px 90px rgba(0,0,0,.45);"
+       onclick="event.stopPropagation()">
+
+    <button onclick="closePhotoModal()"
+      style="position:absolute; top:15px; left:15px; width:54px; height:54px; border:none; border-radius:50%; font-size:28px; font-weight:900; background:#ff6b6b; color:#fff; cursor:pointer;">
+      ✖
+    </button>
+
+    <img id="modalImg" alt=""
+      style="width:100%; max-height:75vh; object-fit:contain; background:#f7fbff; padding:22px;">
+
+    <div id="modalCaption"
+      style="padding:22px; font-size:1.6rem; font-weight:900; text-align:center; color:#0b3d91;">
+    </div>
+  </div>
+</div>
+
+<!-- ================== JS ================== -->
+<script>
+  function openPhotoModal(card){
+    if (typeof addStars === "function") addStars(2);
+
+    const full = card.getAttribute("data-full");
+    const caption = card.querySelectorAll("div")[1].innerText;
+
+    const modal = document.getElementById("photoModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalCaption = document.getElementById("modalCaption");
+
+    modalImg.src = full;
+    modalCaption.innerText = caption;
+
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePhotoModal(){
+    const modal = document.getElementById("photoModal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "none";
+    modalImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") closePhotoModal();
+  });
+</script>
+<!-- ================== END ================== -->
+
             
             <!-- Section 3: Games Playground -->
             <section class="mb-5" id="gamesSection">
@@ -1011,45 +1295,131 @@
                     </div>
                 </div>
                 
-                <!-- External Links -->
-                <div class="row mt-4">
-                    <div class="col-12">
-                        <div class="resource-card" onclick="addStars(3)">
-                            <h5 class="fw-bold mb-3 text-center">
-                                <i class="fas fa-globe me-2"></i>مواقع تعليمية مفيدة
-                            </h5>
-                            <div class="row">
-                                <div class="col-md-4 mb-2">
-                                    <a href="https://pbskids.org/" target="_blank" class="text-decoration-none">
-                                        <div class="resource-card text-center">
-                                            <i class="fas fa-tv fa-2x mb-2" style="color: var(--kid-pink);"></i>
-                                            <h6>PBS Kids</h6>
-                                            <small class="text-muted">ألعاب تعليمية</small>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 mb-2">
-                                    <a href="https://www.natgeokids.com/" target="_blank" class="text-decoration-none">
-                                        <div class="resource-card text-center">
-                                            <i class="fas fa-globe-americas fa-2x mb-2" style="color: var(--kid-green);"></i>
-                                            <h6>Nat Geo Kids</h6>
-                                            <small class="text-muted">علوم وحيوانات</small>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-4 mb-2">
-                                    <a href="https://www.coolmath4kids.com/" target="_blank" class="text-decoration-none">
-                                        <div class="resource-card text-center">
-                                            <i class="fas fa-gamepad fa-2x mb-2" style="color: var(--kid-blue);"></i>
-                                            <h6>Cool Math</h6>
-                                            <small class="text-muted">ألعاب رياضيات</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="row mt-4">
+  <div class="col-12">
+    <div class="resource-card" onclick="addStars(3)"
+      style="border-radius:22px !important; padding:18px !important; box-shadow:0 16px 45px rgba(0,0,0,.12) !important;">
+      <h5 class="fw-bold mb-3 text-center" style="font-size:1.6rem !important;">
+        <i class="fas fa-globe me-2"></i>مواقع تعليمية مفيدة (بالعربية)
+      </h5>
+
+      <div class="row">
+
+        <!-- 1: عصافير -->
+        <div class="col-md-4 mb-3">
+          <a href="https://3asafeer.com/index?page=play" target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-gamepad fa-2x mb-2" style="color: var(--kid-blue) !important;"></i>
+              <h6 style="font-weight:900 !important;">عصافير</h6>
+              <small class="text-muted">ألعاب وأنشطة ما قبل المدرسة</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- 2: بلبل -->
+        <div class="col-md-4 mb-3">
+          <a href="https://www.bulbul4kids.com/" target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-child fa-2x mb-2" style="color: var(--kid-green) !important;"></i>
+              <h6 style="font-weight:900 !important;">بلبل</h6>
+              <small class="text-muted">تعلم باللعب (3–10 سنوات)</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- 3: أ ب ت -->
+        <div class="col-md-4 mb-3">
+          <a href="https://www.alefbata.com/" target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-font fa-2x mb-2" style="color: var(--kid-pink) !important;"></i>
+              <h6 style="font-weight:900 !important;">أ ب ت</h6>
+              <small class="text-muted">تعلم العربية للأطفال بالمتعة</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- 4: كتكوتي -->
+        <div class="col-md-4 mb-3">
+          <a href="https://www.katkuti.com/" target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-puzzle-piece fa-2x mb-2" style="color: var(--kid-blue) !important;"></i>
+              <h6 style="font-weight:900 !important;">كتكوتي</h6>
+              <small class="text-muted">ألعاب تفاعلية + تلوين + كلمات</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- 5: أقرأ بالعربية -->
+        <div class="col-md-4 mb-3">
+          <a href="https://ar.ireadarabic.com/" target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-book-open fa-2x mb-2" style="color: var(--kid-green) !important;"></i>
+              <h6 style="font-weight:900 !important;">أقرأ بالعربية</h6>
+              <small class="text-muted">قصص وموارد لتطوير القراءة</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- 6: ماتيفيك (عربي) -->
+        <div class="col-md-4 mb-3">
+          <a href="https://www.matific.com/isr/ar/home/" target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-calculator fa-2x mb-2" style="color: var(--kid-pink) !important;"></i>
+              <h6 style="font-weight:900 !important;">ماتيفيك</h6>
+              <small class="text-muted">أنشطة حساب تفاعلية (واجهة عربية)</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- 7: توينكل عربي (تفاعلي) -->
+        <div class="col-md-4 mb-3">
+          <a href="https://www.twinkl.com/resources/kuwait-middle-east/kuwait-national-curriculum-kuwait/interactive-ar"
+             target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-laptop fa-2x mb-2" style="color: var(--kid-blue) !important;"></i>
+              <h6 style="font-weight:900 !important;">توينكل (تفاعلي عربي)</h6>
+              <small class="text-muted">ألعاب وموارد تفاعلية بالعربية</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- 8: صغارنا -->
+        <div class="col-md-4 mb-3">
+          <a href="https://www.sgharna.com/" target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-smile-beam fa-2x mb-2" style="color: var(--kid-green) !important;"></i>
+              <h6 style="font-weight:900 !important;">صغارنا</h6>
+              <small class="text-muted">محتوى وألعاب عربية للأطفال</small>
+            </div>
+          </a>
+        </div>
+
+        <!-- 9: ووردوول عربي (ألعاب صفّية) -->
+        <div class="col-md-4 mb-3">
+          <a href="https://wordwall.net/ar-sa/community/%D8%A7%D9%84%D8%B9%D8%A7%D8%A8-%D8%AA%D8%B9%D9%84%D9%8A%D9%85%D9%8A%D8%A9"
+             target="_blank" rel="noopener" class="text-decoration-none">
+            <div class="resource-card text-center"
+              style="border-radius:18px !important; padding:16px !important;">
+              <i class="fas fa-dice fa-2x mb-2" style="color: var(--kid-pink) !important;"></i>
+              <h6 style="font-weight:900 !important;">ووردوول (عربي)</h6>
+              <small class="text-muted">ألعاب تعليمية جاهزة وتفاعلية</small>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
             </section>
         </div>
     </main>
@@ -1069,7 +1439,7 @@
                     </p>
                     <p>
                         <i class="fas fa-calendar-alt me-2"></i>
-                        مشروع تعليمي - 2024
+                        مشروع تعليمي - 2025
                     </p>
                 </div>
                 
@@ -1120,7 +1490,7 @@
                     <p class="mb-4">
                         حديقة تعليمية سحرية للأطفال، تجمع بين التعلم والمرح
                     </p>
-                    <button class="playground-btn" onclick="showAllFeatures()">
+                    <button hidden class="playground-btn" onclick="showAllFeatures()">
                         <i class="fas fa-magic me-2"></i>شاهد السحر كله
                     </button>
                 </div>
@@ -1149,37 +1519,108 @@
         let soundEnabled = true;
         
         // ========= GAME QUESTIONS =========
-        const mathQuestions = [
-            { question: "٥ + ٣ = ?", answers: ["٧", "٨", "٩", "٦"], correct: 1 },
-            { question: "١٠ - ٤ = ?", answers: ["٥", "٦", "٧", "٨"], correct: 1 },
-            { question: "٢ × ٣ = ?", answers: ["٤", "٥", "٦", "٧"], correct: 2 },
-            { question: "ما الشكل الذي له ٣ أضلاع؟", answers: ["مربع", "مستطيل", "مثلث", "دائرة"], correct: 2 },
-            { question: "ما العدد الذي يلي ٩؟", answers: ["٨", "١٠", "١١", "١٢"], correct: 1 }
-        ];
-        
-        const scienceQuestions = [
-            { question: "أي جزء من النبات يمتص الماء؟", answers: ["الجذور", "الأوراق", "الزهرة", "الثمرة"], correct: 0 },
-            { question: "أي حيوان يعيش في الماء؟", answers: ["أسد", "نمر", "سمكة", "فيل"], correct: 2 },
-            { question: "ما الذي تحتاجه النار لتشتعل؟", answers: ["ماء", "هواء", "ثلج", "ظلام"], correct: 1 },
-            { question: "أين يعيش الدب القطبي؟", answers: ["الصحراء", "القطب الشمالي", "الغابة", "المزرعة"], correct: 1 },
-            { question: "ما شكل الكرة؟", answers: ["مربع", "مثلث", "مستطيل", "دائري"], correct: 3 }
-        ];
-        
-        const arabicQuestions = [
-            { question: "ما أول حرف في كلمة 'مدرسة'؟", answers: ["م", "د", "ر", "س"], correct: 0 },
-            { question: "ما جمع 'كتاب'؟", answers: ["كتب", "كُتيب", "مكتب", "كاتب"], correct: 0 },
-            { question: "ما عكس 'كبير'؟", answers: ["طويل", "صغير", "عريض", "ثقيل"], correct: 1 },
-            { question: "كم حرف في كلمة 'تفاحة'؟", answers: ["٤", "٥", "٦", "٧"], correct: 1 },
-            { question: "ما أول حرف في كلمة 'قطة'؟", answers: ["ق", "ط", "ة", "و"], correct: 0 }
-        ];
-        
-        const animalQuestions = [
-            { question: "أي حيوان يقول 'مياو'؟", answers: ["كلب", "قطة", "بقرة", "دجاجة"], correct: 1 },
-            { question: "أي طائر يطير لكنه لا يغني؟", answers: ["عصفور", "نسر", "بطريق", "ببغاء"], correct: 2 },
-            { question: "ما لون الفراولة؟", answers: ["أزرق", "أخضر", "أحمر", "أصفر"], correct: 2 },
-            { question: "أي حيوان يعطينا الحليب؟", answers: ["قطة", "حصان", "بقرة", "دجاجة"], correct: 2 },
-            { question: "ما صوت الأسد؟", answers: ["مواء", "نهيق", "زئير", "نقيق"], correct: 2 }
-        ];
+       // ✅ More questions (Arabic, kid-friendly). Just paste + replace your arrays with these:
+
+const mathQuestions = [
+  { question: "٥ + ٣ = ؟", answers: ["٧", "٨", "٩", "٦"], correct: 1 },
+  { question: "١٠ - ٤ = ؟", answers: ["٥", "٦", "٧", "٨"], correct: 1 },
+  { question: "٢ × ٣ = ؟", answers: ["٤", "٥", "٦", "٧"], correct: 2 },
+  { question: "ما الشكل الذي له ٣ أضلاع؟", answers: ["مربع", "مستطيل", "مثلث", "دائرة"], correct: 2 },
+  { question: "ما العدد الذي يلي ٩؟", answers: ["٨", "١٠", "١١", "١٢"], correct: 1 },
+
+  // +15 NEW (easy for kids)
+  { question: "١ + ٢ = ؟", answers: ["٢", "٣", "٤", "٥"], correct: 1 },
+  { question: "٤ + ١ = ؟", answers: ["٥", "٣", "٤", "٦"], correct: 0 },
+  { question: "٦ - ٢ = ؟", answers: ["٣", "٤", "٥", "٢"], correct: 1 },
+  { question: "٩ - ٣ = ؟", answers: ["٥", "٦", "٧", "٨"], correct: 1 },
+  { question: "أي عدد أكبر؟", answers: ["٣", "٥", "٢", "١"], correct: 1 },
+  { question: "أي عدد أصغر؟", answers: ["٧", "٩", "٤", "٨"], correct: 2 },
+  { question: "كم عدد التفاحات؟ 🍎🍎🍎", answers: ["٢", "٣", "٤", "٥"], correct: 1 },
+  { question: "كم عدد النجوم؟ ⭐⭐", answers: ["١", "٢", "٣", "٤"], correct: 1 },
+  { question: "ما الشكل الذي يشبه الكرة؟", answers: ["مربع", "مثلث", "دائرة", "مستطيل"], correct: 2 },
+  { question: "ما الشكل الذي له ٤ أضلاع متساوية؟", answers: ["دائرة", "مربع", "مثلث", "مستطيل"], correct: 1 },
+  { question: "٥ + ٠ = ؟", answers: ["٠", "٤", "٥", "٦"], correct: 2 },
+  { question: "١٠ - ٠ = ؟", answers: ["٩", "١٠", "٨", "٧"], correct: 1 },
+  { question: "أي عدد يسبق ٦؟", answers: ["٤", "٥", "٧", "٨"], correct: 1 },
+  { question: "أي عدد يسبق ١؟", answers: ["٠", "٢", "٣", "٤"], correct: 0 },
+  { question: "كم عدد الأصابع في يد واحدة؟", answers: ["٣", "٤", "٥", "٦"], correct: 2 }
+];
+
+const scienceQuestions = [
+  { question: "أي جزء من النبات يمتص الماء؟", answers: ["الجذور", "الأوراق", "الزهرة", "الثمرة"], correct: 0 },
+  { question: "أي حيوان يعيش في الماء؟", answers: ["أسد", "نمر", "سمكة", "فيل"], correct: 2 },
+  { question: "ما الذي تحتاجه النار لتشتعل؟", answers: ["ماء", "هواء", "ثلج", "ظلام"], correct: 1 },
+  { question: "أين يعيش الدب القطبي؟", answers: ["الصحراء", "القطب الشمالي", "الغابة", "المزرعة"], correct: 1 },
+  { question: "ما شكل الكرة؟", answers: ["مربع", "مثلث", "مستطيل", "دائري"], correct: 3 },
+
+  // +15 NEW (preschool friendly)
+  { question: "أي شيء نستخدمه للشرب؟", answers: ["كوب", "حذاء", "قلم", "كتاب"], correct: 0 },
+  { question: "ما الشيء الذي نراه في الليل؟", answers: ["الشمس", "القمر", "قوس قزح", "زهرة"], correct: 1 },
+  { question: "ما الذي نحتاجه للتنفس؟", answers: ["هواء", "رمل", "حجر", "معدن"], correct: 0 },
+  { question: "أي شيء يذوب في الشمس؟", answers: ["ثلج", "حجر", "خشب", "حديد"], correct: 0 },
+  { question: "أي فصل يكون فيه الجو باردًا غالبًا؟", answers: ["الصيف", "الشتاء", "الربيع", "الخريف"], correct: 1 },
+  { question: "ما لون أوراق الشجر غالبًا؟", answers: ["أخضر", "أزرق", "أسود", "وردي"], correct: 0 },
+  { question: "من أين نشرب الماء؟", answers: ["من الكوب", "من الحذاء", "من القبعة", "من الكرسي"], correct: 0 },
+  { question: "أي شيء يطير في السماء؟", answers: ["طائرة", "سمكة", "سيارة", "تفاحة"], correct: 0 },
+  { question: "ما الحيوان الذي يبيض؟", answers: ["دجاجة", "قطة", "حصان", "فيل"], correct: 0 },
+  { question: "ما الذي نستخدمه للكتابة؟", answers: ["قلم", "ملعقة", "كرة", "فرشاة أسنان"], correct: 0 },
+  { question: "أي شيء يطفو على الماء غالبًا؟", answers: ["خشب", "حجر", "حديد", "زجاج"], correct: 0 },
+  { question: "أي شيء يساعد النبات على النمو؟", answers: ["ماء", "دخان", "سكر", "ملح"], correct: 0 },
+  { question: "ماذا نسمي صغير القطة؟", answers: ["هريرة", "جرو", "مهر", "عجل"], correct: 0 },
+  { question: "ما الشيء الذي يضيء النهار؟", answers: ["الشمس", "القمر", "نجمة", "مصباح"], correct: 0 },
+  { question: "أي شيء نلبسه عندما تمطر؟", answers: ["معطف", "نظارة شمس", "حذاء رياضة", "قبعة صيف"], correct: 0 }
+];
+
+const arabicQuestions = [
+  { question: "ما أول حرف في كلمة 'مدرسة'؟", answers: ["م", "د", "ر", "س"], correct: 0 },
+  { question: "ما جمع 'كتاب'؟", answers: ["كتب", "كُتيب", "مكتب", "كاتب"], correct: 0 },
+  { question: "ما عكس 'كبير'؟", answers: ["طويل", "صغير", "عريض", "ثقيل"], correct: 1 },
+  { question: "كم حرف في كلمة 'تفاحة'؟", answers: ["٤", "٥", "٦", "٧"], correct: 1 },
+  { question: "ما أول حرف في كلمة 'قطة'؟", answers: ["ق", "ط", "ة", "و"], correct: 0 },
+
+  // +15 NEW (very easy)
+  { question: "ما أول حرف في كلمة 'باب'؟", answers: ["ب", "ا", "د", "م"], correct: 0 },
+  { question: "ما أول حرف في كلمة 'موز'؟", answers: ["م", "و", "ز", "ن"], correct: 0 },
+  { question: "ما أول حرف في كلمة 'بيت'؟", answers: ["ب", "ي", "ت", "س"], correct: 0 },
+  { question: "ما أول حرف في كلمة 'ورد'؟", answers: ["و", "ر", "د", "ق"], correct: 0 },
+  { question: "ما عكس 'سريع'؟", answers: ["بطيء", "كبير", "طويل", "قوي"], correct: 0 },
+  { question: "ما عكس 'حار'؟", answers: ["بارد", "سهل", "خفيف", "جميل"], correct: 0 },
+  { question: "ما عكس 'ليل'؟", answers: ["نهار", "صيف", "قمر", "شمس"], correct: 0 },
+  { question: "اختر كلمة تبدأ بحرف (م):", answers: ["موز", "تفاح", "باب", "قطة"], correct: 0 },
+  { question: "اختر كلمة تبدأ بحرف (ب):", answers: ["بيت", "موز", "ورد", "قمر"], correct: 0 },
+  { question: "كم حرف في كلمة 'باب'؟", answers: ["٢", "٣", "٤", "٥"], correct: 1 },
+  { question: "كم حرف في كلمة 'قمر'؟", answers: ["٢", "٣", "٤", "٥"], correct: 1 },
+  { question: "أي كلمة تعني 'أكل'؟", answers: ["أكل", "نام", "جلس", "قفز"], correct: 0 },
+  { question: "أي كلمة تعني 'شرب'؟", answers: ["شرب", "قرأ", "كتب", "لعب"], correct: 0 },
+  { question: "اختر اللون من الكلمات:", answers: ["أحمر", "باب", "قطة", "كتاب"], correct: 0 },
+  { question: "اختر الحيوان من الكلمات:", answers: ["قطة", "كرسي", "كوب", "باب"], correct: 0 }
+];
+
+const animalQuestions = [
+  { question: "أي حيوان يقول 'مياو'؟", answers: ["كلب", "قطة", "بقرة", "دجاجة"], correct: 1 },
+  { question: "أي طائر يطير لكنه لا يغني؟", answers: ["عصفور", "نسر", "بطريق", "ببغاء"], correct: 2 },
+  { question: "ما لون الفراولة؟", answers: ["أزرق", "أخضر", "أحمر", "أصفر"], correct: 2 },
+  { question: "أي حيوان يعطينا الحليب؟", answers: ["قطة", "حصان", "بقرة", "دجاجة"], correct: 2 },
+  { question: "ما صوت الأسد؟", answers: ["مواء", "نهيق", "زئير", "نقيق"], correct: 2 },
+
+  // +15 NEW
+  { question: "أي حيوان يقول 'هاو هاو'؟", answers: ["قط", "كلب", "بطة", "حصان"], correct: 1 },
+  { question: "أي حيوان يقول 'موو'؟", answers: ["بقرة", "قطة", "دجاجة", "أرنب"], correct: 0 },
+  { question: "أي حيوان يحب الجزر؟", answers: ["أرنب", "أسد", "سمكة", "ذئب"], correct: 0 },
+  { question: "أي حيوان يعيش في البحر؟", answers: ["سمكة", "قط", "حصان", "نملة"], correct: 0 },
+  { question: "أي حيوان يطير؟", answers: ["عصفور", "قطة", "بقرة", "سلحفاة"], correct: 0 },
+  { question: "أين يعيش السمك؟", answers: ["في الماء", "في الرمل", "على الشجر", "في الجبل"], correct: 0 },
+  { question: "أي حيوان بطيء؟", answers: ["سلحفاة", "فهد", "حصان", "أرنب"], correct: 0 },
+  { question: "أي حيوان له خرطوم؟", answers: ["فيل", "قطة", "كلب", "أرنب"], correct: 0 },
+  { question: "أي حيوان يعيش في المزرعة؟", answers: ["دجاجة", "حوت", "نمر", "دب قطبي"], correct: 0 },
+  { question: "ما لون الموز؟", answers: ["أصفر", "أزرق", "أحمر", "أسود"], correct: 0 },
+  { question: "ما لون العشب؟", answers: ["أخضر", "وردي", "بنفسجي", "رمادي"], correct: 0 },
+  { question: "ما صوت الخروف؟", answers: ["مأمأ", "زئير", "نقيق", "مواء"], correct: 0 },
+  { question: "أي حيوان له ريش؟", answers: ["دجاجة", "سمكة", "قط", "حصان"], correct: 0 },
+  { question: "أي حيوان يقول 'كواك كواك'؟", answers: ["بطة", "قطة", "كلب", "حصان"], correct: 0 },
+  { question: "أي حيوان صغير يعيش في البيت أحيانًا؟", answers: ["قطة", "نمر", "ذئب", "أسد"], correct: 0 }
+];
+
         
         // ========= INITIALIZATION =========
         document.addEventListener('DOMContentLoaded', function() {
