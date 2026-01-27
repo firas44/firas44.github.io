@@ -1,439 +1,899 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ألعاب الأطفال — صفحة واحدة 🎈</title>
 
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Devcrud">
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-	<link rel="stylesheet" href="assets/css/johndoe.css">
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Cute font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"/>
+
+  <style>
+    :root{
+      --bg1:#fff1f7;
+      --bg2:#f0fbff;
+      --ink:#243047;
+      --pink:#ff5aa5;
+      --purple:#7c5cff;
+      --mint:#31d0aa;
+      --sun:#ffcc4d;
+      --card:#ffffffcc;
+    }
+    *{font-family:"Cairo", system-ui, -apple-system, Segoe UI, sans-serif;}
+    body{
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, #ffe0ef 0 20%, transparent 21%),
+        radial-gradient(circle at 80% 10%, #d7f5ff 0 22%, transparent 23%),
+        radial-gradient(circle at 65% 75%, #e8e3ff 0 26%, transparent 27%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    .blob{
+      position:absolute; inset:auto;
+      width:280px; height:280px; border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;
+      filter: blur(0.2px);
+      opacity:.35;
+      animation: floaty 8s ease-in-out infinite;
+      z-index:-1;
+    }
+    .blob.b1{background: radial-gradient(circle, #ff8fc7, transparent 60%); top:-70px; right:-70px;}
+    .blob.b2{background: radial-gradient(circle, #7ee8ff, transparent 60%); bottom:-90px; left:-70px; animation-duration:10s;}
+    .blob.b3{background: radial-gradient(circle, #a7f3d0, transparent 60%); top:55%; right:-110px; animation-duration:12s;}
+    @keyframes floaty{ 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-16px) rotate(6deg)} }
+
+    .topbar{
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(255,255,255,.6);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+      border-radius: 22px;
+    }
+    .title-badge{
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      color:#fff;
+      border-radius: 999px;
+      padding:.35rem .75rem;
+      font-weight:800;
+      display:inline-flex;
+      gap:.45rem;
+      align-items:center;
+      box-shadow:0 10px 20px rgba(124,92,255,.25);
+    }
+    .mini-pill{
+      border-radius:999px;
+      background: rgba(255,255,255,.8);
+      border:1px solid rgba(36,48,71,.08);
+      padding:.35rem .65rem;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+    }
+
+    .game-card{
+      background: var(--card);
+      border:1px solid rgba(255,255,255,.6);
+      border-radius: 26px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.10);
+      overflow:hidden;
+    }
+    .card-head{
+      background: linear-gradient(90deg, rgba(255,90,165,.18), rgba(124,92,255,.18));
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(36,48,71,.06);
+    }
+    .btn-kid{
+      border-radius: 14px;
+      font-weight:800;
+      border:none;
+      padding:.65rem .95rem;
+      box-shadow:0 12px 24px rgba(0,0,0,.10);
+      transition: transform .08s ease;
+    }
+    .btn-kid:active{ transform: translateY(1px) scale(.99); }
+    .btn-pink{ background: linear-gradient(90deg, var(--pink), #ff7cc0); color:#fff; }
+    .btn-purple{ background: linear-gradient(90deg, var(--purple), #9b7bff); color:#fff; }
+    .btn-mint{ background: linear-gradient(90deg, var(--mint), #67e8c9); color:#083b2f; }
+    .btn-sun{ background: linear-gradient(90deg, var(--sun), #ffe08a); color:#5b4200; }
+
+    .big-q{
+      font-size: clamp(28px, 4.4vw, 52px);
+      font-weight: 900;
+      letter-spacing: .5px;
+    }
+    .score-badge{
+      background: rgba(255,255,255,.85);
+      border:1px dashed rgba(36,48,71,.18);
+      padding:.5rem .75rem;
+      border-radius: 16px;
+      font-weight:900;
+    }
+    .hint{
+      font-weight:700;
+      opacity:.9;
+    }
+    .kid-input{
+      border-radius: 16px;
+      padding: .75rem 1rem;
+      font-size: 1.1rem;
+      font-weight:800;
+      border: 2px solid rgba(124,92,255,.25);
+      box-shadow: inset 0 2px 0 rgba(0,0,0,.03);
+    }
+    .soft{
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(36,48,71,.08);
+      border-radius: 18px;
+      padding: 12px;
+    }
+
+    .tabby .nav-link{
+      border-radius: 999px !important;
+      font-weight:900;
+      padding:.55rem .9rem;
+      border: 1px solid rgba(36,48,71,.08);
+      background: rgba(255,255,255,.7);
+      margin: .2rem;
+    }
+    .tabby .nav-link.active{
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      color:#fff;
+      border:none;
+      box-shadow:0 12px 26px rgba(124,92,255,.25);
+    }
+
+    /* Shapes */
+    .shape-bank, .shape-targets{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+      align-items:center;
+    }
+    .shape{
+      width:86px; height:86px;
+      border-radius: 22px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,.85);
+      border: 2px solid rgba(36,48,71,.10);
+      cursor: grab;
+      user-select:none;
+      box-shadow:0 12px 22px rgba(0,0,0,.08);
+      transition: transform .12s ease;
+    }
+    .shape:hover{ transform: translateY(-2px) rotate(-1deg); }
+    .shape:active{ cursor: grabbing; transform: translateY(0) scale(.98); }
+    .target{
+      width:110px; height:110px;
+      border-radius: 26px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,.6);
+      border: 3px dashed rgba(124,92,255,.35);
+      box-shadow: inset 0 2px 0 rgba(0,0,0,.04);
+    }
+    .target.good{
+      border-style: solid;
+      border-color: rgba(49,208,170,.55);
+      background: rgba(49,208,170,.14);
+      animation: tada 0.8s;
+    }
+    .target.bad{
+      border-style: solid;
+      border-color: rgba(255,90,165,.55);
+      background: rgba(255,90,165,.12);
+      animation: shakeX 0.6s;
+    }
+    .tiny{
+      font-size:.95rem;
+    }
+
+    /* Cute footer links */
+    .lib a{
+      text-decoration:none;
+      font-weight:800;
+    }
+    .lib a:hover{ text-decoration:underline; }
+  </style>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <a href="components.html" class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Components</a>
-    <header class="header">
-        <div class="container">
-            <ul class="social-icons pt-3">
-                <li class="social-item">
-                    <a class="social-link text-light" href="https://www.linkedin.com/in/firas-ismail-92a6961b4" target="_blank">
-                        <i class="ti-linkedin" aria-hidden="true"></i>
-                    </a>
-                </li>
-            </ul>
-            
-            <div class="header-content">
-                <h4 class="header-subtitle" >Hello, I am</h4>
-                <h1 class="header-title">Firas Ismail</h1>
-                <h6 class="header-mono" >Software Engineer | Web Developer</h6>
-            </div>
+
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <div class="container py-4 py-lg-5 position-relative">
+    <!-- Header -->
+    <div class="topbar p-3 p-lg-4 mb-4 animate__animated animate__fadeInDown">
+      <div class="d-flex flex-column flex-lg-row gap-3 align-items-lg-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="title-badge"><i class="bi bi-stars"></i> ألعاب الأطفال</span>
+          <span class="mini-pill"><i class="bi bi-music-note-beamed"></i> أصوات</span>
+          <span class="mini-pill"><i class="bi bi-lightning-charge-fill"></i> حماس</span>
         </div>
-    </header>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
-        <div class="container">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#resume" class="nav-link">Resume</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav brand">
-                    <img src="assets/imgs/avatar.jpg" alt="" class="brand-img">
-                    <li class="brand-txt">
-                        <h5 class="brand-title">Firas Ismail</h5>
-                        <div class="brand-subtitle">Software Engineer | Web Developer</div>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item last-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="d-flex flex-wrap gap-2 justify-content-start justify-content-lg-end">
+          <button class="btn btn-kid btn-sun" id="btnSound">
+            <i class="bi bi-volume-up-fill me-1"></i> الصوت: <span id="soundState">شغّال</span>
+          </button>
+          <button class="btn btn-kid btn-mint" id="btnConfetti">
+            <i class="bi bi-balloon-heart-fill me-1"></i> مفاجأة 🎉
+          </button>
+          <button class="btn btn-kid btn-purple" id="btnResetAll">
+            <i class="bi bi-arrow-clockwise me-1"></i> إعادة كل شيء
+          </button>
         </div>
-    </nav>
-    <div class="container-fluid">
-        <div id="about" class="row about-section">
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Who am I ?</h3>
-                <span class="line mb-5"></span>
-                <h5 class="mb-3">Software Engineer | Web Developer Located In Israel, Northen District.</h5>
-                <p class="mt-20">Open to work for anywhere in the country, preferably in hybrid conditions.</p>
-                <a href="firas_CV.pdf" download class="btn btn-outline-danger">
-                    <i class="icon-down-circled2"></i> Download My CV
-                </a>
-                <!-- not sure this works fine test thsi before  -->
-            
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Personal Info</h3>
-                <span class="line mb-5"></span>
-                <ul class="mt40 info list-unstyled">
-                    <li><span>Birthdate</span> : 04/04/1995</li>
-                    <li><span>Email</span> : fir.ismail28@gmail.com</li>
-                    <li><span>Phone</span> : + (972) 0535553508</li>
-                    <li><span>Skype</span> : Firas A. Ismail </li>
-                    <li><span>Address</span> :  Nahf, Northen District, Israel</li>
-                </ul>
-                <ul class="social-icons pt-3">
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
-                </ul>  
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">My Expertise</h3>
-                <span class="line mb-5"></span>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="fas fa-laptop-code icon-lg"></i></div> <!-- Icon for Software Engineer -->
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Software Engineer</h6>
-                        <p class="subtitle">University of Haifa Graduate in Computer Science, BSc 2024.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="fas fa-code icon-lg"></i></div> <!-- Icon for Web Development -->
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Web Development</h6>
-                        <p class="subtitle">Freelance and as a hobby, Front and Back end development.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="fas fa-chalkboard-teacher icon-lg"></i></div> <!-- Icon for Tutoring -->
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Psychometry/Science Tutor</h6>
-                        <p class="subtitle">Scored 754 in Psychometry. Tutored Math/CS/Science subjects for all school ages, worked with major companies in the market.</p>
-                        <hr>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+      </div>
+      <div class="mt-3 hint">
+        👶 اختر لعبة من الأسفل… وابدأ المرح! (واجهة عربية لطيفة + Bootstrap + أنيميشن + أصوات)
+      </div>
     </div>
 
-    <!--Resume Section-->
-    <section class="section" id="resume">
-        <div class="container">
-            <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Expertise</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="title text-danger">2021 - 2024</h6>
-                            <p>System Monitoring Engineer - Yahoo!</p>
-                            <p class="subtitle">
-                                Responsible for creating and monitoring essential application dashboards, incident escalation, release interference management, debugging and resolving issues, and hardware maintenance. Worked extensively with AWS, HDFS, Splunk, Jira, and Screwdriver for efficient system management.
-                            </p>
-                            <hr>
-                            <h6 class="title text-danger">2017 - Present</h6>
-                            <p>Web Developer (Freelance)</p>
-                            <p class="subtitle">
-                                Working as a freelance web developer, providing both front-end and back-end functionality for a network of family and friends. Utilized advanced AWS services for hosting and implementing applications.
-                            </p>
-                            <hr>
-                            <p>Software Engineer</p>
-                            <p class="subtitle">
-                                Graduated from the University of Haifa in 2024 with a Bachelor's in Computer Science. Gained extensive experience working on multiple projects using Java, C, C++, JavaScript, React, and Python, with development on both Linux and Windows platforms.
-                            </p>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Education & Experience</h4>
-                                <span class="line"></span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="title text-danger">2022 - 2024</h6>
-                            <p>Psychometric Exam Tutor</p>
-                            <p class="subtitle">
-                                Honored to guide numerous students on their journey towards higher education. Over two years of dedicated tutoring, offering personalized support to help students excel in their psychometric exams.
-                            </p>
-                            <hr>
-                            <h6 class="title text-danger">2016 - Present</h6>
-                            <p>Customer Service Representative</p>
-                            <p class="subtitle">
-                                Acquired valuable experience in customer service, facilitating clear communication and ensuring customer satisfaction while developing strong interpersonal and problem-solving skills.
-                            </p>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">Skills</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                            <h6>HTML5 &amp; CSS3</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 97%" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        
-                            <h6>JavaScript</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        
-                            <h6>SQL (MySQL, SQLite, MongoDB)</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        
-                            <h6>Cloud & Web Development (AWS, Google Cloud)</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        
-                            <h6>Programming (C, C++, Java)</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        
-                            <h6>React & Node.js</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        
-                            <h6>Bash & Python</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">Languages</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                           <h6>English</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>Hebrew</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>Arabic</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Tabs -->
+    <ul class="nav nav-pills tabby justify-content-center mb-3 animate__animated animate__fadeInUp" id="gameTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tabAdd" type="button" role="tab">
+          <i class="bi bi-plus-circle-fill me-1"></i> جمع
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tabSub" type="button" role="tab">
+          <i class="bi bi-dash-circle-fill me-1"></i> طرح
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tabCitrus" type="button" role="tab">
+          <i class="bi bi-brightness-alt-high-fill me-1"></i> علوم: الحمضيات 🍋🍊
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tabShapes" type="button" role="tab">
+          <i class="bi bi-bounding-box-circles me-1"></i> طابق الشكل
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tabLibrary" type="button" role="tab">
+          <i class="bi bi-journal-heart me-1"></i> مكتبة الروابط
+        </button>
+      </li>
+    </ul>
 
-    <section class="section" id="service">
-        <div class="container">
-            <h2 class="mb-5 pb-4"><span class="text-danger">My</span> Services</h2>
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-vector text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Web Development</h5>
-                            <p class="subtitle">
-                                Full-stack web development with a focus on delivering high-performance, responsive, and user-friendly applications using HTML5, CSS3, JavaScript, React, and Node.js. Proficient in both front-end and back-end solutions.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-write text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">System Monitoring & Maintenance</h5>
-                            <p class="subtitle">
-                                Expertise in system monitoring and maintaining operational efficiency, including creating dashboards, incident management, and troubleshooting, using AWS, Splunk, and Screwdriver.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-package text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Cloud Solutions</h5>
-                            <p class="subtitle">
-                                Skilled in deploying and managing scalable applications using AWS (EC2, S3), Google Cloud Platform, and integrating cloud storage solutions such as MongoDB and MySQL for enhanced data handling and performance.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-map-alt text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Data Analytics & Dashboards</h5>
-                            <p class="subtitle">
-                                Expertise in creating real-time data dashboards and analytics tools using SQL, Splunk, and other monitoring tools to provide insights into performance, incidents, and resource management.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-bar-chart text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Low-Level Programming</h5>
-                            <p class="subtitle">
-                                Proficient in low-level programming and system development using C, C++, Assembly, and Python for performance-critical applications, optimizing code for both Linux and Windows platforms.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-support text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Technical Support & Consultation</h5>
-                            <p class="subtitle">
-                                Providing technical support, consulting services, and troubleshooting for businesses, leveraging years of hands-on experience in software engineering, web development, and system operations.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+    <div class="tab-content" id="gameTabsContent">
 
-    <section class="section bg-dark py-5">
-        <div class="container text-center">
-            <h2 class="text-light mb-5 font-weight-normal">I Am Available For FreeLance</h2>
-        </div>
-    </section>
-    <div class="section contact" id="contact">
-        <div id="map" class="map"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="contact-form-card">
-                        <h4 class="contact-title">Send a message</h4>
-                        <form id="contact-form" onsubmit="sendEmail(); return false;">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="name" id="name" placeholder="Name *" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="email" name="email" id="email" placeholder="Email *" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" id="message" placeholder="Message *" rows="7" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info-card">
-                        <h4 class="contact-title">Get in touch</h4>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-mobile icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Phone : <br> <span class="text-muted">+ (972) 0535553508</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-map-alt icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Address :<br> <span class="text-muted">Nahf, Northern District, Israel</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-envelope icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Email :<br> <span class="text-muted">fir.ismail28@gmail.com</span></h6>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+      <!-- ADDITION -->
+      <div class="tab-pane fade show active" id="tabAdd" role="tabpanel">
+        <div class="game-card animate__animated animate__fadeIn">
+          <div class="card-head d-flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div class="fw-bold fs-5"><i class="bi bi-plus-circle-fill me-1"></i> لعبة الجمع</div>
+            <div class="d-flex gap-2 align-items-center">
+              <div class="score-badge">النقاط: <span id="addScore">0</span></div>
+              <button class="btn btn-kid btn-pink" id="addNew"><i class="bi bi-play-fill me-1"></i> سؤال جديد</button>
             </div>
+          </div>
+          <div class="p-3 p-lg-4">
+            <div class="row g-3 align-items-center">
+              <div class="col-12 col-lg-6">
+                <div class="soft text-center">
+                  <div class="tiny mb-2">حلّ المسألة 👇</div>
+                  <div class="big-q" id="addQ">—</div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="soft">
+                  <label class="fw-bold mb-2">اكتب الإجابة هنا:</label>
+                  <div class="d-flex gap-2">
+                    <input type="number" class="form-control kid-input" id="addAns" placeholder="مثال: 7" />
+                    <button class="btn btn-kid btn-purple" id="addCheck"><i class="bi bi-check2-circle me-1"></i> تحقّق</button>
+                  </div>
+                  <div class="mt-3">
+                    <div id="addMsg" class="alert alert-light mb-0 tiny">جاهز؟ اضغط “سؤال جديد” 🎯</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2 justify-content-center">
+              <span class="mini-pill"><i class="bi bi-emoji-smile-fill"></i> إذا كانت الإجابة صحيحة ستسمع صوتًا لطيفًا!</span>
+              <span class="mini-pill"><i class="bi bi-lightbulb-fill"></i> تلميح: اجمع العددين معًا</span>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- SUBTRACTION -->
+      <div class="tab-pane fade" id="tabSub" role="tabpanel">
+        <div class="game-card animate__animated animate__fadeIn">
+          <div class="card-head d-flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div class="fw-bold fs-5"><i class="bi bi-dash-circle-fill me-1"></i> لعبة الطرح</div>
+            <div class="d-flex gap-2 align-items-center">
+              <div class="score-badge">النقاط: <span id="subScore">0</span></div>
+              <button class="btn btn-kid btn-pink" id="subNew"><i class="bi bi-play-fill me-1"></i> سؤال جديد</button>
+            </div>
+          </div>
+          <div class="p-3 p-lg-4">
+            <div class="row g-3 align-items-center">
+              <div class="col-12 col-lg-6">
+                <div class="soft text-center">
+                  <div class="tiny mb-2">حلّ المسألة 👇</div>
+                  <div class="big-q" id="subQ">—</div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="soft">
+                  <label class="fw-bold mb-2">اكتب الإجابة هنا:</label>
+                  <div class="d-flex gap-2">
+                    <input type="number" class="form-control kid-input" id="subAns" placeholder="مثال: 4" />
+                    <button class="btn btn-kid btn-purple" id="subCheck"><i class="bi bi-check2-circle me-1"></i> تحقّق</button>
+                  </div>
+                  <div class="mt-3">
+                    <div id="subMsg" class="alert alert-light mb-0 tiny">جاهز؟ اضغط “سؤال جديد” 🧠</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2 justify-content-center">
+              <span class="mini-pill"><i class="bi bi-hand-thumbs-up-fill"></i> ممتاز! جرّب أكثر من مرة</span>
+              <span class="mini-pill"><i class="bi bi-lightbulb-fill"></i> تلميح: اطرح الأصغر من الأكبر</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CITRUS SCIENCE -->
+      <div class="tab-pane fade" id="tabCitrus" role="tabpanel">
+        <div class="game-card animate__animated animate__fadeIn">
+          <div class="card-head d-flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div class="fw-bold fs-5"><i class="bi bi-brightness-alt-high-fill me-1"></i> علوم: عالم الحمضيات 🍊🍋</div>
+            <div class="d-flex gap-2 align-items-center">
+              <div class="score-badge">النتيجة: <span id="citScore">0</span> / <span id="citTotal">0</span></div>
+              <button class="btn btn-kid btn-pink" id="citRestart"><i class="bi bi-arrow-repeat me-1"></i> ابدأ من جديد</button>
+            </div>
+          </div>
+
+          <div class="p-3 p-lg-4">
+            <div class="row g-3">
+              <div class="col-12 col-lg-6">
+                <div class="soft">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="fw-bold">السؤال:</div>
+                    <span class="mini-pill"><i class="bi bi-patch-question-fill"></i> ممتع!</span>
+                  </div>
+                  <div class="mt-2 big-q" style="font-size: clamp(22px, 2.4vw, 34px);" id="citQ">—</div>
+                  <div class="tiny mt-2 opacity-75">اختر الإجابة الصحيحة 👇</div>
+                </div>
+                <div class="mt-3 soft">
+                  <div id="citChoices" class="d-grid gap-2"></div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <div class="soft text-center">
+                  <div class="tiny mb-2">صورة لطيفة (رمزية) 🥰</div>
+                  <div class="display-2">🍋🍊🍊🍋</div>
+                  <div class="tiny opacity-75">الحمضيات مليانة فيتامينات!</div>
+                </div>
+                <div class="mt-3" id="citMsgWrap">
+                  <div id="citMsg" class="alert alert-light mb-0 tiny">اضغط إجابة لتكمل 🌟</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2 justify-content-center">
+              <span class="mini-pill"><i class="bi bi-heart-fill"></i> الفيتامين الأشهر: C</span>
+              <span class="mini-pill"><i class="bi bi-tree-fill"></i> الفاكهة تنمو على الأشجار</span>
+              <span class="mini-pill"><i class="bi bi-droplet-fill"></i> اشرب ماء بعد العصير</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHAPES -->
+      <div class="tab-pane fade" id="tabShapes" role="tabpanel">
+        <div class="game-card animate__animated animate__fadeIn">
+          <div class="card-head d-flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div class="fw-bold fs-5"><i class="bi bi-bounding-box-circles me-1"></i> لعبة طابق الشكل</div>
+            <div class="d-flex gap-2 align-items-center">
+              <div class="score-badge">تمّ: <span id="shapeDone">0</span> / <span id="shapeAll">4</span></div>
+              <button class="btn btn-kid btn-pink" id="shapeReset"><i class="bi bi-arrow-clockwise me-1"></i> إعادة</button>
+            </div>
+          </div>
+
+          <div class="p-3 p-lg-4">
+            <div class="soft text-center mb-3">
+              <div class="fw-bold">اسحب الشكل وضعه في المكان المناسب 👇</div>
+              <div class="tiny opacity-75">Drag & Drop (سحب وإفلات)</div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-12 col-lg-6">
+                <div class="soft">
+                  <div class="fw-bold mb-2 text-center">الأشكال</div>
+                  <div class="shape-bank" id="shapeBank"></div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="soft">
+                  <div class="fw-bold mb-2 text-center">أماكن المطابقة</div>
+                  <div class="shape-targets" id="shapeTargets"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <div id="shapeMsg" class="alert alert-light mb-0 tiny text-center">هيا نلعب! 🧩</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIBRARY -->
+      <div class="tab-pane fade" id="tabLibrary" role="tabpanel">
+        <div class="game-card animate__animated animate__fadeIn">
+          <div class="card-head d-flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div class="fw-bold fs-5"><i class="bi bi-journal-heart me-1"></i> مكتبة الروابط (تعليم لطيف)</div>
+            <span class="mini-pill"><i class="bi bi-link-45deg"></i> روابط مفيدة</span>
+          </div>
+
+          <div class="p-3 p-lg-4">
+            <div class="soft lib">
+              <div class="fw-bold mb-2">روابط “كيوت” لتعلم HTML / CSS / JavaScript + أنيميشن وصوت:</div>
+              <ul class="mb-0">
+                <li>📘 تعلم HTML: <a href="https://www.w3schools.com/html/" target="_blank" rel="noopener">W3Schools HTML</a></li>
+                <li>🎨 تعلم CSS: <a href="https://www.w3schools.com/css/" target="_blank" rel="noopener">W3Schools CSS</a></li>
+                <li>⚡ تعلم JavaScript: <a href="https://javascript.info/" target="_blank" rel="noopener">javascript.info</a></li>
+                <li>🧸 Bootstrap: <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank" rel="noopener">Bootstrap Docs</a></li>
+                <li>✨ Animate.css: <a href="https://animate.style/" target="_blank" rel="noopener">animate.style</a></li>
+                <li>🎉 Confetti: <a href="https://www.npmjs.com/package/canvas-confetti" target="_blank" rel="noopener">canvas-confetti</a></li>
+                <li>🔊 أصوات (Howler.js): <a href="https://howlerjs.com/" target="_blank" rel="noopener">howlerjs.com</a></li>
+                <li>🖼️ SVG أشكال: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener">MDN SVG Tutorial</a></li>
+              </ul>
+            </div>
+
+            <div class="mt-3 soft">
+              <div class="fw-bold">ملاحظة للأهل/المعلم 👨‍👩‍👧‍👦</div>
+              <div class="tiny">
+                هذه الصفحة تعمل بدون أي ملفات إضافية (كل شيء داخل ملف واحد). تحتاج فقط إنترنت لتحميل مكتبات الـ CDN.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    
-    <script>
-        function sendEmail() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-    
-            const mailtoLink = `mailto:fir.ismail28@gmail.com?subject=Message from ${name}&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-    
-            window.location.href = mailtoLink;
+
+    <div class="text-center mt-4 tiny opacity-75">
+      صُممت بحب للأطفال 💖 — جرّب الأزرار وخلّي المرح يبدأ!
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Confetti + Howler -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+
+  <script>
+    // ========= Cute Sound System =========
+    let soundOn = true;
+
+    // Tiny beep SFX (no external audio files) using WebAudio
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    let ctx = null;
+
+    function ensureCtx(){
+      if(!ctx) ctx = new AudioCtx();
+      if(ctx.state === "suspended") ctx.resume();
+    }
+
+    function beep(freq=660, dur=0.10, type="sine", gain=0.08){
+      if(!soundOn) return;
+      ensureCtx();
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = type;
+      o.frequency.value = freq;
+      g.gain.value = gain;
+      o.connect(g); g.connect(ctx.destination);
+      o.start();
+      setTimeout(() => { o.stop(); }, dur*1000);
+    }
+
+    function sfxCorrect(){
+      beep(740, 0.08, "triangle", 0.08);
+      setTimeout(()=>beep(980, 0.09, "triangle", 0.07), 90);
+      setTimeout(()=>beep(1240, 0.10, "triangle", 0.06), 190);
+    }
+    function sfxWrong(){
+      beep(220, 0.14, "sawtooth", 0.05);
+      setTimeout(()=>beep(180, 0.18, "sawtooth", 0.04), 140);
+    }
+    function sfxClick(){
+      beep(520, 0.05, "square", 0.03);
+    }
+
+    // ========= Confetti =========
+    function party(){
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.65 }
+      });
+    }
+
+    // ========= Helpers =========
+    function setAlert(el, type, html){
+      el.className = "alert mb-0 tiny alert-" + type;
+      el.innerHTML = html;
+      el.classList.add("animate__animated","animate__pulse");
+      setTimeout(()=>el.classList.remove("animate__animated","animate__pulse"), 900);
+    }
+    function randInt(min, max){ // inclusive
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // ========= UI Buttons =========
+    const soundBtn = document.getElementById("btnSound");
+    const soundState = document.getElementById("soundState");
+    soundBtn.addEventListener("click", ()=>{
+      soundOn = !soundOn;
+      soundState.textContent = soundOn ? "شغّال" : "مقفول";
+      sfxClick();
+      if(soundOn) sfxCorrect();
+    });
+
+    document.getElementById("btnConfetti").addEventListener("click", ()=>{
+      sfxClick(); party();
+    });
+
+    document.getElementById("btnResetAll").addEventListener("click", ()=>{
+      sfxClick();
+      resetAddition(true);
+      resetSubtraction(true);
+      resetCitrus(true);
+      resetShapes(true);
+      party();
+    });
+
+    // ========= Game 1: Addition =========
+    let addA=0, addB=0, addScore=0;
+
+    const addQ = document.getElementById("addQ");
+    const addAns = document.getElementById("addAns");
+    const addMsg = document.getElementById("addMsg");
+    const addScoreEl = document.getElementById("addScore");
+
+    function newAddition(){
+      addA = randInt(0, 9);
+      addB = randInt(0, 9);
+      addQ.textContent = `${addA} + ${addB} = ؟`;
+      addAns.value = "";
+      addAns.focus();
+      setAlert(addMsg, "light", "اكتب الإجابة ثم اضغط “تحقّق” ✅");
+      sfxClick();
+    }
+
+    function checkAddition(){
+      const v = Number(addAns.value);
+      if(Number.isNaN(v) || addAns.value === ""){
+        setAlert(addMsg, "warning", "اكتب رقمًا أولاً 😄");
+        sfxWrong();
+        return;
+      }
+      const ok = (v === addA + addB);
+      if(ok){
+        addScore++;
+        addScoreEl.textContent = addScore;
+        setAlert(addMsg, "success", "براڤو! إجابة صحيحة 🌟");
+        sfxCorrect(); party();
+        newAddition();
+      }else{
+        setAlert(addMsg, "danger", "تقريبًا! جرّب مرة ثانية 💪");
+        sfxWrong();
+        addAns.select();
+      }
+    }
+
+    function resetAddition(silent=false){
+      addScore = 0;
+      addScoreEl.textContent = "0";
+      addQ.textContent = "—";
+      addAns.value = "";
+      if(!silent) setAlert(addMsg, "light", "تمت إعادة لعبة الجمع ✅");
+    }
+
+    document.getElementById("addNew").addEventListener("click", newAddition);
+    document.getElementById("addCheck").addEventListener("click", checkAddition);
+    addAns.addEventListener("keydown", (e)=>{ if(e.key==="Enter") checkAddition(); });
+
+    // ========= Game 2: Subtraction =========
+    let subA=0, subB=0, subScore=0;
+
+    const subQ = document.getElementById("subQ");
+    const subAns = document.getElementById("subAns");
+    const subMsg = document.getElementById("subMsg");
+    const subScoreEl = document.getElementById("subScore");
+
+    function newSubtraction(){
+      const x = randInt(0, 9);
+      const y = randInt(0, 9);
+      subA = Math.max(x,y);
+      subB = Math.min(x,y);
+      subQ.textContent = `${subA} − ${subB} = ؟`;
+      subAns.value = "";
+      subAns.focus();
+      setAlert(subMsg, "light", "اكتب الإجابة ثم اضغط “تحقّق” ✅");
+      sfxClick();
+    }
+
+    function checkSubtraction(){
+      const v = Number(subAns.value);
+      if(Number.isNaN(v) || subAns.value === ""){
+        setAlert(subMsg, "warning", "اكتب رقمًا أولاً 😄");
+        sfxWrong();
+        return;
+      }
+      const ok = (v === subA - subB);
+      if(ok){
+        subScore++;
+        subScoreEl.textContent = subScore;
+        setAlert(subMsg, "success", "يا سلام! صحيح 🌈");
+        sfxCorrect(); party();
+        newSubtraction();
+      }else{
+        setAlert(subMsg, "danger", "مو مشكلة! جرّب مرة ثانية ✨");
+        sfxWrong();
+        subAns.select();
+      }
+    }
+
+    function resetSubtraction(silent=false){
+      subScore = 0;
+      subScoreEl.textContent = "0";
+      subQ.textContent = "—";
+      subAns.value = "";
+      if(!silent) setAlert(subMsg, "light", "تمت إعادة لعبة الطرح ✅");
+    }
+
+    document.getElementById("subNew").addEventListener("click", newSubtraction);
+    document.getElementById("subCheck").addEventListener("click", checkSubtraction);
+    subAns.addEventListener("keydown", (e)=>{ if(e.key==="Enter") checkSubtraction(); });
+
+    // ========= Game 3: Citrus Science Quiz =========
+    const citQ = document.getElementById("citQ");
+    const citChoices = document.getElementById("citChoices");
+    const citMsg = document.getElementById("citMsg");
+    const citScoreEl = document.getElementById("citScore");
+    const citTotalEl = document.getElementById("citTotal");
+
+    const citrusBankBase = [
+      {
+        q: "أي فيتامين مشهور موجود بكثرة في البرتقال والليمون؟",
+        choices: ["فيتامين C", "فيتامين D", "فيتامين K", "فيتامين B12"],
+        a: 0
+      },
+      {
+        q: "طعم الليمون غالبًا يكون…",
+        choices: ["حلو جدًا", "حامض", "مالح", "بدون طعم"],
+        a: 1
+      },
+      {
+        q: "ما هي فاكهة حمضية؟",
+        choices: ["التفاح", "البرتقال", "الموز", "العنب"],
+        a: 1
+      },
+      {
+        q: "الحمضيات تنمو عادة على…",
+        choices: ["شجرة", "سمكة", "سيارة", "كتاب"],
+        a: 0
+      },
+      {
+        q: "لون البرتقال غالبًا يكون…",
+        choices: ["أزرق", "برتقالي", "أسود", "بنفسجي"],
+        a: 1
+      }
+    ];
+
+    let citrusIndex = 0;
+    let citrusScore = 0;
+    let citrusBank = [];
+
+    function shuffle(arr){
+      const a = arr.slice();
+      for(let i=a.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [a[i],a[j]] = [a[j],a[i]];
+      }
+      return a;
+    }
+
+    function renderCitrus(){
+      if(citrusIndex >= citrusBank.length){
+        const total = citrusBank.length;
+        setAlert(citMsg, "success", `خلصنا! نتيجتك: <b>${citrusScore}</b> من <b>${total}</b> 🎉`);
+        party(); sfxCorrect();
+        citQ.textContent = "انتهى الاختبار ✅";
+        citChoices.innerHTML = `
+          <button class="btn btn-kid btn-mint w-100" onclick="resetCitrus(false)">
+            <i class="bi bi-arrow-repeat me-1"></i> إعادة الاختبار
+          </button>`;
+        return;
+      }
+
+      const item = citrusBank[citrusIndex];
+      citQ.textContent = item.q;
+      citChoices.innerHTML = "";
+
+      item.choices.forEach((c, idx)=>{
+        const btn = document.createElement("button");
+        btn.className = "btn btn-kid btn-sun w-100 text-start";
+        btn.innerHTML = `<i class="bi bi-caret-left-fill me-1"></i> ${c}`;
+        btn.addEventListener("click", ()=> chooseCitrus(idx));
+        citChoices.appendChild(btn);
+      });
+
+      citTotalEl.textContent = citrusBank.length;
+      citScoreEl.textContent = citrusScore;
+      setAlert(citMsg, "light", `سؤال رقم ${citrusIndex+1} 🍋`);
+      sfxClick();
+    }
+
+    function chooseCitrus(choiceIdx){
+      const item = citrusBank[citrusIndex];
+      const ok = (choiceIdx === item.a);
+      if(ok){
+        citrusScore++;
+        setAlert(citMsg, "success", "صح! أنت شاطر جدًا 🌟");
+        sfxCorrect(); party();
+      }else{
+        setAlert(citMsg, "danger", `مش مشكلة! الإجابة الصحيحة: <b>${item.choices[item.a]}</b>`);
+        sfxWrong();
+      }
+      citrusIndex++;
+      citScoreEl.textContent = citrusScore;
+      setTimeout(renderCitrus, 550);
+    }
+
+    function resetCitrus(silent=false){
+      citrusBank = shuffle(citrusBankBase);
+      citrusIndex = 0;
+      citrusScore = 0;
+      citScoreEl.textContent = "0";
+      citTotalEl.textContent = String(citrusBank.length);
+      if(!silent) sfxClick();
+      renderCitrus();
+    }
+
+    document.getElementById("citRestart").addEventListener("click", ()=>resetCitrus(false));
+
+    // ========= Game 4: Match the Shape =========
+    const shapeBankEl = document.getElementById("shapeBank");
+    const shapeTargetsEl = document.getElementById("shapeTargets");
+    const shapeDoneEl = document.getElementById("shapeDone");
+    const shapeAllEl = document.getElementById("shapeAll");
+    const shapeMsg = document.getElementById("shapeMsg");
+
+    const shapes = [
+      { id:"circle",  label:"دائرة",    icon:"●", color:"#ff5aa5" },
+      { id:"square",  label:"مربع",     icon:"■", color:"#7c5cff" },
+      { id:"triangle",label:"مثلث",     icon:"▲", color:"#31d0aa" },
+      { id:"star",    label:"نجمة",     icon:"★", color:"#ffcc4d" },
+    ];
+
+    let doneCount = 0;
+
+    function makeShapeEl(s){
+      const el = document.createElement("div");
+      el.className = "shape";
+      el.draggable = true;
+      el.id = "shape_" + s.id;
+      el.dataset.shape = s.id;
+      el.innerHTML = `
+        <div style="font-size:44px; line-height:1; color:${s.color}; text-shadow:0 8px 18px rgba(0,0,0,.12)">
+          ${s.icon}
+        </div>
+        <div class="tiny mt-1 fw-bold">${s.label}</div>
+      `;
+      el.addEventListener("dragstart", (e)=>{
+        e.dataTransfer.setData("text/plain", s.id);
+        el.classList.add("animate__animated","animate__pulse");
+        setTimeout(()=>el.classList.remove("animate__animated","animate__pulse"), 700);
+      });
+      return el;
+    }
+
+    function makeTargetEl(s){
+      const el = document.createElement("div");
+      el.className = "target";
+      el.dataset.target = s.id;
+      el.innerHTML = `
+        <div class="text-center">
+          <div style="font-size:34px; color:${s.color}; opacity:.55">${s.icon}</div>
+          <div class="tiny fw-bold">${s.label}</div>
+        </div>
+      `;
+
+      el.addEventListener("dragover", (e)=>{ e.preventDefault(); });
+      el.addEventListener("drop", (e)=>{
+        e.preventDefault();
+        const dragged = e.dataTransfer.getData("text/plain");
+        const want = el.dataset.target;
+
+        el.classList.remove("good","bad");
+
+        if(dragged === want){
+          // success
+          const draggedEl = document.getElementById("shape_" + dragged);
+          if(draggedEl){
+            draggedEl.remove();
+          }
+          el.classList.add("good");
+          el.innerHTML = `<div class="text-center">
+            <div style="font-size:38px; color:${s.color}">${s.icon}</div>
+            <div class="fw-bold">صح ✅</div>
+          </div>`;
+          doneCount++;
+          shapeDoneEl.textContent = doneCount;
+          setAlert(shapeMsg, "success", "ممتاز! طابقة صح 🌟");
+          sfxCorrect(); party();
+
+          if(doneCount === shapes.length){
+            setAlert(shapeMsg, "success", "واو! خلصت كل الأشكال 🎉👏");
+            party();
+          }
+        }else{
+          el.classList.add("bad");
+          setAlert(shapeMsg, "danger", "لااا! هذا مش مكانه 😅 جرّب مرة ثانية");
+          sfxWrong();
+          setTimeout(()=>el.classList.remove("bad"), 650);
         }
-    </script>
-    
-    
+      });
 
+      return el;
+    }
 
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    function resetShapes(silent=false){
+      shapeBankEl.innerHTML = "";
+      shapeTargetsEl.innerHTML = "";
+      doneCount = 0;
+      shapeDoneEl.textContent = "0";
+      shapeAllEl.textContent = String(shapes.length);
 
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+      // shuffle both sides for fun
+      const shuffled = shuffle(shapes);
+      shuffled.forEach(s => shapeBankEl.appendChild(makeShapeEl(s)));
+      shuffle(shapes).forEach(s => shapeTargetsEl.appendChild(makeTargetEl(s)));
 
-    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
-    
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+      setAlert(shapeMsg, "light", "اسحب الشكل للمكان الصحيح 🧩");
+      if(!silent) sfxClick();
+    }
 
-    <script src="assets/js/johndoe.js"></script>
+    document.getElementById("shapeReset").addEventListener("click", ()=>resetShapes(false));
 
+    // ========= Start-up =========
+    // Prepare initial content (but don't auto-start math unless you want)
+    resetCitrus(true);   // show first citrus question
+    resetShapes(true);   // show shapes
+    resetAddition(true); // clean
+    resetSubtraction(true); // clean
+
+    // Small welcome confetti on first click anywhere (to allow audio context on user gesture)
+    let welcomed = false;
+    document.addEventListener("click", ()=>{
+      if(welcomed) return;
+      welcomed = true;
+      if(soundOn) ensureCtx();
+    }, { once:true });
+  </script>
 </body>
 </html>
